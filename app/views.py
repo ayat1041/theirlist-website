@@ -51,15 +51,19 @@ class TheirDetailView(DetailView):
 
 class ListCreateBookView(CreateView): #book
     model = BookList
-    fields = "__all__"
+    # fields = "__all__"
+    fields = ['title','author','genre','content']
     success_url = reverse_lazy("app:booklist") 
 class ListCreateMusicView(CreateView): #music
     model = MusicList
-    fields = "__all__"
+    # fields = "__all__"
+    fields = ['title','author','genre','content']
     success_url = reverse_lazy("app:musiclist") 
+
 class ListCreateView(CreateView):
     model = List
-    fields = "__all__"
+    # fields = "__all__"
+    fields = ['title','author','genre','content']
     # success_url = "/home/list/"
     # def get_success_url(self):
     #     return reverse('app:list')
@@ -99,3 +103,16 @@ def choose_list_type(request):
 #     # allPosts = List.objects.filter(title__search=query)
 #     params = {'allPosts' : allPosts, 'query':query}
 #     return render(request, 'app/action.html', params)
+
+
+def all(request):
+    movie = List.objects.all()
+    music = MusicList.objects.all()
+    book = BookList.objects.all()
+    
+    a = movie.union(music)
+    allPosts = a.union(book)
+    
+    # allPosts = List.objects.filter(title__search=query)
+    params = {'allPosts' : allPosts}
+    return render(request, 'app/all.html', params)
