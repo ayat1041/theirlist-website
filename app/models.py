@@ -12,6 +12,7 @@ class MusicList(models.Model):
     genre = models.ManyToManyField('MusicGenre')
     posted = models.DateTimeField(auto_now_add=True)
     content = RichTextField(null=True,default=' ')
+    type = models.CharField(max_length=10,default="Music")
 
 
     def __str__(self):
@@ -34,6 +35,7 @@ class BookList(models.Model):
     genre = models.ManyToManyField('BookGenre')
     posted = models.DateTimeField(auto_now_add=True)
     content = RichTextField(null=True,default=' ')
+    type = models.CharField(max_length=10,default="book")
 
 
     def __str__(self):
@@ -53,6 +55,7 @@ class List(models.Model):
     genre = models.ManyToManyField('Genre')
     posted = models.DateTimeField(auto_now_add=True)
     content = RichTextField(null=True,default=' ')
+    type = models.CharField(max_length=10,default="Movie")
 
 
     def __str__(self):
