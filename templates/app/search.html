@@ -1,0 +1,64 @@
+{% extends "index.html" %} 
+{% load static %} 
+{% block content %}
+<style>
+  .search_none{
+    color: var(--rd);
+    align-text: center;
+    margin-top: 100px;
+    margin-left: 10%;
+    font-size: 36px;
+  }
+  .search_none strong{
+    color: white;
+    font-weight: bold;
+  }
+</style>
+<section>
+    <div class="contain-sec" id="contain-sec">
+      {% if allPosts|length < 1 %}
+      <p class="search_none">We dont have anything like <strong>{{query}}</strong> <span> :(</span><p>
+      {% endif %}
+      {% for lola in allPosts %}
+      <div class="elements">
+        <div class="thumb">
+          <img src="{% static 'app/images/book-poster.jpg' %}" width="100px" />
+        </div>
+        <div class="Title">
+          <a href="{% url 'app:list_detail' lola.id %}"><h4 class="tit">{{lola.title}}</h4></a>
+        </div>
+        <div class="Author">
+          <small>Author : {{lola.author}}<span>{{lola.posted}}</span></small>
+        </div>
+        <div class="rating"><small>Rating : 6/10 [239 users]</small></div>
+        
+          {% for tag in lola.genre.all %}
+          <div class="Genre">
+          <small>{{ tag }}</small>
+          </div>
+            {% empty %} 
+            No tags! 
+          {% endfor %}
+      </div>
+      {% endfor %}
+    </div>
+    {% comment %} <div class="pagination_pages">
+      <span class="step-links">
+          <span class="current">
+          {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}
+          </span>
+          {% if page_obj.has_previous %}
+              <a href="?page=1">&laquo; first</a>
+              <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+          {% endif %}
+  
+  
+          {% if page_obj.has_next %}
+              <a href="?page={{ page_obj.next_page_number }}">next</a>
+              <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+          {% endif %}
+      </span>
+    </div> {% endcomment %}
+  </section>
+  
+{% endblock content %}

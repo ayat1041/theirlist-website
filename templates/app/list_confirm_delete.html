@@ -1,0 +1,12 @@
+{% extends "app/List_list.html" %}
+
+{% block main %}
+<div class="delete-conf">
+<h6>Are you sure you wanna delete this list ? This can't be undone.</h6>
+<form method="POST">
+    {% csrf_token %}
+    <button class = "list-delete" type = "submit">Delete</button>
+</form>
+<a href="/home/list/"><button class = "go-back" type = "submit">Go back</button></a>
+</div>
+{% endblock main %}

@@ -1,0 +1,50 @@
+{% extends "index.html" %} 
+{% load static %} 
+{% block content %}
+
+<section>
+  <div class="contain-sec" id="contain-sec">
+    {% for lola in object_list %}
+    <div class="elements">
+      <div class="thumb">
+        <img src="{% static 'app/images/music-poster.jpg' %}" width="100px" />
+      </div>
+      <div class="Title">
+        {% comment %} <a href="{{lola.id}}/"><h4 class="tit">{{lola.title}}</h4></a> {% endcomment %}
+        <a href="{{lola.id}}/"><h4 class="tit">{{lola.title}}</h4></a>
+      </div>
+      <div class="Author">
+        <small>Author : {{lola.author}}<span>{{lola.posted}}</span></small>
+      </div>
+      <div class="rating"><small>Rating : 6/10 [239 users]</small></div>
+      
+        {% for tag in lola.genre.all %}
+        <div class="Genre">
+        <small>{{ tag }}</small>
+        </div>
+          {% empty %} 
+          No tags! 
+        {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+  <div class="pagination_pages">
+    <span class="step-links">
+        <span class="current">
+        {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}
+        </span>
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+  </div>
+</section>
+
+{% endblock content %}

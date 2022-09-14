@@ -1,0 +1,9 @@
+{% extends "index.html" %}
+{% block content %}
+{% comment %} {% url "app:create_list" %} {% endcomment %}
+<div class="list_type_choose_button">
+<a href="{% url "app:create_list" %}">Movie</a>
+<a href="{% url "app:music_create_list" %}">Music</a>
+<a href="{% url "app:book_create_list" %}">Books</a>
+</div>
+{% endblock content %}

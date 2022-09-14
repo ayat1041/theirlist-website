@@ -1,0 +1,99 @@
+section {
+  position: relative;
+  z-index: 0;
+}
+a{
+  text-decoration: none;
+}
+.contain-sec {
+  padding-top: 50px;
+  display: grid;
+  width: 100%;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  position: relative;
+  margin-bottom: 100px;
+}
+
+.elements {
+  /* height: 200px; */
+  padding: 10px 14px;
+  width: auto;
+  background-color: rgb(37, 37, 37);
+  margin: 4px;
+  border-radius: 2px;
+  position: relative;
+  /* border: 1px solid rgb(37, 37, 37); */
+}
+
+/* test */
+.thumb {
+  display: grid;
+  justify-content: center;
+}
+.thumb img {
+  height: 108px;
+  width: auto;
+  border-radius: 4px;
+  margin: 12px;
+}
+.tit {
+  color: white;
+  font-weight: lighter;
+}
+a{
+  text-decoration: none;
+}
+.tit:hover {
+  color: var(--rd);
+  cursor: pointer;
+}
+.Author{
+  color: burlywood;
+}
+.Author span {
+  color: rgb(138, 138, 138);
+  position: absolute;
+  margin-right: 16px;
+  right: 0;
+  cursor: pointer;
+  font-size: 10px;
+}
+.rating{
+  color: rgb(190, 190, 0);
+}
+.Genre{
+  margin: 0px 0px;
+  margin-top: 4px;
+  padding: 0px 4px;
+  border-radius: 2px;
+  background-color: rgb(179, 182, 0);
+  color: rgb(0, 0, 0);
+  width: max-content;
+  cursor: pointer;
+  display: inline-block;
+  transition: all 100ms ease-in-out;
+}
+.Genre:hover{
+  background-color: #FF4500;
+}
+.pagination_pages{
+  color: white;
+  width: 100%;
+  position: fixed;
+  bottom: 70px;
+  text-align: center;
+}
+.step-links{
+  width: max-content;
+  border-radius: 4px;
+}
+.pagination_pages a,.pagination_pages span{
+  color: white;
+  background-color: black;
+  padding: 4px 4px;
+  cursor: pointer!important;
+}
+.pagination_pages a:hover{
+  color: var(--rd);
+}

@@ -1,0 +1,75 @@
+@media only screen and (max-width: 900px) {
+    .nav{
+        height: 40px;
+    }
+    .logo {
+        height: 22px;
+        /* background: url(../static/images/logo-small.svg) no-repeat; */
+        margin: 8px 10px;
+    }
+
+    .menu-btn {
+        display: flex;
+    }
+
+    .submenu {
+        display: block;
+        margin-top: -600px;
+    }
+
+    .main-op {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .main-op a {
+        text-decoration: none;
+        color: white;
+    }
+
+    .main-op li {
+        font-size: 22px;
+        list-style: none;
+        margin: 8px auto;
+        color: white;
+    }
+
+    .movie-more {
+        background-color: rgb(136, 43, 224);
+    }
+
+    .music-more {
+        background-color: rgb(219, 58, 0);
+    }
+
+    .book-more {
+        background-color: rgb(107, 167, 17);
+    }
+
+    .movie-more,
+    .music-more,
+    .book-more {
+        display: none;
+    }
+
+    .movie-more a,
+    .music-more a,
+    .book-more a {
+        font-size: 20px;
+    }
+
+    .book-more a:hover {
+        color: cornflowerblue;
+    }
+    .nav-menu-list{
+        display: none;
+    }
+    #myBtn img{
+        height: 30px;
+        width: 30px;
+        position: fixed;
+        right: 4px;
+    }
+
+}

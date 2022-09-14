@@ -1,0 +1,210 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TheirList</title>
+    <link rel="stylesheet" href="{% static 'app/css/desk.css' %}" />
+    <link rel="stylesheet" href="{% static 'app/css/mobile.css' %}" />
+    <link rel="stylesheet" href="{% static 'app/css/search.css' %}" />
+    <link rel="stylesheet" href="{% static 'app/css/content_css.css' %}" />
+    {% comment %} <link rel="stylesheet" href="{% static 'app/css/addlist_form.css' %}" /> {% endcomment %}
+    <link rel="shortcut icon" href="{% static 'app/images/abcd.ico' %}" type="image/x-icon">
+    {% block css %}
+    {% endblock css %}
+    {% comment %} <link rel="stylesheet" href="../css/desk.css" />
+    <link rel="stylesheet" href="../css/mobile.css" />
+    <link rel="stylesheet" href="../css/search.css">
+    <link rel="stylesheet" href="../css/content_css.css"> {% endcomment %}
+    
+  </head>
+  <header>
+    <nav class="nav">
+      <div class="logo"></div>
+      <style>
+        .logo{
+          background: url("{% static 'app/images/logo.svg' %}") no-repeat;
+      }
+        @media only screen and (max-width: 900px) {
+          .logo{
+            background: url("{% static 'app/images/logo-small.svg' %}") no-repeat;
+        }
+        }
+      </style>
+      <div class="wrap">     
+        <form method="GET" action="{% url 'app:search' %}">
+          {% comment %} {% csrf_token %} {% endcomment %}
+        <div class="search">
+
+          <input
+            type="text"
+            class="searchTerm"
+            placeholder="Search"
+            name="query"
+            id="query"
+          />
+          <button type="submit" class="searchButton">
+
+            {% comment %} {% static 'app/images/search.png' %} {% endcomment %}
+            <img src="{% static 'app/images/search.png' %}">
+          </button>
+
+        </div>
+      </form>
+      </div>
+    </div>
+    <div class="nav-menu-list">
+        <ul class="nav-main-op">
+            <li>
+              <a href="{% url 'app:list' %}">Movies</a> <span class="nav-movie-expand">&#8964;</span>
+              <ul class="nav-movie-more">
+                <li><a href="{% url 'app:film' query="action" %}">Action</a></li>
+                <li><a href="{% url 'app:film' query="comedy" %}">Comedy</a></li>
+                <li><a href="{% url 'app:film' query="thriller" %}">Thriller</a></li>
+                <li><a href="{% url 'app:film' query="romance" %}">Romance</a></li>
+                <li><a href="{% url 'app:film' query="Drama" %}">Drama</a></li>
+                <li><a href="{% url 'app:film' query="Crime" %}">Crime</a></li>
+                <li><a href="{% url 'app:film' query="Horror" %}">Horror</a></li>
+                <li><a href="{% url 'app:film' query="classic" %}">Classic</a></li>
+                <li><a href="{% url 'app:film' query="mystery" %}">Mystery</a></li>
+                <li><a href="{% url 'app:film' query="adventure" %}">adventure</a></li>
+                <li><a href="{% url 'app:film' query="others" %}">Others</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="{% url 'app:musiclist' %}">Music</a> <span class="nav-music-expand">&#8964;</span>
+              <ul class="nav-music-more">
+                <li><a href="">Rock</a></li>
+                <li><a href="">Pop</a></li>
+                <li><a href="">Folk</a></li>
+                <li><a href="">Jazz</a></li>
+                <li><a href="">Rap</a></li>
+                <li><a href="">80s</a></li>
+                <li><a href="">Metal</a></li>
+                <li><a href="">Others</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="{% url 'app:booklist' %}">Books</a> <span class="nav-book-expand">&#8964;</span>
+              <ul class="nav-book-more">
+                <li><a href="">Action</a></li>
+                <li><a href="">Comedy</a></li>
+                <li><a href="">Thriller</a></li>
+                <li><a href="">Romance</a></li>
+                <li><a href="">Drama</a></li>
+                <li><a href="">Crime</a></li>
+                <li><a href="">Horror</a></li>
+                <li><a href="">Classic</a></li>
+                <li><a href="">Mystery</a></li>
+                <li><a href="">Others</a></li>
+              </ul>
+            </li>
+          </ul>
+      </div>
+      <div class="menu-btn">
+        <div class="menu-btn__burger"></div>
+      </div>
+    </nav>
+    <div class="submenu">
+      <ul class="main-op">
+        <li>
+          <a href="">Movies</a> <span class="movie-expand">&#8964;</span>
+          <ul class="movie-more">
+            <li><a href="{% url 'app:film' query="action" %}">Action</a></li>
+            <li><a href="{% url 'app:film' query="comedy" %}">Comedy</a></li>
+            <li><a href="{% url 'app:film' query="thriller" %}">Thriller</a></li>
+            <li><a href="{% url 'app:film' query="romance" %}">Romance</a></li>
+            <li><a href="{% url 'app:film' query="Drama" %}">Drama</a></li>
+            <li><a href="{% url 'app:film' query="Crime" %}">Crime</a></li>
+            <li><a href="{% url 'app:film' query="Horror" %}">Horror</a></li>
+            <li><a href="{% url 'app:film' query="classic" %}">Classic</a></li>
+            <li><a href="{% url 'app:film' query="mystery" %}">Mystery</a></li>
+            <li><a href="{% url 'app:film' query="adventure" %}">adventure</a></li>
+            <li><a href="{% url 'app:film' query="others" %}">Others</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="">Music</a> <span class="music-expand">&#8964;</span>
+          <ul class="music-more">
+            <li><a href="">Rock</a></li>
+            <li><a href="">Pop</a></li>
+            <li><a href="">Folk</a></li>
+            <li><a href="">Jazz</a></li>
+            <li><a href="">Rap</a></li>
+            <li><a href="">80s</a></li>
+            <li><a href="">Metal</a></li>
+            <li><a href="">Others</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="">Books</a> <span class="book-expand">&#8964;</span>
+          <ul class="book-more">
+            <li><a href="">Action</a></li>
+            <li><a href="">Comedy</a></li>
+            <li><a href="">Thriller</a></li>
+            <li><a href="">Romance</a></li>
+            <li><a href="">Drama</a></li>
+            <li><a href="">Crime</a></li>
+            <li><a href="">Horror</a></li>
+            <li><a href="">Classic</a></li>
+            <li><a href="">Mystery</a></li>
+            <li><a href="">Others</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </header>
+  <body>
+
+    <!-- block content for body -->
+    <!-- ../static/images/poster.jpg -->
+    {% block content %}
+    {% endblock content %}
+    
+  
+
+
+
+
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><img src="{% static 'app/images/scrolltop.png' %}"></button>
+    <!-- endblock content -->
+
+    <doc class="doc-bar">
+        <div class="doc-stuff-left">
+        <a href="{% url "app:clt" %}"><div class="add-list"><img src="{% static 'app/images/add.png' %}"></div></a>
+        <div class="user-doc-logo"><img src="{% static 'app/images/user.png' %}"></div>
+    </div>
+        <div class="doc-stuff-center"><a href="/home/list/"><img src="{% static 'app/images/home.png' %}"></a></div>
+        <div class="doc-stuff-right"><button onClick="javascript:history.go(-1);"><img src="{% static 'app/images/back.png' %}" alt=""></button></div>
+    </doc>
+    <div class="login-sub-menu">
+        <ul class="login-sub-menu-options">
+            <li><a href="#">login</a></li>
+            <li><a href="#">signup</a></li>
+        </ul>
+    </div>
+    <script src="{% static 'app/js/script.js' %}"></script>
+
+
+    <script>
+    let mybutton = document.getElementById("myBtn");
+
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+    </script>
+  </body>
+</html>
