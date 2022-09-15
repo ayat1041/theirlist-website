@@ -207,9 +207,13 @@ body{
     font-size: 14px;
     transition: all 250ms ease-in-out;
 }
-.nav-movie-more a:hover, .nav-book-more a:hover, .nav-music-more a:hover{
-    color: var(--rd);
+.nav-movie-expand img, .nav-music-expand img, .nav-book-expand img{
+    width: 10px;
 }
+.movie-expand img, .music-expand img, .book-expand img{
+    width: 10px;
+}
+
 .nav-movie-more {
     background-color: rgb(136, 43, 224);
 }
