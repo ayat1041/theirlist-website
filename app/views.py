@@ -111,16 +111,18 @@ def all(request):
     # music = MusicList.objects.all()
     # book = BookList.objects.all()
     
-    movie = List.objects.filter(posted__gte=timezone.now() - timedelta(days=30)).all()
-    music = MusicList.objects.filter(posted__gte=timezone.now() - timedelta(days=30)).all()
-    book = BookList.objects.filter(posted__gte=timezone.now() - timedelta(days=30)).all()
+    movie = List.objects.filter(posted__gte=timezone.now() - timedelta(days=30)).all().order_by("-id")
+    music = MusicList.objects.filter(posted__gte=timezone.now() - timedelta(days=30)).all().order_by("-id")
+    book = BookList.objects.filter(posted__gte=timezone.now() - timedelta(days=30)).all().order_by("-id")
     
 
     # a = movie.union(music)
     # allPosts = a.union(book)
-    allPosts = list(movie) + list(music) + list(book)
+    allPosts = list(movie)
+    allPostsmusic = list(music)
+    allPostsbook = list(book)
     # p = Paginator(allPosts, 2)
     
     # allPosts = List.objects.filter(title__search=query)
-    params = {'allPosts' : allPosts}
+    params = {'allPosts' : allPosts, 'allPostsmusic' : allPostsmusic, 'allPostsbook' : allPostsbook}
     return render(request, 'app/all.html', params)

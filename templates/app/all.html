@@ -1,29 +1,57 @@
 {% extends "index.html" %} 
 {% load static %} 
 {% block content %}
-
+<style>
+    .movie-contain{
+        margin-bottom: 0px;
+        padding-top: 95px;
+    }
+    .book-contain{
+        padding-top: 0px;
+        margin-bottom: 50px;
+    }
+    .music-contain{
+        padding-top: 0px;
+        margin-bottom: 0px;
+    }
+    .headline{
+        background-color: red;
+        padding: 4px 4px;
+        margin: 4px 0px;
+        text-align: center;
+        height: 40px;
+    }
+    .headline-top{
+        background-color: #FFEA0433;
+        padding: 4px 4px;
+        margin: 4px 0px;
+        text-align: center;
+        height: 40px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin-top: 52px;
+    }
+    .headline-middle{
+        background-color: #FF450033;
+    }
+    .headline-bottom{
+        background-color: #AADB1E33;
+    }
+    .headline-all{
+        color: white;
+    }
+</style>
 <section>
-  <div class="contain-sec" id="contain-sec">
+  <div class="headline headline-top"><h1 class="headline-all">Movie</h1></div>
+  <div class="contain-sec movie-contain" id="contain-sec">
     {% for lola in allPosts %}
     <div class="elements">
       <div class="thumb">
-        {% if lola.type == 'Music' %}
-        <img src="{% static 'app/images/music-poster.jpg' %}" width="100px" />
-        {% elif lola.type == 'Movie' %}
         <img src="{% static 'app/images/movie-poster.jpg' %}" width="100px" />
-        {% elif lola.type == 'book' %}
-        <img src="{% static 'app/images/book-poster.jpg' %}" width="100px" />
-        {%  endif %}
       </div>
       <div class="Title">
-        {% comment %} <a href="{{lola.id}}/"><h4 class="tit">{{lola.title}}</h4></a> {% endcomment %}
-        {% if lola.type == 'Music' %}
-        <a href="musiclist/{{lola.slug}}/"><h4 class="tit">{{lola.title}}</h4></a>
-        {% elif lola.type == 'Movie' %}
         <a href="list/{{lola.slug}}/"><h4 class="tit">{{lola.title}}</h4></a>
-        {% elif lola.type == 'book' %}
-        <a href="booklist/{{lola.slug}}/"><h4 class="tit">{{lola.title}}</h4></a>
-        {%  endif %}
       </div>
       <div class="Author">
         <small>Author : {{lola.author}}<span>{{lola.posted}}</span></small>
@@ -40,6 +68,57 @@
     </div>
     {% endfor %}
   </div>
+  <div class="headline headline-middle"><h1 class="headline-all">Music</h1></div>
+  <div class="contain-sec music-contain" id="contain-sec">
+    {% for lola in allPostsmusic %}
+    <div class="elements">
+      <div class="thumb">
+        <img src="{% static 'app/images/music-poster.jpg' %}" width="100px" />
+      </div>
+      <div class="Title">
+        <a href="list/{{lola.slug}}/"><h4 class="tit">{{lola.title}}</h4></a>
+      </div>
+      <div class="Author">
+        <small>Author : {{lola.author}}<span>{{lola.posted}}</span></small>
+      </div>
+      <div class="rating"><small>Rating : 6/10 [239 users]</small></div>
+      
+        {% for tag in lola.genre.all %}
+        <div class="Genre">
+        <small>{{ tag }}</small>
+        </div>
+          {% empty %} 
+          No tags! 
+        {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+  <div class="headline headline-bottom"><h1 class="headline-all">Book</h1></div>
+  <div class="contain-sec book-contain" id="contain-sec">
+    {% for lola in allPostsbook %}
+    <div class="elements">
+      <div class="thumb">
+        <img src="{% static 'app/images/book-poster.jpg' %}" width="100px" />
+      </div>
+      <div class="Title">
+        <a href="list/{{lola.slug}}/"><h4 class="tit">{{lola.title}}</h4></a>
+      </div>
+      <div class="Author">
+        <small>Author : {{lola.author}}<span>{{lola.posted}}</span></small>
+      </div>
+      <div class="rating"><small>Rating : 6/10 [239 users]</small></div>
+      
+        {% for tag in lola.genre.all %}
+        <div class="Genre">
+        <small>{{ tag }}</small>
+        </div>
+          {% empty %} 
+          No tags! 
+        {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+  
   
 </section>
 

@@ -1,0 +1,46 @@
+{% extends "index.html" %} 
+{% load static %} 
+{% block content %}
+
+<section>
+  <div class="contain-sec" id="contain-sec">
+    {% for lola in allPosts %}
+    <div class="elements">
+      <div class="thumb">
+        {% if lola.type == 'Music' %}
+        <img src="{% static 'app/images/music-poster.jpg' %}" width="100px" />
+        {% elif lola.type == 'Movie' %}
+        <img src="{% static 'app/images/movie-poster.jpg' %}" width="100px" />
+        {% elif lola.type == 'book' %}
+        <img src="{% static 'app/images/book-poster.jpg' %}" width="100px" />
+        {%  endif %}
+      </div>
+      <div class="Title">
+        {% comment %} <a href="{{lola.id}}/"><h4 class="tit">{{lola.title}}</h4></a> {% endcomment %}
+        {% if lola.type == 'Music' %}
+        <a href="musiclist/{{lola.slug}}/"><h4 class="tit">{{lola.title}}</h4></a>
+        {% elif lola.type == 'Movie' %}
+        <a href="list/{{lola.slug}}/"><h4 class="tit">{{lola.title}}</h4></a>
+        {% elif lola.type == 'book' %}
+        <a href="booklist/{{lola.slug}}/"><h4 class="tit">{{lola.title}}</h4></a>
+        {%  endif %}
+      </div>
+      <div class="Author">
+        <small>Author : {{lola.author}}<span>{{lola.posted}}</span></small>
+      </div>
+      <div class="rating"><small>Rating : 6/10 [239 users]</small></div>
+      
+        {% for tag in lola.genre.all %}
+        <div class="Genre">
+        <small>{{ tag }}</small>
+        </div>
+          {% empty %} 
+          No tags! 
+        {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+  
+</section>
+
+{% endblock content %}
