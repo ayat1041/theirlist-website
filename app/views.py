@@ -2,6 +2,7 @@ from app.models import List,MusicList,BookList
 from django.shortcuts import render, HttpResponse
 from django.urls import reverse_lazy,reverse
 from django.views.generic import TemplateView,ListView,DetailView,CreateView,DeleteView
+from django.core.paginator import Paginator
 
 # Create your views here.
 
@@ -111,6 +112,7 @@ def all(request):
     
     a = movie.union(music)
     allPosts = a.union(book)
+    # p = Paginator(allPosts, 2)
     
     # allPosts = List.objects.filter(title__search=query)
     params = {'allPosts' : allPosts}
