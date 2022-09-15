@@ -1,4 +1,3 @@
-from pickle import LIST
 from app.models import List,MusicList,BookList
 from django.shortcuts import render, HttpResponse
 from django.urls import reverse_lazy,reverse
