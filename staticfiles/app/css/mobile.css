@@ -71,5 +71,7 @@
         position: fixed;
         right: 4px;
     }
-
+    .wrap{
+        width: 45%!important;
+    }
 }
