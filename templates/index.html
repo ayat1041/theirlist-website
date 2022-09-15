@@ -176,7 +176,7 @@
         <a href="{% url "app:clt" %}"><div class="add-list"><img src="{% static 'app/images/add.png' %}"></div></a>
         <div class="user-doc-logo"><img src="{% static 'app/images/user.png' %}"></div>
     </div>
-        <div class="doc-stuff-center"><a href="/home/list/"><img src="{% static 'app/images/home.png' %}"></a></div>
+        <div class="doc-stuff-center"><a href="{% url 'app:all' %}"><img src="{% static 'app/images/home.png' %}"></a></div>
         <div class="doc-stuff-right"><button onClick="javascript:history.go(-1);"><img src="{% static 'app/images/back.png' %}" alt=""></button></div>
     </doc>
     <div class="login-sub-menu">
