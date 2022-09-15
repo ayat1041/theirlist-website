@@ -3,7 +3,8 @@ from django.shortcuts import render, HttpResponse
 from django.urls import reverse_lazy,reverse
 from django.views.generic import TemplateView,ListView,DetailView,CreateView,DeleteView
 from django.core.paginator import Paginator
-
+from datetime import timedelta
+from django.utils import timezone
 # Create your views here.
 
 class HomeView(TemplateView):
@@ -106,10 +107,15 @@ def choose_list_type(request):
 
 
 def all(request):
-    movie = List.objects.all()
-    music = MusicList.objects.all()
-    book = BookList.objects.all()
+    # movie = List.objects.all()
+    # music = MusicList.objects.all()
+    # book = BookList.objects.all()
     
+    movie = List.objects.filter(posted__gte=timezone.now() - timedelta(days=30)).all()
+    music = MusicList.objects.filter(posted__gte=timezone.now() - timedelta(days=30)).all()
+    book = BookList.objects.filter(posted__gte=timezone.now() - timedelta(days=30)).all()
+    
+
     # a = movie.union(music)
     # allPosts = a.union(book)
     allPosts = list(movie) + list(music) + list(book)
