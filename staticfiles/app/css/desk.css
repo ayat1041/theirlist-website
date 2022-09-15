@@ -339,8 +339,8 @@ body{
     height: 28px;
     width: 28px;
     position: fixed;
-    right: 8px;
-    bottom: 54px;
+    right: 12px;
+    bottom: 50px;
 }
 .list_type_choose_button{
     display: flex;
