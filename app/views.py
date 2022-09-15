@@ -110,8 +110,9 @@ def all(request):
     music = MusicList.objects.all()
     book = BookList.objects.all()
     
-    a = movie.union(music)
-    allPosts = a.union(book)
+    # a = movie.union(music)
+    # allPosts = a.union(book)
+    allPosts = list(movie) + list(music) + list(book)
     # p = Paginator(allPosts, 2)
     
     # allPosts = List.objects.filter(title__search=query)
