@@ -22,7 +22,13 @@
       {% for lola in allPosts %}
       <div class="elements">
         <div class="thumb">
+          {% if lola.type == 'Music' %}
+          <img src="{% static 'app/images/music-poster.jpg' %}" width="100px" />
+          {% elif lola.type == 'Movie' %}
+          <img src="{% static 'app/images/movie-poster.jpg' %}" width="100px" />
+          {% elif lola.type == 'book' %}
           <img src="{% static 'app/images/book-poster.jpg' %}" width="100px" />
+          {%  endif %}
         </div>
         <div class="Title">
           <a href="{% url 'app:list_detail' lola.slug %}"><h4 class="tit">{{lola.title}}</h4></a>
