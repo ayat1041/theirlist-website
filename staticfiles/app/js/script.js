@@ -14,7 +14,20 @@ const navmusicMore = document.querySelector('.nav-music-more');
 const navmusicExpand = document.querySelector('.nav-music-expand');
 const userdoclogo = document.querySelector('.user-doc-logo');
 const userdocmenu = document.querySelector('.login-sub-menu');
+const addlist = document.querySelector('#add-list-butt');
+const addlistmenu = document.querySelector('.add-list-sub-menu');
 
+let addlistclick = false;
+addlist.addEventListener('click', () => {
+  if(!addlistclick) {
+    addlistmenu.style.left = "0px";
+    addlistclick = true;
+    addlistmenu.style.transition = "all 250ms ease-in-out";
+  } else {
+    addlistmenu.style.left = "-65px";
+    addlistclick = false;
+  }
+});
 
 
 let menuOpen = false;

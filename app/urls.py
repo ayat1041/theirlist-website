@@ -19,7 +19,6 @@ urlpatterns = [
     path('search/',views.search, name='search'),
     path('film/',views.film, name='film'),
     path('film/<str:query>',views.film, name='film'),
-    path('choose_list_type',views.choose_list_type, name='clt'),
     path('all',views.all, name='all'),
 
 ]

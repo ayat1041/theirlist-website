@@ -95,15 +95,15 @@ def film(request,query=None):
         qs = List.objects.filter(genre__name__icontains=query)
     return render(request, 'app/film.html', {'query': qs, 'result' : query} )
 
-def choose_list_type(request):
-    return render(request, 'app/choose_list_type.html')
-# def action(request):
-#     #query = Movie.objects.get(id=id)
-#     query = 'Action'
-#     allPosts = List.objects.filter(genre__name__icontains=query)
-#     # allPosts = List.objects.filter(title__search=query)
-#     params = {'allPosts' : allPosts, 'query':query}
-#     return render(request, 'app/action.html', params)
+# def choose_list_type(request):
+#     return render(request, 'app/choose_list_type.html')
+# # def action(request):
+# #     #query = Movie.objects.get(id=id)
+# #     query = 'Action'
+# #     allPosts = List.objects.filter(genre__name__icontains=query)
+# #     # allPosts = List.objects.filter(title__search=query)
+# #     params = {'allPosts' : allPosts, 'query':query}
+# #     return render(request, 'app/action.html', params)
 
 
 def all(request):

@@ -191,8 +191,11 @@ body{
     cursor: pointer;
 }
 
-.nav-movie-expand:hover, .nav-music-expand:hover , .nav-book-expand:hover{
-    color: var(--rd);
+.nav-movie-expand img, .nav-music-expand img, .nav-book-expand img{
+    width: 10px;
+}
+.movie-expand img, .music-expand img, .book-expand img{
+    width: 10px;
 }
 
 .nav-movie-more, .nav-book-more, .nav-music-more{
@@ -207,13 +210,9 @@ body{
     font-size: 14px;
     transition: all 250ms ease-in-out;
 }
-.nav-movie-expand img, .nav-music-expand img, .nav-book-expand img{
-    width: 10px;
+.nav-movie-more a:hover, .nav-book-more a:hover, .nav-music-more a:hover{
+    color: var(--rd);
 }
-.movie-expand img, .music-expand img, .book-expand img{
-    width: 10px;
-}
-
 .nav-movie-more {
     background-color: rgb(136, 43, 224);
 }
@@ -326,6 +325,27 @@ body{
 }
 
 
+/* addlist submenu */
+.add-list-sub-menu{
+    display: block;
+    height: max-content;
+    width: max-content;
+    background-color: black;
+    position: fixed;
+    border-radius: 3px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    bottom: 40px;
+    left: -65px;
+    padding: 10px 10px;
+    padding-bottom: 0px;
+}
+
+
+.add-list-sub-menu-options img{
+    width: 24px;
+    margin-bottom: 12px;
+}
 
 /* scrolltop */
 

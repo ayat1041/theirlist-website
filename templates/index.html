@@ -173,7 +173,8 @@
 
     <doc class="doc-bar">
         <div class="doc-stuff-left">
-        <a href="{% url "app:clt" %}"><div class="add-list"><img src="{% static 'app/images/add.png' %}"></div></a>
+          {% comment %} {% url "app:clt" %} {% endcomment %}
+        <div id="add-list-butt" class="add-list"><img id="add-list-butt" src="{% static 'app/images/add.png' %}"></div>
         <div class="user-doc-logo"><img src="{% static 'app/images/user.png' %}"></div>
     </div>
         <div class="doc-stuff-center"><a href="{% url 'app:all' %}"><img src="{% static 'app/images/home.png' %}"></a></div>
@@ -184,6 +185,13 @@
             <li><a href="#">login</a></li>
             <li><a href="#">signup</a></li>
         </ul>
+    </div>
+    <div class="add-list-sub-menu">
+      <ul class="add-list-sub-menu-options">
+        <li><a href="{% url "app:music_create_list" %}"><img src="{% static 'app/images/music-icon.png' %}"></a></li>
+        <li><a href="{% url "app:create_list" %}"><img src="{% static 'app/images/movie-icon.png' %}"></a></li>
+        <li><a href="{% url "app:book_create_list" %}"><img src="{% static 'app/images/book-icon.png' %}"></a></li>
+    </ul>
     </div>
     <script src="{% static 'app/js/script.js' %}"></script>
 

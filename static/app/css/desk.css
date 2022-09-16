@@ -325,6 +325,27 @@ body{
 }
 
 
+/* addlist submenu */
+.add-list-sub-menu{
+    display: block;
+    height: max-content;
+    width: max-content;
+    background-color: black;
+    position: fixed;
+    border-radius: 3px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    bottom: 40px;
+    left: -65px;
+    padding: 10px 10px;
+    padding-bottom: 0px;
+}
+
+
+.add-list-sub-menu-options img{
+    width: 24px;
+    margin-bottom: 12px;
+}
 
 /* scrolltop */
 

@@ -9,11 +9,11 @@ a{
   padding-top: 50px;
   display: grid;
   width: 100%;
-  /* grid-template-rows: 1fr 1fr; */
   grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
+  /* grid-template-rows: 1fr 1fr; */
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   position: relative;
-  margin-bottom: 0px;
+  margin-bottom: 100px;
 }
 
 .elements {
