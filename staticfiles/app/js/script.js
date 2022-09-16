@@ -16,6 +16,12 @@ const userdoclogo = document.querySelector('.user-doc-logo');
 const userdocmenu = document.querySelector('.login-sub-menu');
 const addlist = document.querySelector('#add-list-butt');
 const addlistmenu = document.querySelector('.add-list-sub-menu');
+const loader = document.getElementById("preloader");
+
+window.addEventListener("load", function(){
+  loader.style.display = "none";
+})
+
 
 let addlistclick = false;
 addlist.addEventListener('click', () => {
