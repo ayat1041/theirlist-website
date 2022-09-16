@@ -43,16 +43,16 @@
         color: white;
         font-weight: 100;
     }
-    #preloader{
+    {% comment %} #preloader{
       background : #28334AFF url({% static 'app/images/loader.gif' %}) no-repeat center center!important;
       height: 100vh;
       background-size: 60px!important;
       width: 100%;
       position: fixed;
       z-index: 100;
-    }
+    } {% endcomment %}
 </style>
-<div id="preloader"></div>
+{% comment %} <div id="preloader"></div> {% endcomment %}
 
 <section>
   <div class="headline headline-top"><h1 class="headline-all">Movie</h1></div>
