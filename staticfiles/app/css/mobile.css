@@ -74,5 +74,19 @@
     .wrap{
         width: 45%!important;
     }
+    .poster{
+        display: none;
+    }
+    .fout .foot-options a{
+        font-size: 14px;
+    }
+    .fout .foot-copy small{
+        font-size: 12px;
+    }
+    #myBtn img{
+        height: 30px;
+        width: 30px;
+        
+    }
 
 }

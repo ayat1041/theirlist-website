@@ -4,7 +4,7 @@
 <style>
     .movie-contain{
         margin-bottom: 0px;
-        padding-top: 96px;
+        padding-top: 32px;
     }
     .book-contain{
         padding-top: 0px;
@@ -16,28 +16,28 @@
     }
     .headline{
         background-color: red;
-        padding: 4px 4px;
+        padding: 0px 4px;
         margin: 4px 0px;
         text-align: center;
-        height: max-content;
+        height: max-content!important;
         font-weight: lighter;
     }
     .headline-top{
-        background-color: #FFEA0433;
-        padding: 4px 4px;
+        background-color: #FFEA04;
+        padding: 0px 4px;
         margin: 4px 0px;
         text-align: center;
         height: 40px;
         position: absolute;
         left: 0;
         right: 0;
-        margin-top: 52px;
+        margin-top: 2px;
     }
     .headline-middle{
-        background-color: #FF450033;
+        background-color: #FF4500;
     }
     .headline-bottom{
-        background-color: #AADB1E33;
+        background-color: #AADB1E;
     }
     .headline-all{
         color: white;
@@ -52,19 +52,29 @@
       z-index: 100;
     } {% endcomment %}
     .headline-top h1{
-      color: yellow;
+      color: black;
     }
     .headline-middle h1{
-      color: orange;
+      color: black;
     }
     .headline-bottom h1{
-      color: greenyellow;
+      color: black;
     }
+    @media only screen and (max-width: 900px) {
+      .movie-contain{
+        margin-bottom: 0px;
+        padding-top: 96px;
+    }
+    .headline-top{
+      margin-top: 52px;
+  }
+    }
+
 </style>
 {% comment %} <div id="preloader"></div> {% endcomment %}
-
+<div class = "poster"><img src="{% static 'app/images/poster.jpg' %}" alt=""></div>
 <section>
-  <div class="headline headline-top"><h1 class="headline-all">Movie</h1></div>
+  <div class="headline headline-top"><h1 class="headline-all">Movie & series</h1></div>
   <div class="contain-sec movie-contain" id="contain-sec">
     {% for lola in allPosts %}
     <div class="elements">
@@ -142,5 +152,15 @@
   
   
 </section>
+<footer class="fout">
+  <div class="foot-options">
+  <a href="#">About us</a>
+  <a href="#">Feedback</a>
+  <a href="#">Guidelines</a>
+  </div>
+  <div class="foot-copy">
+  <small>Copyright &copy; HornetHive 2022</small>
+  </div>
+</footer>
 
 {% endblock content %}
