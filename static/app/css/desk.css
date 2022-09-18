@@ -300,29 +300,31 @@ body{
 
 .login-sub-menu{
     display: none;
-    height: 60px;
+    height: max-content;
     width: max-content;
-    background-color: black;
-    border-top: 1px solid var(--rd);
-    border-left: 1px solid var(--rd);
-    border-right: 1px solid var(--rd);
     position: fixed;
-    border-radius: 3px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
     bottom: 42px;
     left: 20px;
-    padding: 10px 20px;
     z-index: 11;
+}
+.login-sub-menu li{
+    margin: 12px 0;
 }
 
 .login-sub-menu a{
     text-decoration: none;
+    font-size: 22px;
+    width: 20px;
+    border-radius: 2px;
+    padding: 4px 6px;
+    background-color: rgb(252, 92, 0);
+    margin: 6px 0;
     color: white;
     transition: all 250ms ease-in-out;
 }
 .login-sub-menu a:hover{
-    color: var(--rd);
+    color: rgb(255, 254, 166);
+    background-color: rgb(80, 80, 80);
 }
 .login-sub-menu ul{
     list-style: none;
