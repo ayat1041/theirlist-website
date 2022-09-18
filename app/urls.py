@@ -5,6 +5,9 @@ from .views import TheirListView,TheirDetailView,ListCreateView,ListDeleteView,T
 app_name = "app"
 
 urlpatterns = [
+    path('about-us/',views.AboutUs.as_view(),name='about_us'),
+    path('feedback/',views.Feedback.as_view(),name='feedback'),
+    path('guidelines/',views.Guidelines.as_view(),name='guidelines'),
     path('', views.HomeView.as_view(),name='home'),
     path('list/',TheirListView.as_view(),name = 'list'),
     path('booklist/',TheirListBookView.as_view(),name = 'booklist'),

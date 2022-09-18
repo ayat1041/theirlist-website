@@ -9,7 +9,7 @@
 
 .searchTerm {
   width: 100%;
-  border: 1px solid rgba(255, 68, 0, 0.37);
+  border: 1px solid rgba(255, 68, 0, 0.171);
   /* border-bottom: 1px solid var(--rd); */
   border-right: none;
   padding: 5px;
@@ -28,7 +28,7 @@
 .searchButton {
   width: 32px;
   height: 30px;
-  border: 1px solid rgba(255, 68, 0, 0.37);
+  border: 1px solid rgba(255, 68, 0, 0.171);
   border-left: none;
   background: black;
   text-align: center;

@@ -10,6 +10,15 @@ from django.utils import timezone
 class HomeView(TemplateView):
     template_name = 'index.html'
 
+class AboutUs(TemplateView):
+    template_name = 'app/about_us.html'
+
+class Feedback(TemplateView):
+    template_name = 'app/feedback.html'
+
+class Guidelines(TemplateView):
+    template_name = 'app/guidelines.html'
+
 class TheirListBookView(ListView): #books
     model = BookList
     template_name ='app/Booklist_list.html'
