@@ -1,5 +1,6 @@
-from app.models import List,MusicList,BookList
+from app.models import Comment,List,MusicList,BookList
 from django.shortcuts import render, HttpResponse
+from .forms import CommentForm
 from django.urls import reverse_lazy,reverse
 from django.views.generic import TemplateView,ListView,DetailView,CreateView,DeleteView
 from django.core.paginator import Paginator
@@ -135,3 +136,19 @@ def all(request):
     # allPosts = List.objects.filter(title__search=query)
     params = {'allPosts' : allPosts, 'allPostsmusic' : allPostsmusic, 'allPostsbook' : allPostsbook}
     return render(request, 'app/all.html', params)
+
+class AddCommentView(CreateView): #book
+    model = Comment
+    # fields = "__all__"
+    # fields = ['title','author','genre','content']
+    form_class = CommentForm
+    template_name = 'app/add_comment.html'
+
+    def form_valid(self, form):
+        list_obj = List.objects.get(slug = self.kwargs['slug'])
+        form.instance.list = list_obj
+        return super().form_valid(form)
+    success_url = reverse_lazy("app:list") 
+    
+
+    

@@ -46,7 +46,7 @@ a{
   text-decoration: none;
 }
 .tit:hover {
-  color: var(--rd);
+  color: gray;
   cursor: pointer;
 }
 .Author{

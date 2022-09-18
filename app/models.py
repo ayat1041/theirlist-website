@@ -1,4 +1,5 @@
 from email.policy import default
+from tkinter import CASCADE
 from django.db import models
 from ckeditor.fields import RichTextField
 from django.urls import reverse_lazy,reverse
@@ -88,3 +89,11 @@ class Author(models.Model):
 
     def __str__(self):
         return self.name
+class Comment(models.Model):
+    list = models.ForeignKey(List, related_name="comments" ,on_delete=models.CASCADE)
+    name = models.CharField(max_length=255)
+    body = models.TextField(max_length=1000)
+    date_added = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return '%s - %s' %(self.List.title, self.name)
