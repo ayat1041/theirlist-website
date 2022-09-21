@@ -178,7 +178,10 @@
         <div class="user-doc-logo"><img src="{% static 'app/images/user.png' %}"></div>
     </div>
         <div class="doc-stuff-center"><a href="{% url 'app:all' %}"><img src="{% static 'app/images/home.png' %}"></a></div>
-        <div class="doc-stuff-right"><img class="com-chat" src="{% static 'app/images/community.png' %}"><button onClick="javascript:history.go(-1);"><img src="{% static 'app/images/back.png' %}" alt=""></button></div>
+        <div class="doc-stuff-right">
+          <a href="{% url 'app:chat' %}"><img class="com-chat" src="{% static 'app/images/community.png' %}"></a>
+          <button onClick="javascript:history.go(-1);"><img src="{% static 'app/images/back.png' %}" alt=""></button>
+        </div>
     </doc>
     <div class="login-sub-menu">
         <ul class="login-sub-menu-options">

@@ -5,6 +5,7 @@ from .views import TheirListView,TheirDetailView,ListCreateView,ListDeleteView,T
 app_name = "app"
 
 urlpatterns = [
+    path('chat_room/',views.Chat.as_view(),name='chat'),
     path('about-us/',views.AboutUs.as_view(),name='about_us'),
     path('feedback/',views.Feedback.as_view(),name='feedback'),
     path('guidelines/',views.Guidelines.as_view(),name='guidelines'),

@@ -13,6 +13,9 @@ class HomeView(TemplateView):
 class AboutUs(TemplateView):
     template_name = 'app/about_us.html'
 
+class Chat(TemplateView):
+    template_name = 'app/chat_room.html'
+
 class Feedback(TemplateView):
     template_name = 'app/feedback.html'
 
