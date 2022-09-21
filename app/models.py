@@ -1,5 +1,4 @@
 from email.policy import default
-from tkinter import CASCADE
 from django.db import models
 from ckeditor.fields import RichTextField
 from django.urls import reverse_lazy,reverse
