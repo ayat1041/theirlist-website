@@ -126,14 +126,12 @@ body{
     height: max-content;
     left: 2%;
     right: 2%;
-    background-color: black;
+    /* background-color: black; */
     margin-top: 0px;
     z-index: 8;
-    padding: 24px;
-    border-bottom: 1px solid var(--rd);
-    border-left: 1px solid var(--rd);
-    border-right: 1px solid var(--rd);
+    padding: 0px;
 }
+
 
 .logo{
     position: absolute;
@@ -228,7 +226,7 @@ body{
     flex-direction: row;
     align-items: center;
     /* border-top: 1px solid var(--rd); */
-    border-top: 1px solid #d100003a;
+    /* border-top: 1px solid #d100003a; */
     justify-content: space-between;
     height: 40px;
     padding-top: 0px;
@@ -236,7 +234,8 @@ body{
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: black;
+    /* background-color: rgba(0, 0, 0, 0.637); */
+    background: linear-gradient(rgba(0, 0, 0, 0.507), #000000d2 );
     z-index: 12;
 }
 
