@@ -85,7 +85,8 @@ small{
             <h1>Comments</h1>
         </div>
         <hr>
-        <div><a href="{% url 'app:add_comment' list.slug %}">Add a comment</a><br>
+        {% comment %} {% url 'app:add_comment' list.slug %} {% endcomment %}
+        <div><a href="#">Add a comment</a><br>
         {% comment %} <div><input type="text" placeholder="enter your comment"></div>
         <div><button type= "submit">Comment</button></div> {% endcomment %}
         {% if not list.comments.all %}

@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import AddCommentView,TheirListView,TheirDetailView,ListCreateView,ListDeleteView,TheirListMusicView,TheirListBookView,TheirDetailBookView,TheirDetailMusicView,ListCreateBookView,ListCreateMusicView
+from .views import TheirListView,TheirDetailView,ListCreateView,ListDeleteView,TheirListMusicView,TheirListBookView,TheirDetailBookView,TheirDetailMusicView,ListCreateBookView,ListCreateMusicView
 
 app_name = "app"
 
@@ -23,6 +23,5 @@ urlpatterns = [
     path('film/',views.film, name='film'),
     path('film/<str:query>',views.film, name='film'),
     path('all',views.all, name='all'),
-    path('home/list/<slug:slug>/comment/',AddCommentView.as_view(),name="add_comment"),
 
 ]

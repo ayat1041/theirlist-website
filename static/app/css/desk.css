@@ -265,7 +265,7 @@ body{
     cursor: pointer;
 }
 .doc-stuff-center{
-    width: 70px;
+    width: max-content;
     display: flex;
     /* margin: auto; */
     justify-content: center;
@@ -295,6 +295,9 @@ body{
 .doc-stuff-right img{
     height: 22px;
     width: 22px
+}
+.doc-stuff-right .com-chat{
+    margin-right: 8px;
 }
 
 
