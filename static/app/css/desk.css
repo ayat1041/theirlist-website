@@ -36,6 +36,10 @@
     /* font-family: 'Poppins', sans-serif; */
     font-family: 'Roboto', sans-serif;
 }
+*:focus{
+    outline: 0;
+    outline: none;
+}
 body{
     background-color: #121212;
 }
