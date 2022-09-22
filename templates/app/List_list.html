@@ -12,7 +12,13 @@
       <div class="Title">
         {% comment %} <a href="{{lola.id}}/"><h4 class="tit">{{lola.title}}</h4></a> {% endcomment %}
         <a href="{{lola.slug}}/"><h4 class="tit">{{lola.title}}</h4></a>
+        <a href="{% url 'app:delete_movie' lola.slug %}"><img src ="{% static 'app/images/delete.png' %}"></a>
       </div>
+      <style>
+        .Title img{
+          height: 14px;
+        }
+      </style>
       <div class="Author">
         <small>Author : {{lola.author}}<span>{{lola.posted}}</span></small>
       </div>

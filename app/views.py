@@ -84,8 +84,17 @@ class ListCreateView(CreateView):
 
 class ListDeleteView(DeleteView):
     model = List
-    success_url ="/home/list"
+    success_url ="/home/all"
     template_name = "app/list_confirm_delete.html"
+class MusicListDeleteView(DeleteView):
+    model = MusicList
+    success_url ="/home/all"
+    template_name = "app/musiclist_confirm_delete.html"
+class BookListDeleteView(DeleteView):
+    model = BookList
+    success_url ="/home/all"
+    template_name = "app/booklist_confirm_delete.html"
+
 
 def search(request):
     query = request.GET['query']

@@ -83,7 +83,13 @@
       </div>
       <div class="Title">
         <a href="list/{{lola.slug}}/"><h4 class="tit">{{lola.title}}</h4></a>
+        <a href="{% url 'app:delete_movie' lola.slug %}"><img src ="{% static 'app/images/delete.png' %}"></a>
       </div>
+      <style>
+        .Title img{
+          height: 14px;
+        }
+      </style>
       <div class="Author">
         <small>Author : {{lola.author}}<span>{{lola.posted}}</span></small>
       </div>
@@ -108,7 +114,13 @@
       </div>
       <div class="Title">
         <a href="musiclist/{{lola.slug}}/"><h4 class="tit">{{lola.title}}</h4></a>
+        <a href="{% url 'app:delete_music' lola.slug %}"><img src ="{% static 'app/images/delete.png' %}"></a>
       </div>
+      <style>
+        .Title img{
+          height: 14px;
+        }
+      </style>
       <div class="Author">
         <small>Author : {{lola.author}}<span>{{lola.posted}}</span></small>
       </div>
@@ -133,7 +145,13 @@
       </div>
       <div class="Title">
         <a href="booklist/{{lola.slug}}/"><h4 class="tit">{{lola.title}}</h4></a>
+        <a href="{% url 'app:delete_book' lola.slug %}"><img src ="{% static 'app/images/delete.png' %}"></a>
       </div>
+      <style>
+        .Title img{
+          height: 14px;
+        }
+      </style>
       <div class="Author">
         <small>Author : {{lola.author}}<span>{{lola.posted}}</span></small>
       </div>
