@@ -59,7 +59,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    #'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware', #add whitenoise
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -86,7 +86,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'theirlist.wsgi.application'
 CSRF_TRUSTED_ORIGINS = [
-    'https://web-production-2842.up.railway.app/'
+    'https://web-production-2842.up.railway.app'
 ]
 
 # Database
