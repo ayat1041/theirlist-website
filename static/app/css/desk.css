@@ -244,7 +244,7 @@ body{
     position: relative;
     justify-content: flex-start;
     align-items: center;
-    width: 70px;
+    width: 100px;
     padding: 3px 0px;
     margin-bottom: 0px;
     margin-left: 6px;
@@ -281,7 +281,7 @@ body{
 .doc-stuff-right{
     justify-content: end;
     display: flex;
-    width: 70px;
+    width: 100px;
     position: relative;
     margin-right: 6px;
 }
