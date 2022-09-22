@@ -1,7 +1,7 @@
 from app.models import List,MusicList,BookList
 from django.shortcuts import render, HttpResponse
 from django.urls import reverse_lazy,reverse
-from django.views.generic import TemplateView,ListView,DetailView,CreateView,DeleteView
+from django.views.generic import UpdateView,TemplateView,ListView,DetailView,CreateView,DeleteView
 from django.core.paginator import Paginator
 from datetime import timedelta
 from django.utils import timezone
@@ -95,6 +95,21 @@ class BookListDeleteView(DeleteView):
     success_url ="/home/all"
     template_name = "app/booklist_confirm_delete.html"
 
+class ListUpdateView(UpdateView):
+    model = List
+    fields = ['title','genre','content']
+    # template_name = "app/booklist_confirm_delete.html"
+    success_url ="/home/all"
+class MusicListUpdateView(UpdateView):
+    model = MusicList
+    fields = ['title','genre','content']
+    # template_name = "app/booklist_confirm_delete.html"
+    success_url ="/home/all"
+class BookListUpdateView(UpdateView):
+    model = BookList
+    fields = ['title','genre','content']
+    # template_name = "app/booklist_confirm_delete.html"
+    success_url ="/home/all"
 
 def search(request):
     query = request.GET['query']

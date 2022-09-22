@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import MusicListDeleteView,BookListDeleteView,TheirListView,TheirDetailView,ListCreateView,ListDeleteView,TheirListMusicView,TheirListBookView,TheirDetailBookView,TheirDetailMusicView,ListCreateBookView,ListCreateMusicView
+from .views import BookListUpdateView,MusicListUpdateView,ListUpdateView,MusicListDeleteView,BookListDeleteView,TheirListView,TheirDetailView,ListCreateView,ListDeleteView,TheirListMusicView,TheirListBookView,TheirDetailBookView,TheirDetailMusicView,ListCreateBookView,ListCreateMusicView
 
 app_name = "app"
 
@@ -22,6 +22,9 @@ urlpatterns = [
     path('delete_list/<slug:slug>',ListDeleteView.as_view(),name="delete_movie"),
     path('delete_musiclist/<slug:slug>',MusicListDeleteView.as_view(),name="delete_music"),
     path('delete_booklist/<slug:slug>',BookListDeleteView.as_view(),name="delete_book"),
+    path('update_list/<slug:slug>',ListUpdateView.as_view(),name="update_list"),
+    path('update_musiclist/<slug:slug>',MusicListUpdateView.as_view(),name="update_musiclist"),
+    path('update_booklist/<slug:slug>',BookListUpdateView.as_view(),name="update_booklist"),
     path('search/',views.search, name='search'),
     path('film/',views.film, name='film'),
     path('film/<str:query>',views.film, name='film'),

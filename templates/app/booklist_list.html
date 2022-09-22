@@ -13,6 +13,7 @@
         {% comment %} <a href="{{lola.id}}/"><h4 class="tit">{{lola.title}}</h4></a> {% endcomment %}
         <a href="{{lola.slug}}/"><h4 class="tit">{{lola.title}}</h4></a>
         <a href="{% url 'app:delete_book' lola.slug %}"><img src ="{% static 'app/images/delete.png' %}"></a>
+        <a href="{% url 'app:update_booklist' lola.slug %}"><img src ="{% static 'app/images/edit.png' %}"></a>
       </div>
       <style>
         .Title img{

@@ -84,6 +84,7 @@
       <div class="Title">
         <a href="list/{{lola.slug}}/"><h4 class="tit">{{lola.title}}</h4></a>
         <a href="{% url 'app:delete_movie' lola.slug %}"><img src ="{% static 'app/images/delete.png' %}"></a>
+        <a href="{% url 'app:update_list' lola.slug %}"><img src ="{% static 'app/images/edit.png' %}"></a>
       </div>
       <style>
         .Title img{
@@ -115,6 +116,7 @@
       <div class="Title">
         <a href="musiclist/{{lola.slug}}/"><h4 class="tit">{{lola.title}}</h4></a>
         <a href="{% url 'app:delete_music' lola.slug %}"><img src ="{% static 'app/images/delete.png' %}"></a>
+        <a href="{% url 'app:update_musiclist' lola.slug %}"><img src ="{% static 'app/images/edit.png' %}"></a>
       </div>
       <style>
         .Title img{
@@ -146,6 +148,7 @@
       <div class="Title">
         <a href="booklist/{{lola.slug}}/"><h4 class="tit">{{lola.title}}</h4></a>
         <a href="{% url 'app:delete_book' lola.slug %}"><img src ="{% static 'app/images/delete.png' %}"></a>
+        <a href="{% url 'app:update_booklist' lola.slug %}"><img src ="{% static 'app/images/edit.png' %}"></a>
       </div>
       <style>
         .Title img{
