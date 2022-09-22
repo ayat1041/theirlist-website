@@ -31,7 +31,13 @@
           {%  endif %}
         </div>
         <div class="Title">
+          {% if lola.type == 'Music' %}
+          <a href="{% url 'app:musiclist_detail' lola.slug %}"><h4 class="tit">{{lola.title}}</h4></a>
+          {% elif lola.type == 'Movie' %}
+          <a href="{% url 'app:booklist_detail' lola.slug %}"><h4 class="tit">{{lola.title}}</h4></a>
+          {% elif lola.type == 'book' %}
           <a href="{% url 'app:list_detail' lola.slug %}"><h4 class="tit">{{lola.title}}</h4></a>
+          {%  endif %}
           {% if user.id == lola.creator.id %}
           <a href="{% url 'app:delete_movie' lola.slug %}"><img src ="{% static 'app/images/delete.png' %}"></a>
           <a href="{% url 'app:update_list' lola.slug %}"><img src ="{% static 'app/images/edit.png' %}"></a>
@@ -60,23 +66,7 @@
       </div>
       {% endfor %}
     </div>
-    {% comment %} <div class="pagination_pages">
-      <span class="step-links">
-          <span class="current">
-          {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}
-          </span>
-          {% if page_obj.has_previous %}
-              <a href="?page=1">&laquo; first</a>
-              <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-          {% endif %}
-  
-  
-          {% if page_obj.has_next %}
-              <a href="?page={{ page_obj.next_page_number }}">next</a>
-              <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-          {% endif %}
-      </span>
-    </div> {% endcomment %}
+
   </section>
   
 {% endblock content %}
