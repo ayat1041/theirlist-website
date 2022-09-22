@@ -3,6 +3,8 @@ from django.db import models
 from ckeditor.fields import RichTextField
 from django.urls import reverse_lazy,reverse
 from django.utils.text import slugify
+from django.conf import settings
+from django.contrib.auth.models import User
 #alllist
 
 
@@ -36,6 +38,7 @@ class MusicGenre(models.Model):
 class BookList(models.Model):
     title = models.CharField(max_length=65)
     author = models.ForeignKey('Author',on_delete=models.SET_NULL,null=True)
+    creator = models.ForeignKey(User,on_delete=models.SET_NULL,blank=True, null=True)
     genre = models.ManyToManyField('BookGenre')
     posted = models.DateTimeField(auto_now_add=True)
     content = RichTextField(null=True,default=' ')

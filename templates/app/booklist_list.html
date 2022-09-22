@@ -12,16 +12,18 @@
       <div class="Title">
         {% comment %} <a href="{{lola.id}}/"><h4 class="tit">{{lola.title}}</h4></a> {% endcomment %}
         <a href="{{lola.slug}}/"><h4 class="tit">{{lola.title}}</h4></a>
-        <a href="{% url 'app:delete_book' lola.slug %}"><img src ="{% static 'app/images/delete.png' %}"></a>
-        <a href="{% url 'app:update_booklist' lola.slug %}"><img src ="{% static 'app/images/edit.png' %}"></a>
-      </div>
+        {% if user.id == lola.creator.id%}
+          <a href="{% url 'app:delete_book' lola.slug %}"><img src ="{% static 'app/images/delete.png' %}"></a>
+          <a href="{% url 'app:update_booklist' lola.slug %}"><img src ="{% static 'app/images/edit.png' %}"></a>
+        {% endif %}
+        </div>
       <style>
         .Title img{
           height: 14px;
         }
       </style>
       <div class="Author">
-        <small>Author : {{lola.author}}<span>{{lola.posted}}</span></small>
+        <small>Author : {{lola.creator.username}}<span>{{lola.posted}}</span></small>
       </div>
       <div class="rating"><small>Rating : 6/10 [239 users]</small></div>
       

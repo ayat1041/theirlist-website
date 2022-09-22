@@ -186,6 +186,7 @@
     <div class="login-sub-menu">
         <ul class="login-sub-menu-options">
           {% if user.is_authenticated %}
+            <li><a>{{user.username}}</a></li>
             <li><a href="{% url 'logout' %}">logout</a></li>
           {% else %}
             <li><a href="{% url 'login' %}">login</a></li>
