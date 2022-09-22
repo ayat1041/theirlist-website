@@ -185,17 +185,27 @@
     </doc>
     <div class="login-sub-menu">
         <ul class="login-sub-menu-options">
-            <li><a href="#">login</a></li>
-            <li><a href="#">signup</a></li>
+          {% if user.is_authenticated %}
+            <li><a href="{% url 'logout' %}">logout</a></li>
+          {% else %}
+            <li><a href="{% url 'login' %}">login</a></li>
+            <li><a href="{% url 'register' %}">signup</a></li>
+          {% endif %}
+
+            
         </ul>
     </div>
-    <div class="add-list-sub-menu">
-      <ul class="add-list-sub-menu-options">
-        <li><a href="{% url "app:music_create_list" %}"><img src="{% static 'app/images/music-icon.png' %}"></a></li>
-        <li><a href="{% url "app:create_list" %}"><img src="{% static 'app/images/movie-icon.png' %}"></a></li>
-        <li><a href="{% url "app:book_create_list" %}"><img src="{% static 'app/images/book-icon.png' %}"></a></li>
-    </ul>
-    </div>
+    
+      {% if user.is_authenticated %}
+      <div class="add-list-sub-menu">
+        <ul class="add-list-sub-menu-options">
+          <li><a href="{% url "app:music_create_list" %}"><img src="{% static 'app/images/music-icon.png' %}"></a></li>
+          <li><a href="{% url "app:create_list" %}"><img src="{% static 'app/images/movie-icon.png' %}"></a></li>
+          <li><a href="{% url "app:book_create_list" %}"><img src="{% static 'app/images/book-icon.png' %}"></a></li>
+        </ul>
+      </div>
+    {% endif %}
+
     <script src="{% static 'app/js/script.js' %}"></script>
 
 

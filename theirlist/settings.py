@@ -45,6 +45,7 @@ CKEDITOR_CONFIGS = {
 
 INSTALLED_APPS = [
     'ckeditor',
+    'members',
     'app.apps.AppConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -140,6 +141,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
+LOGIN_REDIRECT_URL = 'app:all'
+LOGOUT_REDIRECT_URL = 'app:all'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
