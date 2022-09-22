@@ -373,8 +373,8 @@ body{
     cursor: pointer;
   }
 #myBtn img{
-    height: 60px;
-    width: 60px;
+    height: 40px;
+    width: 40px;
     position: fixed;
     right: 12px;
     bottom: 50px;
