@@ -234,7 +234,7 @@ body{
     right: 0;
     bottom: 0;
     /* background-color: rgba(0, 0, 0, 0.637); */
-    background: linear-gradient(rgba(0, 0, 0, 0.438), #000000d2 );
+    background: linear-gradient(rgba(0, 0, 0, 0.548), #000000 );
     z-index: 12;
 }
 
