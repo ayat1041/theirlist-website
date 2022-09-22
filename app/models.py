@@ -11,8 +11,9 @@ from django.contrib.auth.models import User
 #music
 class MusicList(models.Model):
     title = models.CharField(max_length=65)
-    author = models.ForeignKey('Author',on_delete=models.SET_NULL,null=True)
+    #author = models.ForeignKey('Author',on_delete=models.SET_NULL,null=True)
     genre = models.ManyToManyField('MusicGenre')
+    creator = models.ForeignKey(User,on_delete=models.SET_NULL,blank=True, null=True)
     posted = models.DateTimeField(auto_now_add=True)
     content = RichTextField(null=True,default=' ')
     type = models.CharField(max_length=10,default="Music")
@@ -37,7 +38,7 @@ class MusicGenre(models.Model):
 #books
 class BookList(models.Model):
     title = models.CharField(max_length=65)
-    author = models.ForeignKey('Author',on_delete=models.SET_NULL,null=True)
+    #author = models.ForeignKey('Author',on_delete=models.SET_NULL,null=True)
     creator = models.ForeignKey(User,on_delete=models.SET_NULL,blank=True, null=True)
     genre = models.ManyToManyField('BookGenre')
     posted = models.DateTimeField(auto_now_add=True)
@@ -62,8 +63,9 @@ class BookGenre(models.Model):
 #movie
 class List(models.Model):
     title = models.CharField(max_length=65)
-    author = models.ForeignKey('Author',on_delete=models.SET_NULL,null=True)
+    #author = models.ForeignKey('Author',on_delete=models.SET_NULL,null=True)
     genre = models.ManyToManyField('Genre')
+    creator = models.ForeignKey(User,on_delete=models.SET_NULL,blank=True, null=True)
     posted = models.DateTimeField(auto_now_add=True)
     content = RichTextField(null=True,default=' ')
     type = models.CharField(max_length=10,default="Movie")
@@ -83,8 +85,8 @@ class Genre(models.Model):
     def __str__(self):
         return self.name
 
-class Author(models.Model):
-    name = models.CharField(max_length=300)
+# class Author(models.Model):
+#     name = models.CharField(max_length=300)
 
-    def __str__(self):
-        return self.name
+#     def __str__(self):
+#         return self.name

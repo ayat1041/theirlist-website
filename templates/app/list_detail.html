@@ -65,7 +65,24 @@ small{
 </style>
 <section class="list_detail">
     <h3>{{list.title}}</h3>
-    <small>Author : {{list.author}}</small><br>
+    <div class="detail-up-del">
+        {% if user.id == list.creator.id %}
+        <a href="{% url 'app:delete_movie' list.slug %}"><img src ="{% static 'app/images/delete.png' %}"></a>
+        <a href="{% url 'app:update_list' list.slug %}"><img src ="{% static 'app/images/edit.png' %}"></a>
+        {% else %}
+        <img src ="{% static 'app/images/delete-dis.png' %}">
+        <img src ="{% static 'app/images/edit-dis.png' %}">
+        {% endif %}
+      </div>
+      <style>
+        .detail-up-del{
+            padding: 10px 25px;
+        }
+        .detail-up-del img{
+          height: 14px;
+        }
+      </style>
+    <small>Author : {{list.creator.username}}</small><br>
     <small>Date posted : {{list.posted}}</small><br>
     <div class="genre_wrap">
 

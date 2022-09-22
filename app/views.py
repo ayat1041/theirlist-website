@@ -1,5 +1,5 @@
 from app.models import List,MusicList,BookList
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse,HttpResponseRedirect
 from django.urls import reverse_lazy,reverse
 from django.views.generic import UpdateView,TemplateView,ListView,DetailView,CreateView,DeleteView
 from django.core.paginator import Paginator
@@ -65,22 +65,41 @@ class TheirDetailView(DetailView):
 class ListCreateBookView(CreateView): #book
     model = BookList
     # fields = "__all__"
-    fields = ['title','author','genre','content']
+    fields = ['title','genre','content']
     success_url = reverse_lazy("app:booklist") 
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.creator = self.request.user
+        self.object.save()
+        return HttpResponseRedirect(self.get_success_url())
+
 class ListCreateMusicView(CreateView): #music
     model = MusicList
     # fields = "__all__"
-    fields = ['title','author','genre','content']
+    fields = ['title','genre','content']
     success_url = reverse_lazy("app:musiclist") 
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.creator = self.request.user
+        self.object.save()
+        return HttpResponseRedirect(self.get_success_url())
 
 class ListCreateView(CreateView):
     model = List
     # fields = "__all__"
-    fields = ['title','author','genre','content']
+    fields = ['title','genre','content']
     # success_url = "/home/list/"
     # def get_success_url(self):
     #     return reverse('app:list')
     success_url = reverse_lazy("app:list") 
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.creator = self.request.user
+        self.object.save()
+        return HttpResponseRedirect(self.get_success_url())
 
 class ListDeleteView(DeleteView):
     model = List
