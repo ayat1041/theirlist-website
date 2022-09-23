@@ -47,10 +47,12 @@ let userdoclogoOpen = false;
 
 userdoclogo.addEventListener('click', () => {
   if(!userdoclogoOpen){
-    userdocmenu.style.display = "block";
+    userdocmenu.style.bottom = "42px";
+    userdocmenu.style.left = "5px";
     userdoclogoOpen = true;
+    userdocmenu.style.transition = "all 100ms ease-in-out";
   } else {
-    userdocmenu.style.display = "none";
+    userdocmenu.style.left = "-200px";
     userdoclogoOpen = false;
   }
 });
