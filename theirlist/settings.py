@@ -88,6 +88,7 @@ WSGI_APPLICATION = 'theirlist.wsgi.application'
 CSRF_TRUSTED_ORIGINS = [
     'https://theirlist-website-production.up.railway.app/'
 ]
+CSRF_COOKIE_DOMAIN = None
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
