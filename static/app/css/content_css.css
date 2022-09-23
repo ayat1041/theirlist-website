@@ -41,6 +41,7 @@ a{
 .tit {
   color: white;
   font-weight: lighter;
+  transition: all 250ms ease-in-out;
 }
 a{
   text-decoration: none;
@@ -73,7 +74,7 @@ a{
   width: max-content;
   cursor: pointer;
   display: inline-block;
-  transition: all 100ms ease-in-out;
+  transition: all 350ms ease-in-out;
 }
 .Genre:hover{
   background-color: #FF4500;

@@ -170,7 +170,7 @@
 
 
 
-    <button onclick="topFunction()" id="myBtn" title="Go to top"><img src="{% static 'app/images/scrolltop.png' %}"></button>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><img src="{% static 'app/images/scrolltop.png' %}"  id="scroll"></button>
     <!-- endblock content -->
 
     <doc class="doc-bar">
@@ -233,6 +233,16 @@
     function topFunction() {
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
+    }
+    var myscroll = document.getElementById("scroll");
+    myscroll.onmouseover = mouseOverscr;
+    myscroll.onmouseout = mouseOutscr;
+
+    function mouseOverscr(){
+      myscroll.src = "{% static 'app/images/scrolltop-hov.png' %}";
+    }
+    function mouseOutscr(){
+      myscroll.src = "{% static 'app/images/scrolltop.png' %}";
     }
     </script>
   </body>

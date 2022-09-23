@@ -59,7 +59,7 @@ body{
 
 .menu-btn {
     position: absolute;
-    right: 0;
+    right: 6px;
     display: none;
     justify-content: center;
     align-items: center;
@@ -72,10 +72,10 @@ body{
 }
 
 .menu-btn__burger {
-    width: 18px;
+    width: 10px;
     height: 3px;
-    background: var(--rd);
-    border-radius: 5px;
+    background: #fff;
+    border-radius: 2px;
     box-shadow: 0 2px 5px rgba(255, 101, 47, .2);
     transition: all 250ms ease-in-out;
 }
@@ -87,7 +87,7 @@ body{
     width: 18px;
     height: 3px;
     background: #fff;
-    border-radius: 5px;
+    border-radius: 2px;
     /* box-shadow: 0 2px 5px rgba(255, 101, 47, .2); */
     transition: all 250ms ease-in-out;
 }
