@@ -134,17 +134,20 @@ def search(request):
     query = request.GET['query']
     allPoststit = List.objects.filter(title__icontains=query)
     allPostscont = List.objects.filter(content__icontains=query)
+    genremovie = List.objects.all()
     allPostsl = allPoststit.union(allPostscont)
     allPoststitm = MusicList.objects.filter(title__icontains=query)
     allPostscontm = MusicList.objects.filter(content__icontains=query)
+    genremusic = MusicList.objects.all()
     allPostsm = allPoststitm.union(allPostscontm)
     allPoststitb = BookList.objects.filter(title__icontains=query)
     allPostscontb = BookList.objects.filter(content__icontains=query)
+    genrebook = BookList.objects.all()
     allPostsb = allPoststitb.union(allPostscontb)
     # allPosts = List.objects.filter(title__search=query)
     allPosts2 = allPostsl.union(allPostsm)
     allPosts = allPosts2.union(allPostsb)
-    params = {'allPosts' : allPosts, 'query':query}
+    params = {'allPosts' : allPosts, 'query':query, 'genremovie': genremovie, 'genremusic': genremusic, 'genrebook': genrebook}
     return render(request, 'app/search.html', params)
     #return HttpResponse('this is search')
 

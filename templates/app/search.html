@@ -34,9 +34,9 @@
           {% if lola.type == 'Music' %}
           <a href="{% url 'app:musiclist_detail' lola.slug %}"><h4 class="tit">{{lola.title}}</h4></a>
           {% elif lola.type == 'Movie' %}
-          <a href="{% url 'app:booklist_detail' lola.slug %}"><h4 class="tit">{{lola.title}}</h4></a>
-          {% elif lola.type == 'book' %}
           <a href="{% url 'app:list_detail' lola.slug %}"><h4 class="tit">{{lola.title}}</h4></a>
+          {% elif lola.type == 'book' %}
+          <a href="{% url 'app:booklist_detail' lola.slug %}"><h4 class="tit">{{lola.title}}</h4></a>
           {%  endif %}
           {% if user.id == lola.creator.id %}
           <a href="{% url 'app:delete_movie' lola.slug %}"><img src ="{% static 'app/images/delete.png' %}"></a>
@@ -55,16 +55,40 @@
           <small>Author : {{lola.creator.username}}<span>{{lola.posted}}</span></small>
         </div>
         <div class="rating"><small>Rating : 6/10 [239 users]</small></div>
-        
-          {% for tag in lola.genre.all %}
-          <div class="Genre">
-          <small>{{ tag }}</small>
-          </div>
-            {% empty %} 
-            No tags! 
-          {% endfor %}
-      </div>
+          {% if lola.type == 'Music' %}
+            {% for i in genremusic %}
+              {% for tag in i.genre.all %}
+                {% if lola.id == i.id %}
+                    <div class="Genre">
+                    <small>{{ tag }}</small>
+                    </div>
+                      {% endif %}
+                    {% endfor %}
+                    {% endfor %}
+          {% elif lola.type == 'book' %}
+            {% for i in genrebook %}
+              {% for tag in i.genre.all %}
+                {% if lola.id == i.id %}
+                <div class="Genre">
+                  <small>{{ tag }}</small>
+                  </div>
+                    {% endif %}
+                  {% endfor %}
+                  {% endfor %}
+          {% elif lola.type == 'Movie' %}
+            {% for i in genremovie %}
+              {% for tag in i.genre.all %}
+                {% if lola.id == i.id %}
+                <div class="Genre">
+                  <small>{{ tag }}</small>
+                  </div>
+                    {% endif %}
+                  {% endfor %}
+                  {% endfor %}
+                    {% endif %}
+                </div>
       {% endfor %}
+
     </div>
 
   </section>
