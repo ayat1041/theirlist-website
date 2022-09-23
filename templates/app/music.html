@@ -17,18 +17,18 @@
 <section>
     <div class="contain-sec" id="contain-sec">
       {% if query|length < 1 %}
-      <p class="search_none">We dont have any film list in <b>{{result}}</b> category currently.<span> :(</span><p>
+      <p class="search_none">We dont have any music list in <b>{{result}}</b> category currently.<span> :(</span><p>
       {% endif %}
       {% for film in query %}
       <div class="elements">
         <div class="thumb">
-          <img src="{% static 'app/images/movie-poster.jpg' %}" width="100px" />
+          <img src="{% static 'app/images/music-poster.jpg' %}" width="100px" />
         </div>
         <div class="Title">
-          <a href="{% url 'app:list_detail' film.id %}"><h4 class="tit">{{film.title}}</h4></a>
+          <a href="{% url 'app:musiclist_detail' film.id %}"><h4 class="tit">{{film.title}}</h4></a>
           {% if user.id == film.creator.id %}
-          <a href="{% url 'app:delete_movie' film.slug %}"><img src ="{% static 'app/images/delete.png' %}"></a>
-          <a href="{% url 'app:update_list' film.slug %}"><img src ="{% static 'app/images/edit.png' %}"></a>
+          <a href="{% url 'app:delete_music' film.slug %}"><img src ="{% static 'app/images/delete.png' %}"></a>
+          <a href="{% url 'app:update_musiclist' film.slug %}"><img src ="{% static 'app/images/edit.png' %}"></a>
           {% else %}
           <img src ="{% static 'app/images/delete-dis.png' %}">
           <img src ="{% static 'app/images/edit-dis.png' %}">

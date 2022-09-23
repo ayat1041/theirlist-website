@@ -28,6 +28,10 @@ urlpatterns = [
     path('search/',views.search, name='search'),
     path('film/',views.film, name='film'),
     path('film/<str:query>',views.film, name='film'),
+    path('music/',views.music, name='music'),
+    path('music/<str:query>',views.music, name='music'),
+    path('book/',views.book, name='book'),
+    path('book/<str:query>',views.book, name='book'),
     path('all',views.all, name='all'),
 
 ]

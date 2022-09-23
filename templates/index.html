@@ -76,29 +76,29 @@
             <li>
               <a href="{% url 'app:musiclist' %}">Music</a> <span class="nav-music-expand"><img src="{% static 'app/images/dropdown.png' %}" alt=""></span>
               <ul class="nav-music-more">
-                <li><a href="">Rock</a></li>
-                <li><a href="">Pop</a></li>
-                <li><a href="">Folk</a></li>
-                <li><a href="">Jazz</a></li>
-                <li><a href="">Rap</a></li>
-                <li><a href="">80s</a></li>
-                <li><a href="">Metal</a></li>
-                <li><a href="">Others</a></li>
+                <li><a href="{% url 'app:music' query="rock" %}">Rock</a></li>
+                <li><a href="{% url 'app:music' query="pop" %}">Pop</a></li>
+                <li><a href="{% url 'app:music' query="folk" %}">Folk</a></li>
+                <li><a href="{% url 'app:music' query="jazz" %}">Jazz</a></li>
+                <li><a href="{% url 'app:music' query="rap" %}">Rap</a></li>
+                <li><a href="{% url 'app:music' query="80s" %}">80s</a></li>
+                <li><a href="{% url 'app:music' query="metal" %}">Metal</a></li>
+                <li><a href="{% url 'app:music' query="others" %}">Others</a></li>
               </ul>
             </li>
             <li>
               <a href="{% url 'app:booklist' %}">Books</a> <span class="nav-book-expand"><img src="{% static 'app/images/dropdown.png' %}" alt=""></span>
               <ul class="nav-book-more">
-                <li><a href="">Action</a></li>
-                <li><a href="">Comedy</a></li>
-                <li><a href="">Thriller</a></li>
-                <li><a href="">Romance</a></li>
-                <li><a href="">Drama</a></li>
-                <li><a href="">Crime</a></li>
-                <li><a href="">Horror</a></li>
-                <li><a href="">Classic</a></li>
-                <li><a href="">Mystery</a></li>
-                <li><a href="">Others</a></li>
+                <li><a href="{% url 'app:book' query="action" %}">Action</a></li>
+                <li><a href="{% url 'app:book' query="comedy" %}">Comedy</a></li>
+                <li><a href="{% url 'app:book' query="thriller" %}">Thriller</a></li>
+                <li><a href="{% url 'app:book' query="romance" %}">Romance</a></li>
+                <li><a href="{% url 'app:book' query="drama" %}">Drama</a></li>
+                <li><a href="{% url 'app:book' query="crime" %}">Crime</a></li>
+                <li><a href="{% url 'app:book' query="horror" %}">Horror</a></li>
+                <li><a href="{% url 'app:book' query="classic" %}">Classic</a></li>
+                <li><a href="{% url 'app:book' query="mystery" %}">Mystery</a></li>
+                <li><a href="{% url 'app:book' query="others" %}">Others</a></li>
               </ul>
             </li>
           </ul>
@@ -110,7 +110,7 @@
     <div class="submenu">
       <ul class="main-op">
         <li>
-          <a href="">Movies</a> <span class="movie-expand"><img src="{% static 'app/images/dropdown.png' %}" alt=""></span>
+          <a href="{% url 'app:list' %}">Movies</a> <span class="movie-expand"><img src="{% static 'app/images/dropdown.png' %}" alt=""></span>
           <ul class="movie-more">
             <li><a href="{% url 'app:film' query="action" %}">Action</a></li>
             <li><a href="{% url 'app:film' query="comedy" %}">Comedy</a></li>
@@ -126,31 +126,31 @@
           </ul>
         </li>
         <li>
-          <a href="">Music</a> <span class="music-expand"><img src="{% static 'app/images/dropdown.png' %}" alt=""></span>
+          <a href="{% url 'app:musiclist' %}">Music</a> <span class="music-expand"><img src="{% static 'app/images/dropdown.png' %}" alt=""></span>
           <ul class="music-more">
-            <li><a href="">Rock</a></li>
-            <li><a href="">Pop</a></li>
-            <li><a href="">Folk</a></li>
-            <li><a href="">Jazz</a></li>
-            <li><a href="">Rap</a></li>
-            <li><a href="">80s</a></li>
-            <li><a href="">Metal</a></li>
-            <li><a href="">Others</a></li>
+            <li><a href="{% url 'app:music' query="rock" %}">Rock</a></li>
+            <li><a href="{% url 'app:music' query="pop" %}">Pop</a></li>
+            <li><a href="{% url 'app:music' query="folk" %}">Folk</a></li>
+            <li><a href="{% url 'app:music' query="jazz" %}">Jazz</a></li>
+            <li><a href="{% url 'app:music' query="rap" %}">Rap</a></li>
+            <li><a href="{% url 'app:music' query="80s" %}">80s</a></li>
+            <li><a href="{% url 'app:music' query="metal" %}">Metal</a></li>
+            <li><a href="{% url 'app:music' query="others" %}">Others</a></li>
           </ul>
         </li>
         <li>
-          <a href="">Books</a> <span class="book-expand"><img src="{% static 'app/images/dropdown.png' %}" alt=""></span>
+          <a href="{% url 'app:booklist' %}">Books</a> <span class="book-expand"><img src="{% static 'app/images/dropdown.png' %}" alt=""></span>
           <ul class="book-more">
-            <li><a href="">Action</a></li>
-            <li><a href="">Comedy</a></li>
-            <li><a href="">Thriller</a></li>
-            <li><a href="">Romance</a></li>
-            <li><a href="">Drama</a></li>
-            <li><a href="">Crime</a></li>
-            <li><a href="">Horror</a></li>
-            <li><a href="">Classic</a></li>
-            <li><a href="">Mystery</a></li>
-            <li><a href="">Others</a></li>
+            <li><a href="{% url 'app:book' query="action" %}">Action</a></li>
+            <li><a href="{% url 'app:book' query="comedy" %}">Comedy</a></li>
+            <li><a href="{% url 'app:book' query="thriller" %}">Thriller</a></li>
+            <li><a href="{% url 'app:book' query="romance" %}">Romance</a></li>
+            <li><a href="{% url 'app:book' query="drama" %}">Drama</a></li>
+            <li><a href="{% url 'app:book' query="crime" %}">Crime</a></li>
+            <li><a href="{% url 'app:book' query="horror" %}">Horror</a></li>
+            <li><a href="{% url 'app:book' query="classic" %}">Classic</a></li>
+            <li><a href="{% url 'app:book' query="mystery" %}">Mystery</a></li>
+            <li><a href="{% url 'app:book' query="others" %}">Others</a></li>
           </ul>
         </li>
       </ul>
