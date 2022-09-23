@@ -111,7 +111,7 @@
     <div class="submenu">
       <ul class="main-op">
         <li>
-          <a href="{% url 'app:list' %}">Movies</a> <span class="movie-expand"><img src="{% static 'app/images/dropdown.png' %}" alt=""></span>
+          <a href="{% url 'app:list' %}">Movies</a><span class="movie-expand"><img src="{% static 'app/images/dropdown.png' %}" alt=""></span>
           <ul class="movie-more">
             <li><a href="{% url 'app:film' query="action" %}">Action</a></li>
             <li><a href="{% url 'app:film' query="comedy" %}">Comedy</a></li>
@@ -127,7 +127,7 @@
           </ul>
         </li>
         <li>
-          <a href="{% url 'app:musiclist' %}">Music</a> <span class="music-expand"><img src="{% static 'app/images/dropdown.png' %}" alt=""></span>
+          <a href="{% url 'app:musiclist' %}">Music</a><span class="music-expand"><img src="{% static 'app/images/dropdown.png' %}" alt=""></span>
           <ul class="music-more">
             <li><a href="{% url 'app:music' query="rock" %}">Rock</a></li>
             <li><a href="{% url 'app:music' query="pop" %}">Pop</a></li>
@@ -141,7 +141,7 @@
           </ul>
         </li>
         <li>
-          <a href="{% url 'app:booklist' %}">Books</a> <span class="book-expand"><img src="{% static 'app/images/dropdown.png' %}" alt=""></span>
+          <a href="{% url 'app:booklist' %}">Books</a><span class="book-expand"><img src="{% static 'app/images/dropdown.png' %}" alt=""></span>
           <ul class="book-more">
             <li><a href="{% url 'app:book' query="action" %}">Action</a></li>
             <li><a href="{% url 'app:book' query="comedy" %}">Comedy</a></li>
@@ -176,22 +176,23 @@
     <doc class="doc-bar">
         <div class="doc-stuff-left">
           {% comment %} {% url "app:clt" %} {% endcomment %}
-        <div id="add-list-butt" class="add-list"><img id="add-list-butt" src="{% static 'app/images/add.png' %}"></div>
-        <div class="user-doc-logo"><img src="{% static 'app/images/user.png' %}"></div>
+        <div id="add-list-butt" class="add-list" title="add a list"><img id="add-list-butt" src="{% static 'app/images/add.png' %}"></div>
+        <div class="user-doc-logo" title="authentication"><img src="{% static 'app/images/user.png' %}"></div>
     </div>
-        <div class="doc-stuff-center"><a href="{% url 'app:all' %}"><img src="{% static 'app/images/home.png' %}"></a></div>
+        <div class="doc-stuff-center"><a href="{% url 'app:all' %}" title="home"><img src="{% static 'app/images/home.png' %}"></a></div>
         <div class="doc-stuff-right">
-          <a href="{% url 'app:chat' %}"><img class="com-chat" src="{% static 'app/images/community.png' %}"></a>
-          <button onClick="javascript:history.go(-1);"><img src="{% static 'app/images/back.png' %}" alt=""></button>
+          <a href="{% url 'app:chat' %}" title="Chat in the community"><img class="com-chat" src="{% static 'app/images/community.png' %}"></a>
+          <button onClick="javascript:history.go(-1);" title="Go back"><img src="{% static 'app/images/back.png' %}" alt=""></button>
         </div>
     </doc>
     <div class="login-sub-menu">
         <ul class="login-sub-menu-options">
           {% if user.is_authenticated %}
-            <li><a>{{user.username}}</a></li>
-            <li><a href="{% url 'logout' %}">logout</a></li>
+            <li><a class="username_inlogin">{{user.username}}</a></li>
+            <li><a class="username_inlogin edit">Edit profile</a></li>
+            <li><a href="{% url 'logout' %}">logout<img src="{% static 'app/images/logout.png' %}" class="logout_sub"></a></li>
           {% else %}
-            <li><a href="{% url 'login' %}">login</a></li>
+            <li><a href="{% url 'login' %}">login<img src="{% static 'app/images/logout.png' %}" class="logout_sub login_sub"></a></li>
             <li><a href="{% url 'register' %}">signup</a></li>
             <style>
               .add-list{
