@@ -88,8 +88,8 @@ WSGI_APPLICATION = 'theirlist.wsgi.application'
 CSRF_TRUSTED_ORIGINS = [
     'https://theirlist-website-production.up.railway.app/'
 ]
-CSRF_COOKIE_DOMAIN = None
-
+# CSRF_COOKIE_DOMAIN = None
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
