@@ -4,7 +4,7 @@
 <style>
     .movie-contain{
         margin-bottom: 0px;
-        padding-top: 32px;
+        padding-top: 0px;
     }
     .book-contain{
         padding-top: 0px;
@@ -15,12 +15,21 @@
         margin-bottom: 0px;
     }
     .headline{
+        display: flex;
+        justify-content: center;
         background-color: red;
         padding: 0px 4px;
         margin: 4px 0px;
         text-align: center;
         height: max-content!important;
         font-weight: lighter;
+        z-index: 10;
+    }
+    .minimize img{
+        height: 28px;
+        position: absolute;
+        right: 6px;
+        cursor: pointer;
     }
     .headline-top{
         background-color: #FFEA0470;
@@ -28,7 +37,7 @@
         margin: 4px 0px;
         text-align: center;
         height: 40px;
-        position: absolute;
+        {% comment %} position: absolute; {% endcomment %}
         left: 0;
         right: 0;
         margin-top: 2px;
@@ -60,22 +69,31 @@
     .headline-bottom h1{
       color: black;
     }
+    .main-sec{
+      display: grid;
+    }
+    .main-sec2{
+      display: grid;
+    }
+    .main-sec3{
+      display: grid;
+    }
     @media only screen and (max-width: 900px) {
       .movie-contain{
         margin-bottom: 0px;
-        padding-top: 84px;
+        padding-top: 0px;
     }
     .headline-top{
       margin-top: 52px;
   }
     }
-
 </style>
+
 {% comment %} <div id="preloader"></div> {% endcomment %}
 <div class = "poster"><img src="{% static 'app/images/poster.jpg' %}" alt=""></div>
 <section>
-  <div class="headline headline-top"><h1 class="headline-all">Movie & series</h1></div>
-  <div class="contain-sec movie-contain" id="contain-sec">
+  <div class="headline headline-top"><h1 class="headline-all">Movie & series</h1><span class="minimize" id="topmini"><img src="{% static 'app/images/minimize.png' %}" id="miniimg" alt=""></span></div>
+  <div class="contain-sec movie-contain main-sec" id="contain-sec">
     {% for lola in allPosts %}
     <div class="elements">
       <div class="thumb">
@@ -111,8 +129,8 @@
     </div>
     {% endfor %}
   </div>
-  <div class="headline headline-middle"><h1 class="headline-all">Music</h1></div>
-  <div class="contain-sec music-contain" id="contain-sec">
+  <div class="headline headline-middle"><h1 class="headline-all">Music</h1><span class="minimize" id="centmini"><img src="{% static 'app/images/minimize.png' %}" id="miniimg2" alt=""></div>
+  <div class="contain-sec music-contain main-sec2" id="contain-sec2">
     {% for lola in allPostsmusic %}
     <div class="elements">
       <div class="thumb">
@@ -148,8 +166,8 @@
     </div>
     {% endfor %}
   </div>
-  <div class="headline headline-bottom"><h1 class="headline-all">Book</h1></div>
-  <div class="contain-sec book-contain" id="contain-sec">
+  <div class="headline headline-bottom"><h1 class="headline-all">Book</h1><span class="minimize" id="bottommini"><img src="{% static 'app/images/minimize.png' %}" id="miniimg3" alt=""></div>
+  <div class="contain-sec book-contain main-sec3" id="contain-sec3">
     {% for lola in allPostsbook %}
     <div class="elements">
       <div class="thumb">
@@ -198,5 +216,53 @@
   <small>Copyright &copy; HornetHive 2022</small>
   </div>
 </footer>
+<script>
+  let topo = document.getElementById("topmini");
+  let center = document.getElementById("centmini");
+  let bottom = document.getElementById("bottommini");
+  let topcont = document.getElementById("contain-sec");
+  let centcont = document.getElementById("contain-sec2");
+  let botcont = document.getElementById("contain-sec3");
+  let miniimg = document.getElementById("miniimg");
+  let miniimg2 = document.getElementById("miniimg2");
+  let miniimg3 = document.getElementById("miniimg3");
+  let hint1 = false, hint2 = false, hint3 = false;
+  topo.addEventListener('click', () =>{
+    if(!hint1){
+      topcont.style.display = "none";
+      miniimg.src = "{% static 'app/images/maximize.png' %}";
+      hint1 = true;
+    }
+    else{
+      topcont.style.display = "grid";
+      miniimg.src = "{% static 'app/images/minimize.png' %}";
+      hint1 = false;
+    }
+  });
+  center.addEventListener('click', () =>{
+    if(!hint2){
+      centcont.style.display = "none";
+      miniimg2.src = "{% static 'app/images/maximize.png' %}";
+      hint2 = true;
+    }
+    else{
+      centcont.style.display = "grid";
+      miniimg2.src = "{% static 'app/images/minimize.png' %}";
+      hint2 = false;
+    }
+  });
+  bottom.addEventListener('click', () =>{
+    if(!hint3){
+      botcont.style.display = "none";
+      miniimg3.src = "{% static 'app/images/maximize.png' %}";
+      hint3 = true;
+    }
+    else{
+      botcont.style.display = "grid";
+      miniimg3.src = "{% static 'app/images/minimize.png' %}";
+      hint3 = false;
+    }
+  });
 
+</script>
 {% endblock content %}

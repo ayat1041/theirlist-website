@@ -50,6 +50,7 @@ body{
     flex-wrap: wrap;
     align-items: center;
     height: 52px;
+    top: 0;
     left: 0;
     right: 0;
     z-index: 10;
@@ -64,7 +65,7 @@ body{
     justify-content: center;
     align-items: center;
     width: 40px;
-    height: 60px;
+    height: max-content;
     cursor: pointer;
     transition: all .5s ease-in-out;
     margin: auto 0;
