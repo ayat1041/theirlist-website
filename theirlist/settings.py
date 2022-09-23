@@ -86,7 +86,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'theirlist.wsgi.application'
 CSRF_TRUSTED_ORIGINS = [
-    'https://web-production-2842.up.railway.app'
+    'https://theirlist-website-production.up.railway.app/'
 ]
 
 # Database
