@@ -179,7 +179,7 @@
         <div id="add-list-butt" class="add-list" title="add a list"><img id="add-list-butt" src="{% static 'app/images/add.png' %}"></div>
         <div class="user-doc-logo" title="authentication"><img src="{% static 'app/images/user.png' %}"></div>
     </div>
-        <div class="doc-stuff-center"><a href="{% url 'app:all' %}" title="home"><img src="{% static 'app/images/home.png' %}"></a></div>
+        <div class="doc-stuff-center"><a href="{% url 'app:all' %}" title="home"><img src="{% static 'app/images/home.png' %}" id="home"></a></div>
         <div class="doc-stuff-right">
           <a href="{% url 'app:chat' %}" title="Chat in the community"><img class="com-chat" src="{% static 'app/images/community.png' %}"></a>
           <button onClick="javascript:history.go(-1);" title="Go back"><img src="{% static 'app/images/back.png' %}" alt=""></button>
@@ -236,14 +236,23 @@
       document.documentElement.scrollTop = 0;
     }
     var myscroll = document.getElementById("scroll");
+    var myhome = document.getElementById("home");
     myscroll.onmouseover = mouseOverscr;
     myscroll.onmouseout = mouseOutscr;
+    myhome.onmouseover = mouseOverhome;
+    myhome.onmouseout = mouseOuthome;
 
     function mouseOverscr(){
       myscroll.src = "{% static 'app/images/scrolltop-hov.png' %}";
     }
     function mouseOutscr(){
       myscroll.src = "{% static 'app/images/scrolltop.png' %}";
+    }
+    function mouseOverhome(){
+      myhome.src = "{% static 'app/images/home-hov.png' %}";
+    }
+    function mouseOuthome(){
+      myhome.src = "{% static 'app/images/home.png' %}";
     }
     </script>
   </body>

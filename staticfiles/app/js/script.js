@@ -61,10 +61,10 @@ menuBtn.addEventListener('click', () => {
   if(!menuOpen) {
     menuBtn.classList.add('open');
     menuOpen = true;
-    subMenu.style.marginTop = "50px";
+    subMenu.style.marginTop = "40px";
     subMenu.style.transition = "all 250ms ease-in-out";
     document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
+    // document.documentElement.scrollTop = 0;
   } else {
     menuBtn.classList.remove('open');
     menuOpen = false;

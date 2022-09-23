@@ -42,6 +42,7 @@ a{
   color: white;
   font-weight: lighter;
   transition: all 250ms ease-in-out;
+  margin-bottom: 4px;
 }
 a{
   text-decoration: none;

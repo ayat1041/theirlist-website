@@ -121,10 +121,10 @@ body{
 
 .submenu{
     display: none;
-    position: absolute;
+    position: fixed;
     height: max-content;
-    left: 2%;
-    right: 2%;
+    left: 0;
+    right: 0;
     /* background-color: black; */
     margin-top: 0px;
     z-index: 8;
@@ -468,4 +468,12 @@ li a .login_sub{
 }
 .foot-copy{
     padding-top: 20px;
+}
+
+/* update delete icon size */
+.detail-up-del img{
+    height: 18px!important;
+}
+.Title img{
+    height: 18px!important;
 }
