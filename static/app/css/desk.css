@@ -30,6 +30,7 @@
     --rd2: #9DAAF2;
   }
 * {
+    -webkit-tap-highlight-color: transparent;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -42,6 +43,7 @@
 }
 
 body{
+    -webkit-tap-highlight-color: transparent;
     background-color: #121212;
     height: 100vh;
     display: flex;
@@ -201,7 +203,41 @@ body{
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    background-color: #D10000;
+    align-items: flex-end;
+    /* background-color: #D10000; */
+    width: max-content;
+    height: max-content;
+    position: fixed;
+    bottom: 90px;
+    right: 28px;
+    z-index: 100;
+}
+.nav-sub-menu-container .movie, .nav-sub-menu-container .music, .nav-sub-menu-container .book{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100px;
+    margin-right: 4px;
+    height: max-content;
+    background-color: #c04600;
+    border-radius: 4px;
+    text-align: center;
+}
+.nav-sub-menu-container .movie a, .nav-sub-menu-container .music a, .nav-sub-menu-container .book a{
+    text-decoration: none;
+    color: white;
+    margin: 6px 0;
+    display: inline-block;
+    padding: 0 12px;
+    transition: all 200ms ease-in-out;
+}
+.nav-sub-menu-container .movie a:hover, .nav-sub-menu-container .music a:hover, .nav-sub-menu-container .book a:hover{
+    color: rgb(48, 48, 48);
+}
+
+.nav-sub-menu-container .music{
+}
+.nav-sub-menu-container .book{
 }
 
 

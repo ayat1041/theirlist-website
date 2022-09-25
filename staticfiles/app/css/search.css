@@ -17,19 +17,19 @@
   border-radius: 4px 0 0 4px;
   outline: none;
   color: #9dbfaf;
-  background-color: black;
+  background-color: rgb(14, 14, 14);
   font-size: 12px;
 }
 
 .searchTerm:focus {
-  color: var(--rd);
+  color: white;
 }
 
 .searchButton {
   width: 32px;
   height: 30px;
   border: none;
-  background: black;
+  background: rgb(14, 14, 14);
   text-align: center;
   color: white;
   border-radius: 0 2px 2px 0;

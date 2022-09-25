@@ -79,9 +79,48 @@
 
     {% comment %} nav-menu-options {% endcomment %}
     <div class="nav-sub-menu-container">
-      <div class="movie"></div>
-      <div class="music"></div>
-      <div class="book"></div>
+      <div class="movie">
+        <ul class="movie-nav-more">
+          <a href="{% url 'app:film' query="action" %}">Action</a>
+          <a href="{% url 'app:film' query="comedy" %}">Comedy</a>
+          <a href="{% url 'app:film' query="thriller" %}">Thriller</a>
+          <a href="{% url 'app:film' query="romance" %}">Romance</a>
+          <a href="{% url 'app:film' query="Drama" %}">Drama</a>
+          <a href="{% url 'app:film' query="Crime" %}">Crime</a>
+          <a href="{% url 'app:film' query="Horror" %}">Horror</a>
+          <a href="{% url 'app:film' query="classic" %}">Classic</a>
+          <a href="{% url 'app:film' query="mystery" %}">Mystery</a>
+          <a href="{% url 'app:film' query="adventure" %}">adventure</a>
+          <a href="{% url 'app:film' query="others" %}">Others</a>
+        </ul>
+      </div>
+      <div class="music">
+        <ul class="music-nav-more">
+          <a href="{% url 'app:music' query="rock" %}">Rock</a>
+          <a href="{% url 'app:music' query="pop" %}">Pop</a>
+          <a href="{% url 'app:music' query="classic" %}">Classic</a>
+          <a href="{% url 'app:music' query="folk" %}">Folk</a>
+          <a href="{% url 'app:music' query="jazz" %}">Jazz</a>
+          <a href="{% url 'app:music' query="rap" %}">Rap</a>
+          <a href="{% url 'app:music' query="80s" %}">80s</a>
+          <a href="{% url 'app:music' query="metal" %}">Metal</a>
+          <a href="{% url 'app:music' query="others" %}">Others</a>
+        </ul>
+      </div>
+      <div class="book">
+        <ul class="book-nav-more">
+          <a href="{% url 'app:book' query="action" %}">Action</a>
+          <a href="{% url 'app:book' query="comedy" %}">Comedy</a>
+          <a href="{% url 'app:book' query="thriller" %}">Thriller</a>
+          <a href="{% url 'app:book' query="romance" %}">Romance</a>
+          <a href="{% url 'app:book' query="drama" %}">Drama</a>
+          <a href="{% url 'app:book' query="crime" %}">Crime</a>
+          <a href="{% url 'app:book' query="horror" %}">Horror</a>
+          <a href="{% url 'app:book' query="classic" %}">Classic</a>
+          <a href="{% url 'app:book' query="mystery" %}">Mystery</a>
+          <a href="{% url 'app:book' query="others" %}">Others</a>
+        </ul>
+      </div>
     </div>
 
 

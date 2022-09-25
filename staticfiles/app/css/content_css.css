@@ -6,7 +6,7 @@ a{
   text-decoration: none;
 }
 .contain-sec {
-  padding-top: 50px;
+  padding-top: 0px;
   display: grid;
   width: 100%;
   grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
@@ -85,7 +85,7 @@ a{
   color: white;
   width: 100%;
   position: fixed;
-  bottom: 70px;
+  bottom: 106px;
   text-align: center;
 }
 .step-links{

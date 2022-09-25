@@ -5,13 +5,7 @@ body{
 img{
     width: 500px!important;
 }
-.list_detail{
-    padding-top: 80px;
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-    top: 0;
-}
+
 
 .list_detail h3{
     font-size: 26px;
