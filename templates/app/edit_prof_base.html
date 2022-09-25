@@ -30,21 +30,17 @@
   @keyframes slideIn{
     0%{
         transform: translateX(-100%);
-        -webkit-filter: blur(6px);
     }
     100%{
         transform: translateX(0);
-        -webkit-filter: blur(0px);
     }
   }
   @keyframes slideInrev{
     0%{
         transform: translateX(100%);
-        -webkit-filter: blur(6px);
     }
     100%{
         transform: translateX(0);
-        -webkit-filter: blur(0px);
     }
   }
   .edit_prof .sidebar{
@@ -122,6 +118,9 @@
   .about_us_cont{
     font-size: 8px;
   }
+  .editdoc-prof{
+    display: none;
+  }
   @media only screen and (max-width: 900px) {
     .edit_prof .sidebar{
       display: none;
@@ -130,6 +129,7 @@
       width: 100vw;
     }
     .editdoc-prof{
+      animation: 300ms ease-in-out 0s 1 slideup;
       display: flex;
       flex-direction: row;
       justify-content: space-evenly;
