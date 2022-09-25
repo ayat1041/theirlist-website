@@ -9,6 +9,7 @@ urlpatterns = [
     path('chat_room/',views.Chat.as_view(),name='chat'),
     path('about-us/',views.AboutUs.as_view(),name='about_us'),
     path('edit-profile/',views.EditProfile.as_view(),name='edit_profile'),
+    path('userposts/',views.userpost,name='userposts'),
     # path('about-us/',login_required(views.AboutUs.as_view()),name='about_us'),
     path('feedback/',views.Feedback.as_view(),name='feedback'),
     path('guidelines/',views.Guidelines.as_view(),name='guidelines'),
