@@ -24,14 +24,14 @@
     <nav class="nav">
       <div class="logo"></div>
       <style>
-        .logo{
+        {% comment %} .logo{
           background: url("{% static 'app/images/logo.svg' %}") no-repeat;
       }
         @media only screen and (max-width: 900px) {
           .logo{
             background: url("{% static 'app/images/logo-small.svg' %}") no-repeat;
         }
-        }
+        } {% endcomment %}
       </style>
       <div class="wrap">     
         <form method="GET" action="{% url 'app:search' %}">
@@ -58,49 +58,13 @@
     <div class="nav-menu-list">
         <ul class="nav-main-op">
             <li>
-              <a href="{% url 'app:list' %}">Movies</a> <span class="nav-movie-expand"><img src="{% static 'app/images/dropdown.png' %}" alt=""></span>
-              <ul class="nav-movie-more">
-                <li><a href="{% url 'app:film' query="action" %}">Action</a></li>
-                <li><a href="{% url 'app:film' query="comedy" %}">Comedy</a></li>
-                <li><a href="{% url 'app:film' query="thriller" %}">Thriller</a></li>
-                <li><a href="{% url 'app:film' query="romance" %}">Romance</a></li>
-                <li><a href="{% url 'app:film' query="Drama" %}">Drama</a></li>
-                <li><a href="{% url 'app:film' query="Crime" %}">Crime</a></li>
-                <li><a href="{% url 'app:film' query="Horror" %}">Horror</a></li>
-                <li><a href="{% url 'app:film' query="classic" %}">Classic</a></li>
-                <li><a href="{% url 'app:film' query="mystery" %}">Mystery</a></li>
-                <li><a href="{% url 'app:film' query="adventure" %}">adventure</a></li>
-                <li><a href="{% url 'app:film' query="others" %}">Others</a></li>
-              </ul>
+              <a href="{% url 'app:list' %}">Movies</a>
             </li>
             <li>
-              <a href="{% url 'app:musiclist' %}">Music</a> <span class="nav-music-expand"><img src="{% static 'app/images/dropdown.png' %}" alt=""></span>
-              <ul class="nav-music-more">
-                <li><a href="{% url 'app:music' query="rock" %}">Rock</a></li>
-                <li><a href="{% url 'app:music' query="pop" %}">Pop</a></li>
-                <li><a href="{% url 'app:music' query="classic" %}">Classic</a></li>
-                <li><a href="{% url 'app:music' query="folk" %}">Folk</a></li>
-                <li><a href="{% url 'app:music' query="jazz" %}">Jazz</a></li>
-                <li><a href="{% url 'app:music' query="rap" %}">Rap</a></li>
-                <li><a href="{% url 'app:music' query="80s" %}">80s</a></li>
-                <li><a href="{% url 'app:music' query="metal" %}">Metal</a></li>
-                <li><a href="{% url 'app:music' query="others" %}">Others</a></li>
-              </ul>
+              <a href="{% url 'app:musiclist' %}">Music</a>
             </li>
             <li>
-              <a href="{% url 'app:booklist' %}">Books</a> <span class="nav-book-expand"><img src="{% static 'app/images/dropdown.png' %}" alt=""></span>
-              <ul class="nav-book-more">
-                <li><a href="{% url 'app:book' query="action" %}">Action</a></li>
-                <li><a href="{% url 'app:book' query="comedy" %}">Comedy</a></li>
-                <li><a href="{% url 'app:book' query="thriller" %}">Thriller</a></li>
-                <li><a href="{% url 'app:book' query="romance" %}">Romance</a></li>
-                <li><a href="{% url 'app:book' query="drama" %}">Drama</a></li>
-                <li><a href="{% url 'app:book' query="crime" %}">Crime</a></li>
-                <li><a href="{% url 'app:book' query="horror" %}">Horror</a></li>
-                <li><a href="{% url 'app:book' query="classic" %}">Classic</a></li>
-                <li><a href="{% url 'app:book' query="mystery" %}">Mystery</a></li>
-                <li><a href="{% url 'app:book' query="others" %}">Others</a></li>
-              </ul>
+              <a href="{% url 'app:booklist' %}">Books</a>
             </li>
           </ul>
       </div>
@@ -108,6 +72,24 @@
         <div class="menu-btn__burger"></div>
       </div>
     </nav>
+
+
+
+
+
+    {% comment %} nav-menu-options {% endcomment %}
+    <div class="nav-sub-menu-container">
+      <div class="movie"></div>
+      <div class="music"></div>
+      <div class="book"></div>
+    </div>
+
+
+
+
+
+
+
     <div class="submenu">
       <ul class="main-op">
         <li>

@@ -61,14 +61,17 @@ menuBtn.addEventListener('click', () => {
   if(!menuOpen) {
     menuBtn.classList.add('open');
     menuOpen = true;
-    subMenu.style.marginTop = "40px";
+    subMenu.style.bottom = "76px";
     subMenu.style.transition = "all 250ms ease-in-out";
     document.body.scrollTop = 0;
     // document.documentElement.scrollTop = 0;
   } else {
     menuBtn.classList.remove('open');
     menuOpen = false;
-    subMenu.style.marginTop = "-600px";
+    subMenu.style.bottom = "-60px";
+    movieMore.style.display = "none";
+    musicMore.style.display = "none";
+    bookMore.style.display = "none";
     subMenu.style.transition = "all 250ms ease-in-out";
   }
 });
@@ -118,46 +121,3 @@ musicExpand.addEventListener('click', () =>{
 
 
 // desktop menu functions
-
-navmovieExpand.addEventListener('click', () =>{
-  if(!navmovieExpandOpen){
-    navmovieMore.style.display = "block";
-    navmusicMore.style.display = "none";
-    navbookMore.style.display = "none";
-    navmovieExpandOpen = true;
-    navmovieMore.style.transition = "all 250ms ease-in-out";
-  }
-  else{
-    navmovieMore.style.display = "none";
-    navmovieExpandOpen = false;
-    navmovieMore.style.transition = "all 250ms ease-in-out";
-  }
-});
-navbookExpand.addEventListener('click', () =>{
-  if(!navbookExpandOpen){
-    navbookMore.style.display = "block";
-    navmovieMore.style.display = "none";
-    navmusicMore.style.display = "none";
-    navbookExpandOpen = true;
-    navbookMore.style.transition = "all 250ms ease-in-out";
-  }
-  else{
-    navbookMore.style.display = "none";
-    navbookExpandOpen = false;
-    navbookMore.style.transition = "all 250ms ease-in-out";
-  }
-});
-navmusicExpand.addEventListener('click', () =>{
-  if(!navmusicExpandOpen){
-    navmusicMore.style.display = "block";
-    navbookMore.style.display = "none";
-    navmovieMore.style.display = "none";
-    navmusicExpandOpen = true;
-    navmusicMore.style.transition = "all 250ms ease-in-out";
-  }
-  else{
-    navmusicMore.style.display = "none";
-    navmusicExpandOpen = false;
-    navmusicMore.style.transition = "all 250ms ease-in-out";
-  }
-});

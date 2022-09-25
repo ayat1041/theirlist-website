@@ -2,12 +2,14 @@
 {% block content %}
 
 <style>
+
     .listform{
         display: flex;
         flex-wrap: wrap;
         color: white;
         flex-direction: column;
-        padding: 60px 4%;
+        padding: 40px 4%;
+        padding-bottom: 80px;
         align-items: center;
         {% comment %} background-color: blueviolet; {% endcomment %}
     }
@@ -44,6 +46,9 @@
     @media only screen and (max-width: 900px) {
         .listform .goodwords{
             font-size: 10px;
+        }
+        .listform .title-det{
+            font-size: 18px;
         }
     }
     .listform input{
