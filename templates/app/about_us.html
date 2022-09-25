@@ -1,6 +1,15 @@
 {% extends "index.html" %} {% load static %} {% block content %}
 <style>
+  @keyframes slideIn{
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+  }
   .about_us {
+    animation: 250ms ease-out 0s 1 slideIn;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;

@@ -1,0 +1,159 @@
+{% extends "index.html" %} {% load static %} {% block content %}
+<style>
+  .about_us {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: max-content;
+    width: 100vw;
+    max-width: 100%;
+    {% comment %} background-color: red; {% endcomment %}
+    padding: 80px 14vw;
+    padding-top: 60px;
+  }
+  .edit_prof{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    {% comment %} justify-content: center; {% endcomment %}
+    align-items: center;
+    height: max-content;
+    width: 100vw;
+    max-width: 100%;
+    {% comment %} background-color: red; {% endcomment %}
+    padding: 0 0;
+    padding-top: 54px;
+  }
+  @keyframes slideIn{
+    0%{
+        transform: translateX(-100%);
+        -webkit-filter: blur(6px);
+    }
+    80%{
+        -webkit-filter: blur(3px);
+    }
+    100%{
+        transform: translateX(0);
+        -webkit-filter: blur(0px);
+    }
+  }
+  .edit_prof .sidebar{
+    animation: 250ms ease-out 0s 1 slideIn;
+    display : flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 85vh;
+    width: 250px;
+    background-color: #0099cc14;
+  }
+  .sidebar .profile-image{
+    align-self: center;
+    display: flex;
+    margin-top: 4vh;
+    width: 100%;
+    position: relative;
+    background-color: #1f1f2e60;
+
+  }
+  .sidebar .profile-image img{
+    align-self: center;
+    margin: auto;
+    height: 106px;
+    width: 106px;
+    border-radius: 4%;
+  }
+  .sidebar .options{
+    align-self: center;
+    margin-top: 3vh;
+    text-align: center;
+  }
+  .sidebar .options .logout{
+    color: var(--rd);
+    font-weight: bold;
+  }
+  .sidebar .options a{
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 300;
+    color: white;
+    transition: all 250ms ease-in-out;
+    line-height: 34px;
+  }
+  .sidebar .options a:hover{
+    color: #AADB1E;
+  }
+  .user_set_name{
+    font-size: 16px!important;
+    color: black!important;
+    font-weight: bolder!important;
+    background-color: var(--rd)!important;
+    padding: 4px 6px!important;
+    border-radius: 2px!important;
+  }
+  .about_us h1 {
+    color: white;
+    font-weight: 100;
+  }
+  .about_us_img img {
+    height: 20vw;
+  }
+  .about_us_cont{
+    font-size: 8px;
+  }
+</style>
+{% comment %} <div class="about_us">
+  <div class="about_us_img">
+    <img src="{% static 'app/images/logo_no_motto.svg' %}" />
+  </div>
+  <div class="about_us_cont">
+    <h1>
+      Theirlist is a website where you get suggesitions of Movie, Book, Music as
+      lists.<br />
+      How to know if they are followable? Just check the ratings if the other
+      users liked it enough or not.
+      <br /><br />
+      Here is all the features we have for you _<br /><br />
+      <ul>
+        <li>
+          <p>
+            Create/Delete/Update the list of your own (requires signing up).
+          </p>
+        </li>
+        <li><p>Add/view list in 3 separate categories.</p></li>
+        <li><p>Every categories as their own genre sets.</p></li>
+        <li>
+          <p>
+            To keep the quality pure we use rating systems. So rate lists and
+            check others lists rating reviews.
+          </p>
+        </li>
+        <li><p>Write a review (comments)</p></li>
+        <li><p>Search!</p></li>
+        <li>
+          <p>Chat with other users regarding any movies, books, music.</p>
+        </li>
+        <li><p>User profile.</p></li>
+      </ul>
+    </h1>
+  </div>
+</div> {% endcomment %}
+<div class="edit_prof">
+    <div class = "sidebar">
+        <div class="profile-image"><img src="{% static 'app/images/pro-pic.jpg' %}"></div>
+        <div class="options">
+            <a class="user_set_name">Pietro Martinez</a><br>
+            <a href="">Karma</a><br>
+            <a href="">General</a><br>
+            <a href="">Album</a><br>
+            <a href="">Posts</a><br>
+            <a href="">Comments</a><br>
+            <a href="">Likes</a><br>
+            <a href="">Following</a><br>
+            <a href="">Settings</a><br>
+            <a href="" class="logout">logout</a><br>
+        </div>
+    </div>
+</div>
+{% endblock content %}

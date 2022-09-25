@@ -13,8 +13,21 @@
     color: white;
     font-weight: bold;
   }
+  @keyframes slideIn{
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+  }
+  .resssssult{
+    animation: 250ms ease-in-out 0s 1 slideIn;
+  }
+  
+    
 </style>
-<section>
+<section class="resssssult">
     <div class="contain-sec" id="contain-sec">
       {% if allPosts|length < 1 %}
       <p class="search_none">We dont have anything like <strong>{{query}}</strong> <span> :(</span><p>

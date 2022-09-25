@@ -13,8 +13,19 @@
 body{
     color: azure;
 }
-
+@keyframes slideIn{
+    0%{
+        transform: translateX(-100%);
+        -webkit-filter: blur(6px);
+    }
+    100%{
+        transform: translateX(0);
+        -webkit-filter: blur(0);
+    }
+  }
+    
 .list_detail{
+    animation: 250ms ease-in-out 0s 1 slideIn;
     padding-top: 80px;
     position: absolute;
     width: 100%;

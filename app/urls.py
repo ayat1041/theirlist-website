@@ -1,12 +1,15 @@
 from django.urls import path
 from . import views
 from .views import BookListUpdateView,MusicListUpdateView,ListUpdateView,MusicListDeleteView,BookListDeleteView,TheirListView,TheirDetailView,ListCreateView,ListDeleteView,TheirListMusicView,TheirListBookView,TheirDetailBookView,TheirDetailMusicView,ListCreateBookView,ListCreateMusicView
+from django.contrib.auth.decorators import login_required
 
 app_name = "app"
 
 urlpatterns = [
     path('chat_room/',views.Chat.as_view(),name='chat'),
     path('about-us/',views.AboutUs.as_view(),name='about_us'),
+    path('edit-profile/',views.EditProfile.as_view(),name='edit_profile'),
+    # path('about-us/',login_required(views.AboutUs.as_view()),name='about_us'),
     path('feedback/',views.Feedback.as_view(),name='feedback'),
     path('guidelines/',views.Guidelines.as_view(),name='guidelines'),
     path('', views.HomeView.as_view(),name='home'),
@@ -33,5 +36,6 @@ urlpatterns = [
     path('book/',views.book, name='book'),
     path('book/<str:query>',views.book, name='book'),
     path('all',views.all, name='all'),
+    
 
 ]

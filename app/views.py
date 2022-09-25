@@ -5,13 +5,20 @@ from django.views.generic import UpdateView,TemplateView,ListView,DetailView,Cre
 from django.core.paginator import Paginator
 from datetime import timedelta
 from django.utils import timezone
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 # Create your views here.
 
 class HomeView(TemplateView):
     template_name = 'index.html'
 
-class AboutUs(TemplateView):
+class EditProfile(TemplateView):
+    template_name = 'app/edit_profile.html'
+
+class AboutUs(LoginRequiredMixin, TemplateView):
     template_name = 'app/about_us.html'
+    login_url = "login"
+    redirect_field_name = 'redirect_to'
 
 class Chat(TemplateView):
     template_name = 'app/chat_room.html'
