@@ -73,6 +73,7 @@
     #myBtn img{
         height: 30px;
         width: 30px;
+        bottom: 74px;
         position: fixed;
     }
     .wrap{
@@ -86,11 +87,6 @@
     }
     .fout .foot-copy small{
         font-size: 12px;
-    }
-    #myBtn img{
-        height: 30px;
-        width: 30px;
-        
     }
 
 }
