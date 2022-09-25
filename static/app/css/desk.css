@@ -166,7 +166,7 @@ body{
 .nav-main-op a {
     margin: 0 12px;
     text-decoration: none;
-    color: #FFFFFF92;
+    color: #FFFFFF96;
     font-size: 18px;
     transition: all 250ms ease-in-out;
 }
@@ -177,7 +177,7 @@ body{
     font-size: 18px;
     list-style: none;
     margin: 8px auto;
-    color: #FFFFFF92;
+    color: #FFFFFF96;
     cursor: pointer;
 }
 
