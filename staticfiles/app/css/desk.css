@@ -40,6 +40,7 @@
     outline: 0;
     outline: none;
 }
+
 body{
     background-color: #121212;
     height: 100vh;
@@ -165,7 +166,7 @@ body{
 .nav-main-op a {
     margin: 0 12px;
     text-decoration: none;
-    color: white;
+    color: #FFFFFF92;
     font-size: 18px;
     transition: all 250ms ease-in-out;
 }
@@ -176,7 +177,7 @@ body{
     font-size: 18px;
     list-style: none;
     margin: 8px auto;
-    color: white;
+    color: #FFFFFF92;
     cursor: pointer;
 }
 
@@ -222,7 +223,24 @@ body{
 
 
 /* doc */
+@keyframes slideup{
+    0%{
+        transform: translateY(100%);
+    }
+    100%{
+        transform: translateY(0);
+    }
+  }
+  @keyframes slidedown{
+    0%{
+        transform: translateY(-100%);
+    }
+    100%{
+        transform: translateY(0);
+    }
+  }
 .doc-bar{
+    /* animation: 250ms ease-out 0s 1 slideup; */
     position: fixed;
     display: flex;
     flex-wrap: wrap;

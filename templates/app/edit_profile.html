@@ -24,15 +24,12 @@
     max-width: 100%;
     {% comment %} background-color: red; {% endcomment %}
     padding: 0 0;
-    padding-top: 54px;
+    padding-top: 52px;
   }
   @keyframes slideIn{
     0%{
         transform: translateX(-100%);
         -webkit-filter: blur(6px);
-    }
-    80%{
-        -webkit-filter: blur(3px);
     }
     100%{
         transform: translateX(0);
@@ -40,11 +37,11 @@
     }
   }
   .edit_prof .sidebar{
-    animation: 250ms ease-out 0s 1 slideIn;
+    animation: 250ms ease-in-out 0s 1 slideIn;
     display : flex;
     flex-wrap: wrap;
     flex-direction: column;
-    height: 85vh;
+    height: 90vh;
     width: 250px;
     background-color: #0099cc14;
   }
@@ -54,7 +51,6 @@
     margin-top: 4vh;
     width: 100%;
     position: relative;
-    background-color: #1f1f2e60;
 
   }
   .sidebar .profile-image img{
@@ -63,6 +59,11 @@
     height: 106px;
     width: 106px;
     border-radius: 4%;
+    transition: all 150ms ease-in-out;
+  }
+  .sidebar .profile-image img:hover{
+    border: 1px solid red;
+
   }
   .sidebar .options{
     align-self: center;

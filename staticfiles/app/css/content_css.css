@@ -20,7 +20,8 @@ a{
   /* height: 200px; */
   padding: 10px 14px;
   width: auto;
-  background-color: rgb(37, 37, 37);
+  /* background-color: rgb(37, 37, 37); */
+  background-color: #0099cc14;
   margin: 4px;
   border-radius: 0px;
   position: relative;
