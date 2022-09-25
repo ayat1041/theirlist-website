@@ -22,7 +22,7 @@
     height: max-content;
     width: 100vw;
     max-width: 100%;
-    background-color: #0099cc20;
+    {% comment %} background-color: #0099cc20; {% endcomment %}
     padding: 0 0;
     padding-top: 52px;
   }
@@ -172,12 +172,10 @@
         <div class="profile-image"><img src="{% static 'app/images/pro-pic.jpg' %}"></div>
         <div class="options">
             <a class="user_set_name">{{user.username}}</a><br>
-            <a href="">Karma</a><br>
             <a href="{% url 'app:edit_profile' %}">General</a><br>
-            <a href="">Album</a><br>
             <a href="{% url 'app:userposts' %}">Posts</a><br>
             <a href="">Comments</a><br>
-            <a href="">Likes</a><br>
+            <a href="">Rated posts</a><br>
             <a href="">Following</a><br>
             <a href="">Settings</a><br>
             <a href="{% url 'logout' %}" class="logout">logout</a><br>
