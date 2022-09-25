@@ -27,7 +27,7 @@
   margin-right: 32vw;
 }
 .options-general-ans h4 form button{
-  padding: 2px 4px;
+  padding: 2px 12px;
   cursor: pointer;
   background-color: #D1000087;
   margin-left: 6px;
@@ -60,6 +60,19 @@
 .options-general-ans h2,.options-general h4{
   color: white!important;
 }
+@media only screen and (max-width: 900px) {
+  .edit_prof{
+    justify-content: space-between;
+  }
+  .options-general-ans {
+    margin-right: 0vw;
+    width: 36px;
+  }
+  .options-general {
+    margin-right: 0vw;
+    width: 116px;
+  }
+}
 
 
 </style>
@@ -83,9 +96,11 @@
     </h4>
     <h4>
       <form>
+        <div>
       <input type="text" name="changeusername" id="change-username" placeholder="{{user.username}}"/>
       <button type="submit">Change</button>
       </form>
+        </div>
     </h4>
     <h4>{{user.username}}</h4>
     <h4>******</h4>
