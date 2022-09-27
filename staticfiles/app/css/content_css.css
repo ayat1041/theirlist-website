@@ -62,9 +62,12 @@ a{
   right: 0;
   cursor: pointer;
   font-size: 10px;
+  font-family: 'Poppins', sans-serif;
+
 }
 .rating{
   color: rgb(190, 190, 0);
+  font-family: 'Poppins', sans-serif;
 }
 .Genre{
   margin: 0px 0px;
@@ -76,6 +79,7 @@ a{
   width: max-content;
   cursor: pointer;
   display: inline-block;
+  font-family: 'Poppins', sans-serif;
   transition: all 350ms ease-in-out;
 }
 .Genre:hover{

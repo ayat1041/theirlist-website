@@ -18,30 +18,34 @@
         display: flex;
         justify-content: center;
         background-color: red;
-        padding: 0px 4px;
+        padding: 4px 4px;
         margin: 4px 0px;
         text-align: center;
         height: max-content!important;
         font-weight: lighter;
         {% comment %} z-index: 10; {% endcomment %}
     }
+
     .minimize img{
-        height: 28px;
+        height: 22px;
         position: absolute;
         right: 6px;
         cursor: pointer;
     }
     .headline-top{
         background-color: #FFEA0490;
-        padding: 0px 4px;
+        {% comment %} padding: 0px 4px;
         margin: 4px 0px;
         text-align: center;
         height: 40px;
-        {% comment %} position: absolute; {% endcomment %}
+        position: absolute;
         left: 0;
         right: 0;
-        margin-top: 2px;
+        margin-top: 2px; {% endcomment %}
     }
+    {% comment %} .head-cont-all{
+        margin: 2px 0px;
+    } {% endcomment %}
     .headline-middle{
         background-color: #FF450090;
     }
@@ -89,7 +93,7 @@
 {% comment %} <div id="preloader"></div> {% endcomment %}
 <div class = "poster"><img src="{% static 'app/images/poster.jpg' %}" alt=""></div>
 <section>
-  <div class="headline headline-top"><h1 class="headline-all">Movie & series</h1><span class="minimize" id="topmini"><img src="{% static 'app/images/minimize.png' %}" id="miniimg" alt=""></span></div>
+  <div class="headline headline-top"><div class="head-cont-all" ><h1 class="headline-all">Movie & series</h1></div><div class = "minimax-cont"><span class="minimize" id="topmini"><img src="{% static 'app/images/minimize.png' %}" id="miniimg" alt=""></span></div></div>
   <div class="contain-sec movie-contain main-sec" id="contain-sec">
     {% for lola in allPosts %}
     <div class="elements">
@@ -126,7 +130,7 @@
     </div>
     {% endfor %}
   </div>
-  <div class="headline headline-middle"><h1 class="headline-all">Music</h1><span class="minimize" id="centmini"><img src="{% static 'app/images/minimize.png' %}" id="miniimg2" alt=""></div>
+  <div class="headline headline-middle"><div class="head-cont-all" ><h1 class="headline-all">Music</h1></div><div class = "minimax-cont"><span class="minimize" id="centmini"><img src="{% static 'app/images/minimize.png' %}" id="miniimg2" alt=""></span></div></div>
   <div class="contain-sec music-contain main-sec2" id="contain-sec2">
     {% for lola in allPostsmusic %}
     <div class="elements">
@@ -163,7 +167,7 @@
     </div>
     {% endfor %}
   </div>
-  <div class="headline headline-bottom"><h1 class="headline-all">Book</h1><span class="minimize" id="bottommini"><img src="{% static 'app/images/minimize.png' %}" id="miniimg3" alt=""></div>
+  <div class="headline headline-bottom"><div class="head-cont-all" ><h1 class="headline-all">Book</h1></div><div class = "minimax-cont"><span class="minimize" id="bottommini"><img src="{% static 'app/images/minimize.png' %}" id="miniimg3" alt=""></span></div></div>
   <div class="contain-sec book-contain main-sec3" id="contain-sec3">
     {% for lola in allPostsbook %}
     <div class="elements">

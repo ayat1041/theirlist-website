@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Roboto:400');
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
 ::-webkit-scrollbar {
     width: 4px;
@@ -35,7 +36,7 @@
     padding: 0;
     box-sizing: border-box;
     /* font-family: 'Poppins', sans-serif; */
-    font-family: 'Roboto', sans-serif;
+    /* font-family: 'Roboto', sans-serif; */
 }
 *:focus{
     outline: 0;
@@ -48,6 +49,8 @@ body{
     height: 100vh;
     display: flex;
     flex-direction: column;
+    font-family: 'Raleway', sans-serif;
+
 }
 .nav {
     position: fixed;
@@ -141,7 +144,7 @@ body{
     right: 0;
     /* background-color: black; */
     margin-top: 0px;
-    z-index: 1;
+    z-index: 9;
 }
 
 
@@ -166,7 +169,7 @@ body{
 .nav-main-op{
     display: flex;
     flex-direction: row;
-    margin-right: 60px;
+    margin-right: 32px;
 }
 .nav-main-op ul{
     text-decoration: none;
@@ -204,8 +207,8 @@ body{
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: flex-end;
-    /* background-color: #D10000; */
-    width: max-content;
+    background-color: #D10000;
+    width: 300px;
     height: max-content;
     position: fixed;
     bottom: 90px;
@@ -213,7 +216,7 @@ body{
     z-index: 100;
 }
 .nav-sub-menu-container .movie, .nav-sub-menu-container .music, .nav-sub-menu-container .book{
-    display: none;
+    display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     width: 100px;
@@ -222,6 +225,7 @@ body{
     background-color: #c04600;
     border-radius: 4px;
     text-align: center;
+    position: fixed;
 }
 .nav-sub-menu-container .movie a, .nav-sub-menu-container .music a, .nav-sub-menu-container .book a{
     text-decoration: none;
@@ -235,11 +239,24 @@ body{
     color: rgb(48, 48, 48);
 }
 
+.nav-sub-menu-container .movie{
+    display: none;
+    margin-left: 12px;
+}
 .nav-sub-menu-container .music{
+    display: none;
+    margin-left: 100px;
+
 }
 .nav-sub-menu-container .book{
+    display: none;
+    margin-left: 182px;
+
 }
 
+/* .nav-sub-menu-container .movie .movie-nav-more, .nav-sub-menu-container .music .music-nav-more, .nav-sub-menu-container .book .book-nav-more{
+    position: absolute;
+} */
 
 
 
@@ -529,3 +546,8 @@ li a .login_sub{
     border: 0.01rem solid #ffffff0d;
     width: 130%;
 }
+
+.search_none{
+    padding: 20px 20px;
+}
+
