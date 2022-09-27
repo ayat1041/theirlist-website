@@ -25,9 +25,9 @@
         font-weight: lighter;
         {% comment %} z-index: 10; {% endcomment %}
     }
-
+    
     .minimize img{
-        height: 22px;
+        height: 28px;
         position: absolute;
         right: 6px;
         cursor: pointer;
@@ -93,7 +93,7 @@
 {% comment %} <div id="preloader"></div> {% endcomment %}
 <div class = "poster"><img src="{% static 'app/images/poster.jpg' %}" alt=""></div>
 <section>
-  <div class="headline headline-top"><div class="head-cont-all" ><h1 class="headline-all">Movie & series</h1></div><div class = "minimax-cont"><span class="minimize" id="topmini"><img src="{% static 'app/images/minimize.png' %}" id="miniimg" alt=""></span></div></div>
+  <div class="headline headline-top"><div class="head-cont-all" ><h1 class="headline-all">Movie & series</h1></div><span class="minimize" id="topmini"><img src="{% static 'app/images/minimize.png' %}" id="miniimg" alt=""></span></div>
   <div class="contain-sec movie-contain main-sec" id="contain-sec">
     {% for lola in allPosts %}
     <div class="elements">
@@ -101,7 +101,7 @@
         <img src="{% static 'app/images/movie-poster.jpg' %}" width="100px" />
       </div>
       <div class="Title">
-        <a href="list/{{lola.slug}}/"><h4 class="tit">{{lola.title}}</h4></a>
+        <a href="{% url 'app:list_detail' lola.slug %}"><h4 class="tit">{{lola.title}}</h4></a>
         {% if user.id == lola.creator.id %}
         <a href="{% url 'app:delete_movie' lola.slug %}"><img src ="{% static 'app/images/delete.png' %}"></a>
         <a href="{% url 'app:update_list' lola.slug %}"><img src ="{% static 'app/images/edit.png' %}"></a>
@@ -130,7 +130,7 @@
     </div>
     {% endfor %}
   </div>
-  <div class="headline headline-middle"><div class="head-cont-all" ><h1 class="headline-all">Music</h1></div><div class = "minimax-cont"><span class="minimize" id="centmini"><img src="{% static 'app/images/minimize.png' %}" id="miniimg2" alt=""></span></div></div>
+  <div class="headline headline-middle"><div class="head-cont-all" ><h1 class="headline-all">Music</h1></div><span class="minimize" id="centmini"><img src="{% static 'app/images/minimize.png' %}" id="miniimg2" alt=""></span></div>
   <div class="contain-sec music-contain main-sec2" id="contain-sec2">
     {% for lola in allPostsmusic %}
     <div class="elements">
@@ -138,7 +138,7 @@
         <img src="{% static 'app/images/music-poster.jpg' %}" width="100px" />
       </div>
       <div class="Title">
-        <a href="musiclist/{{lola.slug}}/"><h4 class="tit">{{lola.title}}</h4></a>
+        <a href="{% url 'app:musiclist_detail' lola.slug %}"><h4 class="tit">{{lola.title}}</h4></a>
         {% if user.id == lola.creator.id %}
         <a href="{% url 'app:delete_music' lola.slug %}"><img src ="{% static 'app/images/delete.png' %}"></a>
         <a href="{% url 'app:update_musiclist' lola.slug %}"><img src ="{% static 'app/images/edit.png' %}"></a>
@@ -167,7 +167,7 @@
     </div>
     {% endfor %}
   </div>
-  <div class="headline headline-bottom"><div class="head-cont-all" ><h1 class="headline-all">Book</h1></div><div class = "minimax-cont"><span class="minimize" id="bottommini"><img src="{% static 'app/images/minimize.png' %}" id="miniimg3" alt=""></span></div></div>
+  <div class="headline headline-bottom"><div class="head-cont-all" ><h1 class="headline-all">Book</h1></div><span class="minimize" id="bottommini"><img src="{% static 'app/images/minimize.png' %}" id="miniimg3" alt=""></span></div>
   <div class="contain-sec book-contain main-sec3" id="contain-sec3">
     {% for lola in allPostsbook %}
     <div class="elements">
@@ -175,7 +175,7 @@
         <img src="{% static 'app/images/book-poster.jpg' %}" width="100px" />
       </div>
       <div class="Title">
-        <a href="booklist/{{lola.slug}}/"><h4 class="tit">{{lola.title}}</h4></a>
+        <a href="{% url 'app:booklist_detail' lola.slug %}"><h4 class="tit">{{lola.title}}</h4></a>
         {% if user.id == lola.creator.id %}
         <a href="{% url 'app:delete_book' lola.slug %}"><img src ="{% static 'app/images/delete.png' %}"></a>
         <a href="{% url 'app:update_booklist' lola.slug %}"><img src ="{% static 'app/images/edit.png' %}"></a>
