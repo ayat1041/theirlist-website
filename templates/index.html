@@ -58,13 +58,13 @@
     <div class="nav-menu-list">
         <ul class="nav-main-op">
             <li>
-              <a href="{% url 'app:list' %}">Movies</a>
+              <a href="{% url 'app:list' %}">Movies</a><span class="nav-movie-expand"><img src="{% static 'app/images/dropdown.png' %}" alt=""></span>
             </li>
             <li>
-              <a href="{% url 'app:musiclist' %}">Music</a>
+              <a href="{% url 'app:musiclist' %}">Music</a><span class="nav-music-expand"><img src="{% static 'app/images/dropdown.png' %}" alt=""></span>
             </li>
             <li>
-              <a href="{% url 'app:booklist' %}">Books</a>
+              <a href="{% url 'app:booklist' %}">Books</a><span class="nav-book-expand"><img src="{% static 'app/images/dropdown.png' %}" alt=""></span>
             </li>
           </ul>
       </div>
@@ -74,13 +74,9 @@
     </nav>
 
 
-
-
-
-    {% comment %} nav-menu-options {% endcomment %}
     <div class="nav-sub-menu-container">
-      <div class="movie">
-        <ul class="movie-nav-more">
+      <div class="movie" id="movie-disp">
+        <div class="movie-nav-more">
           <a href="{% url 'app:film' query="action" %}">Action</a>
           <a href="{% url 'app:film' query="comedy" %}">Comedy</a>
           <a href="{% url 'app:film' query="thriller" %}">Thriller</a>
@@ -92,10 +88,10 @@
           <a href="{% url 'app:film' query="mystery" %}">Mystery</a>
           <a href="{% url 'app:film' query="adventure" %}">adventure</a>
           <a href="{% url 'app:film' query="others" %}">Others</a>
-        </ul>
+        </div>
       </div>
-      <div class="music">
-        <ul class="music-nav-more">
+      <div class="music" id="music-disp">
+        <div class="music-nav-more">
           <a href="{% url 'app:music' query="rock" %}">Rock</a>
           <a href="{% url 'app:music' query="pop" %}">Pop</a>
           <a href="{% url 'app:music' query="classic" %}">Classic</a>
@@ -105,10 +101,10 @@
           <a href="{% url 'app:music' query="80s" %}">80s</a>
           <a href="{% url 'app:music' query="metal" %}">Metal</a>
           <a href="{% url 'app:music' query="others" %}">Others</a>
-        </ul>
+        </div>
       </div>
-      <div class="book">
-        <ul class="book-nav-more">
+      <div class="book" id="book-disp">
+        <div class="book-nav-more">
           <a href="{% url 'app:book' query="action" %}">Action</a>
           <a href="{% url 'app:book' query="comedy" %}">Comedy</a>
           <a href="{% url 'app:book' query="thriller" %}">Thriller</a>
@@ -119,7 +115,7 @@
           <a href="{% url 'app:book' query="classic" %}">Classic</a>
           <a href="{% url 'app:book' query="mystery" %}">Mystery</a>
           <a href="{% url 'app:book' query="others" %}">Others</a>
-        </ul>
+        </div>
       </div>
     </div>
 

@@ -6,11 +6,11 @@ const bookMore = document.querySelector('.book-more');
 const bookExpand = document.querySelector('.book-expand');
 const musicMore = document.querySelector('.music-more');
 const musicExpand = document.querySelector('.music-expand');
-const navmovieMore = document.querySelector('.nav-movie-more');
+const navmovieMore = document.querySelector('#movie-disp');
 const navmovieExpand = document.querySelector('.nav-movie-expand');
-const navbookMore = document.querySelector('.nav-book-more');
+const navbookMore = document.querySelector('#book-disp');
 const navbookExpand = document.querySelector('.nav-book-expand');
-const navmusicMore = document.querySelector('.nav-music-more');
+const navmusicMore = document.querySelector('#music-disp');
 const navmusicExpand = document.querySelector('.nav-music-expand');
 const userdoclogo = document.querySelector('.user-doc-logo');
 const userdocmenu = document.querySelector('.login-sub-menu');
@@ -122,45 +122,45 @@ musicExpand.addEventListener('click', () =>{
 
 // desktop menu functions
 
-// navmovieExpand.addEventListener('click', () =>{
-//   if(!navmovieExpandOpen){
-//     navmovieMore.style.display = "block";
-//     navmusicMore.style.display = "none";
-//     navbookMore.style.display = "none";
-//     navmovieExpandOpen = true;
-//     navmovieMore.style.transition = "all 250ms ease-in-out";
-//   }
-//   else{
-//     navmovieMore.style.display = "none";
-//     navmovieExpandOpen = false;
-//     navmovieMore.style.transition = "all 250ms ease-in-out";
-//   }
-// });
-// navbookExpand.addEventListener('click', () =>{
-//   if(!navbookExpandOpen){
-//     navbookMore.style.display = "block";
-//     navmovieMore.style.display = "none";
-//     navmusicMore.style.display = "none";
-//     navbookExpandOpen = true;
-//     navbookMore.style.transition = "all 250ms ease-in-out";
-//   }
-//   else{
-//     navbookMore.style.display = "none";
-//     navbookExpandOpen = false;
-//     navbookMore.style.transition = "all 250ms ease-in-out";
-//   }
-// });
-// navmusicExpand.addEventListener('click', () =>{
-//   if(!navmusicExpandOpen){
-//     navmusicMore.style.display = "block";
-//     navbookMore.style.display = "none";
-//     navmovieMore.style.display = "none";
-//     navmusicExpandOpen = true;
-//     navmusicMore.style.transition = "all 250ms ease-in-out";
-//   }
-//   else{
-//     navmusicMore.style.display = "none";
-//     navmusicExpandOpen = false;
-//     navmusicMore.style.transition = "all 250ms ease-in-out";
-//   }
-// });
+navmovieExpand.addEventListener('click', () =>{
+  if(!navmovieExpandOpen){
+    navmovieMore.style.display = "flex";
+    navmusicMore.style.display = "none";
+    navbookMore.style.display = "none";
+    navmovieExpandOpen = true;
+    navmovieMore.style.transition = "all 250ms ease-in-out";
+  }
+  else{
+    navmovieMore.style.display = "none";
+    navmovieExpandOpen = false;
+    navmovieMore.style.transition = "all 250ms ease-in-out";
+  }
+});
+navbookExpand.addEventListener('click', () =>{
+  if(!navbookExpandOpen){
+    navbookMore.style.display = "flex";
+    navmovieMore.style.display = "none";
+    navmusicMore.style.display = "none";
+    navbookExpandOpen = true;
+    navbookMore.style.transition = "all 250ms ease-in-out";
+  }
+  else{
+    navbookMore.style.display = "none";
+    navbookExpandOpen = false;
+    navbookMore.style.transition = "all 250ms ease-in-out";
+  }
+});
+navmusicExpand.addEventListener('click', () =>{
+  if(!navmusicExpandOpen){
+    navmusicMore.style.display = "flex";
+    navbookMore.style.display = "none";
+    navmovieMore.style.display = "none";
+    navmusicExpandOpen = true;
+    navmusicMore.style.transition = "all 250ms ease-in-out";
+  }
+  else{
+    navmusicMore.style.display = "none";
+    navmusicExpandOpen = false;
+    navmusicMore.style.transition = "all 250ms ease-in-out";
+  }
+});
