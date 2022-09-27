@@ -24,14 +24,14 @@
     <nav class="nav">
       <div class="logo"></div>
       <style>
-        {% comment %} .logo{
+        .logo{
           background: url("{% static 'app/images/logo.svg' %}") no-repeat;
       }
         @media only screen and (max-width: 900px) {
           .logo{
             background: url("{% static 'app/images/logo-small.svg' %}") no-repeat;
         }
-        } {% endcomment %}
+        }
       </style>
       <div class="wrap">     
         <form method="GET" action="{% url 'app:search' %}">
