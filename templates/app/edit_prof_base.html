@@ -16,7 +16,7 @@
   .edit_prof{
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
+    flex-direction: column;
     {% comment %} justify-content: center; {% endcomment %}
     align-items: flex-start;
     height: max-content;
@@ -47,27 +47,30 @@
     animation: 250ms ease-in-out 0s 1 slideIn;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
-    height: 90vh;
-    min-height: 500px;
-    width: 200px;
+    flex-direction: row;
+    height: max-content;
+    width: 100vw;
+    max-width: 100%;
     background-color: #0099cc14;
     position: relative;
   }
   .sidebar .profile-image{
-    align-self: center;
     display: flex;
-    margin-top: 4vh;
-    width: 100%;
+    flex-direction: column;
+    height: 120px;
+    margin: 8px 0;
+    {% comment %} background-color: red; {% endcomment %}
     position: relative;
-
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
   }
   .sidebar .profile-image img{
     align-self: center;
-    margin: auto;
-    height: 106px;
-    width: 106px;
-    border-radius: 4%;
+    margin: 0 28px;   
+    height: 86px;
+    width: 86px;
+    border-radius: 50%;
     cursor: pointer;
     transition: all 150ms ease-in-out;
   }
@@ -77,14 +80,13 @@
   }
   .sidebar .options{
     align-self: center;
-    margin-top: 3vh;
-    text-align: center;
-    position: absolute;
-    top: 128px;
-  }
-  .sidebar .options .logout{
-    color: #D1000087;
-    font-weight: bold;
+    width: 72vw;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    position: relative;
+    top: 12px;
   }
   .sidebar .options a{
     text-decoration: none;
@@ -92,18 +94,16 @@
     font-weight: 300;
     color: white;
     transition: all 250ms ease-in-out;
-    line-height: 34px;
   }
   .sidebar .options a:hover{
     color: #AADB1E;
   }
   .user_set_name{
-    font-size: 16px!important;
-    color: black!important;
-    font-weight: 800!important;
-    background-color: #D1000087!important;
-    padding: 4px 6px!important;
-    border-radius: 2px!important;
+    margin: 3px;
+    font-size: 16px;
+    font-family: cursive;
+    font-weight: 800;
+    color: bisque;
   }
 
   {% comment %} big-menu-user-sett {% endcomment %}
@@ -185,16 +185,14 @@
 </div> {% endcomment %}
 <div class="edit_prof">
     <div class = "sidebar">
-        <div class="profile-image"><img src="{% static 'app/images/pro-pic.jpg' %}"></div>
+        <div class="profile-image"><img src="{% static 'app/images/pro-pic.jpg' %}"><a class="user_set_name">//{{user.username}}</a></div>
         <div class="options">
-            <a class="user_set_name">{{user.username}}</a><br>
-            <a href="{% url 'app:edit_profile' %}">profile</a><br>
-            <a href="{% url 'app:userposts' %}">Posts</a><br>
-            <a href="">Comments</a><br>
-            <a href="">Rated posts</a><br>
-            <a href="">Following</a><br>
-            <a href="">Settings</a><br>
-            <a href="{% url 'logout' %}" class="logout">logout</a><br>
+            <a href="{% url 'app:edit_profile' %}"><img src="{% static 'app/images/edit-prof-profile.png' %}"></a>
+            <a href="{% url 'app:userposts' %}"><img src="{% static 'app/images/edit-prof-post.png' %}"></a>
+            <a href=""><img src="{% static 'app/images/edit-prof-comment.png' %}"></a>
+            <a href=""><img src="{% static 'app/images/edit-prof-rate.png' %}"></a>
+            <a href=""><img src="{% static 'app/images/edit-prof-follow.png' %}"></a>
+            <a href=""><img src="{% static 'app/images/edit-prof-settings.png' %}"></a>
         </div>
     </div>
     {% block profile %}
