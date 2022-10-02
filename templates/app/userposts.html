@@ -20,8 +20,7 @@
         max-width: 100%;
     }
     .title .contain-sec .elements{
-        max-height: 290px;
-        padding-bottom: 6px;
+       padding-bottom: 24px;
     }
 </style>
 <div class="title">
@@ -62,8 +61,6 @@
         </div>
         {% endif %}
         {% endfor %}
-      </div>
-      <div class="contain-sec music-contain main-sec2" id="contain-sec2">
         {% for lola in allPostsmusic %}
         {% if lola.creator.id == user.id %}
         <div class="elements">
@@ -100,8 +97,6 @@
         </div>
         {% endif %}
         {% endfor %}
-      </div>
-      <div class="contain-sec book-contain main-sec3" id="contain-sec3">
         {% for lola in allPostsbook %}
         {% if lola.creator.id == user.id %}
         <div class="elements">

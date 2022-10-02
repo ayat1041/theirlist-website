@@ -18,9 +18,12 @@ const addlist = document.querySelector('#add-list-butt');
 const addlistmenu = document.querySelector('.add-list-sub-menu');
 const loader = document.getElementById("preloader");
 
+
 // window.addEventListener("load", function(){
 //   loader.style.display = "none";
 // })
+
+
 
 
 let addlistclick = false;
@@ -164,3 +167,4 @@ navmusicExpand.addEventListener('click', () =>{
     navmusicMore.style.transition = "all 250ms ease-in-out";
   }
 });
+

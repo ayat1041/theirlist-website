@@ -15,7 +15,7 @@
   }
 </style>
 <section>
-    <div class="contain-sec" id="contain-sec">
+    <div class="contain-sec" id="contain-sec6">
       {% if query|length < 1 %}
       <p class="search_none" style="margin-top: 100px;">We dont have any music list in <b>{{result}}</b> category currently.<span> :(</span><p>
       {% endif %}
@@ -25,7 +25,7 @@
           <img src="{% static 'app/images/music-poster.jpg' %}" width="100px" />
         </div>
         <div class="Title">
-          <a href="{% url 'app:musiclist_detail' film.id %}"><h4 class="tit">{{film.title}}</h4></a>
+          <a href="{% url 'app:musiclist_detail' film.slug %}"><h4 class="tit">{{film.title}}</h4></a>
           {% if user.id == film.creator.id %}
           <a href="{% url 'app:delete_music' film.slug %}"><img src ="{% static 'app/images/delete.png' %}"></a>
           <a href="{% url 'app:update_musiclist' film.slug %}"><img src ="{% static 'app/images/edit.png' %}"></a>

@@ -21,7 +21,7 @@
     
   </head>
   <header>
-    <nav class="nav">
+    <nav class="nav" id="nav">
       <div class="logo"></div>
       <style>
         .logo{
@@ -45,7 +45,7 @@
             name="query"
             id="query"
           />
-          <button type="submit" class="searchButton">
+          <button type="submit" class="searchButton" id="query-btn">
 
             {% comment %} {% static 'app/images/search.png' %} {% endcomment %}
             <img src="{% static 'app/images/search.png' %}">
@@ -106,6 +106,7 @@
       <div class="book" id="book-disp">
         <div class="book-nav-more">
           <a href="{% url 'app:book' query="action" %}">Action</a>
+          <a href="{% url 'app:book' query="adventure" %}">Adventure</a>
           <a href="{% url 'app:book' query="comedy" %}">Comedy</a>
           <a href="{% url 'app:book' query="thriller" %}">Thriller</a>
           <a href="{% url 'app:book' query="romance" %}">Romance</a>
@@ -175,7 +176,7 @@
       </ul>
     </div>
   </header>
-  <body>
+  <body id="body">
  
     <!-- block content for body -->
     <!-- ../static/images/poster.jpg -->
@@ -190,19 +191,28 @@
     <button onclick="topFunction()" id="myBtn" title="Go to top"><img src="{% static 'app/images/scrolltop.png' %}"  id="scroll"></button>
     <!-- endblock content -->
 
-    <doc class="doc-bar">
+    <doc class="doc-bar" id="doc-bar">
         <div class="doc-stuff-left">
           {% comment %} {% url "app:clt" %} {% endcomment %}
         <div id="add-list-butt" class="add-list" title="add a list"><img id="add-list-butt" src="{% static 'app/images/add.png' %}"></div>
         <div class="user-doc-logo" title="authentication"><img src="{% static 'app/images/user.png' %}"></div>
-    </div>
+        
+        {% comment %} toggle {% endcomment %}
+        {% comment %} <div id = "toggle-mode-div" class="dark-light-mode" title="toggle dark/light mode"><img src="{% static 'app/images/light.png' %}" id="toggle-mode" ></div> {% endcomment %}
+
+        <label class="switch">
+          <input type="checkbox" onclick="darkmode()" id="dark-switch">
+          <span class="slider round"></span>
+        </label>
+
+      </div>
         <div class="doc-stuff-center"><a href="{% url 'app:all' %}" title="home"><img src="{% static 'app/images/home.png' %}" id="home"></a></div>
         <div class="doc-stuff-right">
           <a href="{% url 'app:chat' %}" title="Chat in the community"><img class="com-chat" src="{% static 'app/images/community.png' %}"></a>
           <button onClick="javascript:history.go(-1);" title="Go back"><img src="{% static 'app/images/back.png' %}" alt=""></button>
         </div>
     </doc>
-    <div class="login-sub-menu">
+    <div class="login-sub-menu" id="login-sub-menu">
         <ul class="login-sub-menu-options">
           {% if user.is_authenticated %}
             <li><a class="username_inlogin">{{user.username}}</a></li><hr>
@@ -223,7 +233,7 @@
     </div>
     
       {% if user.is_authenticated %}
-      <div class="add-list-sub-menu">
+      <div class="add-list-sub-menu" id="add-list-sub-menu">
         <ul class="add-list-sub-menu-options">
           <li><a href="{% url "app:music_create_list" %}"><img src="{% static 'app/images/music-icon.png' %}"></a></li>
           <li><a href="{% url "app:create_list" %}"><img src="{% static 'app/images/movie-icon.png' %}"></a></li>
@@ -233,6 +243,7 @@
     {% endif %}
 
     <script src="{% static 'app/js/script.js' %}"></script>
+    <script src="{% static 'app/js/mode-script.js' %}"></script>
 
 
     <script>

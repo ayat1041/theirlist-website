@@ -17,9 +17,13 @@
   border-radius: 4px 0 0 4px;
   outline: none;
   color: #9dbfaf;
-  background-color: rgb(14, 14, 14);
+  background-color: var(--white);
   font-size: 12px;
 }
+.searchTerm-dark-mode{
+  background-color: rgb(14, 14, 14);
+}
+
 
 .searchTerm:focus {
   color: white;
@@ -29,13 +33,16 @@
   width: 32px;
   height: 30px;
   border: none;
-  background: rgb(14, 14, 14);
+  background-color: var(--teal);
   text-align: center;
   color: white;
   border-radius: 0 2px 2px 0;
   cursor: pointer;
   font-size: 20px;
   transition: all 250ms ease-in-out;
+}
+.searchButton-dark-mode{
+  background-color: rgb(14, 14, 14);
 }
 .searchButton:hover {
     background: none;
