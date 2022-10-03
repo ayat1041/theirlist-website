@@ -21,6 +21,7 @@ const head_middle = document.getElementById("headline-middle");
 const head_bottom = document.getElementById("headline-bottom");
 const fout = document.getElementById("fout");
 const poster = document.getElementById("poster");
+const about_us_body = document.getElementById("about_us_body");
 
 function darkmode() {
     body.classList.toggle("body-dark-mode");
@@ -44,5 +45,6 @@ function darkmode() {
     ele_tit8.classList.toggle("contain-sec-dark-mode");
     ele_tit9.classList.toggle("contain-sec-dark-mode");
     ele_tit10.classList.toggle("contain-sec-dark-mode");
+    about_us_body.classList.toggle("about_us_h1_dark_mode");
 }
 
