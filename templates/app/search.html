@@ -73,7 +73,9 @@
               {% for tag in i.genre.all %}
                 {% if lola.id == i.id %}
                     <div class="Genre">
-                    <small>{{ tag }}</small>
+                      <a href="{% url 'app:music' query=tag %}">
+                        <small>{{ tag }}</small>
+                      </a>
                     </div>
                       {% endif %}
                     {% endfor %}
@@ -83,7 +85,9 @@
               {% for tag in i.genre.all %}
                 {% if lola.id == i.id %}
                 <div class="Genre">
-                  <small>{{ tag }}</small>
+                  <a href="{% url 'app:book' query=tag %}">
+                    <small>{{ tag }}</small>
+                  </a>
                   </div>
                     {% endif %}
                   {% endfor %}
@@ -93,7 +97,9 @@
               {% for tag in i.genre.all %}
                 {% if lola.id == i.id %}
                 <div class="Genre">
-                  <small>{{ tag }}</small>
+                  <a href="{% url 'app:film' query=tag %}">
+                    <small>{{ tag }}</small>
+                  </a>
                   </div>
                     {% endif %}
                   {% endfor %}

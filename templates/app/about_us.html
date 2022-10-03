@@ -22,10 +22,13 @@
     padding: 120px 14vw;
     padding-top: 0px;
   }
-  .about_us h1 {
+  #about_us_body {
     {% comment %} color: white; {% endcomment %}
     color: black;
     font-weight: 100;
+  }
+  .about_us_h1_dark_mode{
+    color: white!important;
   }
   .about_us_img img {
     height: 20vw;
@@ -39,7 +42,7 @@
     <img src="{% static 'app/images/logo_no_motto.svg' %}" />
   </div>
   <div class="about_us_cont">
-    <h1>
+    <h1 id="about_us_body">
       Theirlist is a website where you get suggesitions of Movie, Book, Music as
       lists.<br />
       How to know if they are followable? Just check the ratings if the other

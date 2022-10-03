@@ -100,6 +100,7 @@ class ListCreateBookView(CreateView): #book
         self.object = form.save(commit=False)
         self.object.creator = self.request.user
         self.object.save()
+        form.save_m2m()
         return HttpResponseRedirect(self.get_success_url())
 
 class ListCreateMusicView(CreateView): #music
@@ -112,21 +113,19 @@ class ListCreateMusicView(CreateView): #music
         self.object = form.save(commit=False)
         self.object.creator = self.request.user
         self.object.save()
+        form.save_m2m()
         return HttpResponseRedirect(self.get_success_url())
 
 class ListCreateView(CreateView):
     model = List
-    # fields = "__all__"
     fields = ['title','genre','content']
-    # success_url = "/home/list/"
-    # def get_success_url(self):
-    #     return reverse('app:list')
     success_url = reverse_lazy("app:list") 
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
         self.object.creator = self.request.user
         self.object.save()
+        form.save_m2m()
         return HttpResponseRedirect(self.get_success_url())
 
 class ListDeleteView(DeleteView):

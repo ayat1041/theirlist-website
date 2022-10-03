@@ -53,7 +53,9 @@
           
             {% for tag in lola.genre.all %}
             <div class="Genre">
-            <small>{{ tag }}</small>
+              <a href="{% url 'app:film' query=tag %}">
+                <small>{{ tag }}</small>
+              </a>
             </div>
               {% empty %} 
               No tags! 
@@ -89,7 +91,9 @@
           
             {% for tag in lola.genre.all %}
             <div class="Genre">
-            <small>{{ tag }}</small>
+              <a href="{% url 'app:music' query=tag %}">
+                <small>{{ tag }}</small>
+              </a>
             </div>
               {% empty %} 
               No tags! 
@@ -125,7 +129,9 @@
           
             {% for tag in lola.genre.all %}
             <div class="Genre">
-            <small>{{ tag }}</small>
+              <a href="{% url 'app:book' query=tag %}">
+                <small>{{ tag }}</small>
+              </a>
             </div>
               {% empty %} 
               No tags! 

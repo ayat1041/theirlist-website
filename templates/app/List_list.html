@@ -26,13 +26,15 @@
         }
       </style>
       <div class="Author">
-        <small>Author : {{lola.creator.username}}<span>{{lola.posted}}</span></small>
+        <small>Author : {{lola.creator.username}}<span>{{lola.posted|date:"SHORT_DATE_FORMAT"}}</span></small>
       </div>
       <div class="rating"><small>Rating : 6/10 [239 users]</small></div>
       
         {% for tag in lola.genre.all %}
         <div class="Genre">
+          <a href="{% url 'app:film' query=tag %}">
         <small>{{ tag }}</small>
+          </a>
         </div>
           {% empty %} 
           No tags! 

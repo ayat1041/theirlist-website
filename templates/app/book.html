@@ -46,7 +46,9 @@
         
           {% for tag in film.genre.all %}
           <div class="Genre">
-          <small>{{ tag }}</small>
+            <a href="{% url 'app:book' query=tag %}">
+              <small>{{ tag }}</small>
+            </a>
           </div>
             {% empty %} 
             No tags! 
