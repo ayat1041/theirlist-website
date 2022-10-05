@@ -11,10 +11,10 @@ body
 	font-size: 12px;
 
 	/* Text color */
-	color: white;
+	color: black;
 
 	/* Remove the background color to make it transparent. */
-	background-color: #121212;
+	background-color: rgba(0, 0, 0, 0.425);
 
 	margin: 20px;
 }

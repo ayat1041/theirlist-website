@@ -1,15 +1,12 @@
 {% extends "index.html" %}
 {% load static %}
 
-{% block css %}
-<link rel="stylesheet" href="{% static '../../app/static/app/css/list_detail.css' %}" />
-{% endblock css %}
 
 {% block content %}
 {% comment %} <link rel="stylesheet" href="../css/list_detail.css"> {% endcomment %}
 
 
-<section class="list_detail">
+<section class="list_detail" id="list-det-id">
     <h3>{{booklist.title}}</h3>
     <div class="detail-up-del">
         {% if user.id == booklist.creator.id %}

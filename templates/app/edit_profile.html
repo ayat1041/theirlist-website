@@ -16,6 +16,9 @@
     color: black;
     font-size: 18px;
   }
+  .title-dark-mode{
+    color: white;
+  }
   .title .title_content{
     display: flex;
     flex-wrap: nowrap;
@@ -48,7 +51,7 @@
     padding: 1px 4px;
     border-radius: 2px;
     height: 22px;
-    {% comment %} color: wheat; {% endcomment %}
+    color: wheat;
     color: black;
     background-color: #0099cc;
     cursor: pointer;
@@ -56,7 +59,7 @@
   }
   .title .tag_ans a{
     {% comment %} color: wheat; {% endcomment %}
-    color: black;
+    {% comment %} color: black; {% endcomment %}
     font-size: 12px;
   }
   .title .mail{
@@ -81,7 +84,7 @@
 </style>
 
 
-<div class="title">
+<div class="title" id="gen-op">
   <div class="title_content general">General</div>
   <div class="title_content edit_username"><div class="tagline">Edit Username</div><div class="tag_ans">
     <form>

@@ -118,12 +118,12 @@ body{
 
 .menu-btn__burger::before {
     transform: translateY(-7px);
-    background-color: rgb(107, 107, 107);
+    background-color: rgb(0, 187, 162);
 }
 
 .menu-btn__burger::after {
     transform: translateY(7px);
-    background-color: rgb(107, 107, 107);
+    background-color: rgb(0, 187, 162);
 }
 
 /* ANIMATION */
@@ -604,7 +604,7 @@ li a .login_sub{
     width: 100vw;
     max-width: 100%;
     /* background-color: rgb(20 20 20); */
-    background-color: rgb(0, 48, 41);
+    background-color: rgb(0, 109, 94);
     bottom: 0;
     z-index: 8;
     padding-top: 50px;
@@ -655,10 +655,7 @@ li a .login_sub{
 
 
 /* detail page css */
-body{
-    /* color: azure; */
-    color: black;
-}
+
 @keyframes slideIn{
     0%{
         transform: translateX(-100%);
@@ -673,17 +670,21 @@ body{
 .list_detail{
     animation: 250ms ease-in-out 0s 1 slideIn;
     padding-top: 80px;
+    color: black;
     position: absolute;
     width: 100%;
     bottom: 0;
     top: 0;
 }
+.list_detail_dark_mode{
+    color: white;
+}
 
 .list_detail h3{
     font-size: 26px;
-    padding: 0px 20px;
+    padding: 0px 28px;
     padding-top: 20px;
-    font-weight: lighter;
+    font-weight: bold;
 }
 .list_detail small{
     padding: 10px 25px;
@@ -708,7 +709,7 @@ body{
 }
 @media only screen and (max-width: 900px) {
     .blog_post_body img{
-        width: 200px!important;
+        width: 80vw!important;
         height: auto!important;
     }
 }
@@ -718,10 +719,57 @@ body{
 }
 small{
     /* color: azure; */
-    color: black;
 }
 
-
+/* 
+comments */
+.comments{
+    padding-left: 4vw;
+    padding-top: 4vw;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    left: 0;
+    right: 0;
+    height: max-content;
+    padding-bottom: 140px;
+    position: absolute;
+}
+.comments hr{
+    width: 50vw;
+    margin: 10px 0px;
+    border: 1px solid var(--rd);
+}
+.comments button{
+    padding: 4px 6px;
+    border: none;
+    outline: none;
+    border-radius: 2px;
+    background-color: var(--rd);
+    margin: 10px 0;
+}
+.comments input{
+    border: none;
+    background-color: black;
+    color: var(--rd);
+    margin: 10px 0;
+    padding: 4px 6px;
+}
+.comment-user-name-date {
+    margin: 10px 0;
+}
+.comment-user-name-date small{
+    margin: 10px 0; 
+    padding: 0 0;
+    color: gray;
+}
+.comment-user-name-date span{
+    margin-right: 2vw;
+}
+.comments a{
+    color: inherit;
+}
 
 
 /* list form */
@@ -729,12 +777,16 @@ small{
     .listform{
         display: flex;
         flex-wrap: wrap;
+        /* color: black; */
         color: black;
         flex-direction: column;
         padding: 40px 4%;
         padding-bottom: 80px;
         align-items: center;
         
+    }
+    .listform-dark-mode{
+        color: white;
     }
     .ck-content{
         width: 80vw;
@@ -759,12 +811,13 @@ small{
     .listform .title-det{
         font-size: 2rem;
         padding: 4px 0;
-        color: black;
+        /* color: black; */
     }
     .listform .goodwords{
         font-size: 16px;
         padding: 4px 0;
         margin: 8px 0;
+        color: inherit;
         margin-bottom: 14px;
     }
     @media only screen and (max-width: 900px) {
@@ -783,15 +836,15 @@ small{
         border-radius: 2px;
         outline: 0;
         border-radius: 2px;
-        color: white;
-        background-color: #121212!important;
+        color: black;
+        background-color: white!important;
     }
     .listform select{
         width: 100%;
         padding: 4px 12px;
         margin: 8px 0;
-        color: white;
-        background-color: #121212;
+        color: black;
+        background-color: white;
         border-radius: 2px;
         border: 1px solid rgba(255, 101, 47, .2);
     }

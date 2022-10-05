@@ -1,15 +1,13 @@
 {% extends "index.html" %}
 {% load static %}
 
-{% block css %}
-<link rel="stylesheet" href="{% static '../../app/static/app/css/list_detail.css' %}" />
-{% endblock css %}
+
 
 {% block content %}
 {% comment %} <link rel="stylesheet" href="../css/list_detail.css"> {% endcomment %}
 
 
-<section class="list_detail">
+<section class="list_detail" id="list-det-id">
     <h3>{{list.title}}</h3>
     <div class="detail-up-del">
         {% if user.id == list.creator.id %}
@@ -51,7 +49,8 @@
         </div>
         <hr>
         {% comment %} {% url 'app:add_comment' list.slug %} {% endcomment %}
-        <div><a href="#">Add a comment</a><br>
+        <div class="add-comment"><a href="#">Add a comment</a><br>
+            <hr>
         {% comment %} <div><input type="text" placeholder="enter your comment"></div>
         <div><button type= "submit">Comment</button></div> {% endcomment %}
         {% if not list.comments.all %}
@@ -73,56 +72,6 @@
 
 
     </div>    
-    <style>
-        .comments{
-            padding-left: 4vw;
-            padding-top: 4vw;
-            display: flex;
-            flex-direction: column;
-            flex-wrap: wrap;
-            justify-content: center;
-            left: 0;
-            right: 0;
-            height: max-content;
-            padding-bottom: 140px;
-            {% comment %} background-color: orange; {% endcomment %}
-            position: absolute;
-        }
-        .comments hr{
-            width: 50vw;
-            margin: 10px 0px;
-            border: 1px solid var(--rd);
-        }
-        .comments button{
-            padding: 4px 6px;
-            border: none;
-            outline: none;
-            border-radius: 2px;
-            background-color: var(--rd);
-            margin: 10px 0;
-        }
-        .comments input{
-            border: none;
-            background-color: black;
-            color: var(--rd);
-            margin: 10px 0;
-            padding: 4px 6px;
-        }
-        .comment-user-name-date {
-            margin: 10px 0;
-        }
-        .comment-user-name-date small{
-            margin: 10px 0; 
-            padding: 0 0;
-            color: gray;
-        }
-        .comment-user-name-date span{
-            margin-right: 2vw;
-        }
-        .comments a{
-            color: white;
-        }
-    </style>
 </section>
 
 {% endblock content %}

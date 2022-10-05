@@ -90,3 +90,12 @@ class Genre(models.Model):
 
 #     def __str__(self):
 #         return self.name
+
+# class Memer(models.Model):
+#     user = models.OneToOneField(User, on_delete=models.CASCADE)
+#     mobile = models.CharField(max_length=16, blank=True, null=True)
+#     bio = models.CharField(max_length=150, blank=False, null=False, default="Hey! I'm new here.")
+#     cover = models.ImageField(upload_to='cover-images/%y/%m/%d/', default='cover-images/default/memerrank-bg.jpg', blank=False, null=False)
+#     profile = models.ImageField(upload_to='profile-images/%y/%m/%d/', default='profile-images/default/memerrank-no-dp.jpg', blank=False, null=False)
+#     def __str__(self):
+#         return str(self.user)
