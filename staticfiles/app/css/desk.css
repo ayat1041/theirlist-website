@@ -228,9 +228,13 @@ body{
     margin-right: 4px;
     height: max-content;
     background-color: #004055;
-    border-radius: 4px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
     text-align: center;
     position: fixed;
+}
+.nav-menu-dark-mode{
+    background-color: var(--dark);
 }
 .nav-sub-menu-container .movie a, .nav-sub-menu-container .music a, .nav-sub-menu-container .book a{
     text-decoration: none;

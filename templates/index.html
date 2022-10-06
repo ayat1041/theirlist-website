@@ -201,7 +201,7 @@
         {% comment %} <div id = "toggle-mode-div" class="dark-light-mode" title="toggle dark/light mode"><img src="{% static 'app/images/light.png' %}" id="toggle-mode" ></div> {% endcomment %}
 
         <label class="switch">
-          <input type="checkbox" onclick="darkmode()" id="dark-switch">
+          <input type="checkbox" onclick="save();darkmode(this);" id="dark-switch">
           <span class="slider round"></span>
         </label>
 

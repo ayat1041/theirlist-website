@@ -25,7 +25,7 @@
           <img src="{% static 'app/images/movie-poster.jpg' %}" width="100px" />
         </div>
         <div class="Title">
-          <a href="{% url 'app:list_detail' film.id %}"><h4 class="tit">{{film.title}}</h4></a>
+          <a href="{% url 'app:list_detail' film.slug %}"><h4 class="tit">{{film.title}}</h4></a>
           {% if user.id == film.creator.id %}
           <a href="{% url 'app:delete_movie' film.slug %}"><img src ="{% static 'app/images/delete.png' %}"></a>
           <a href="{% url 'app:update_list' film.slug %}"><img src ="{% static 'app/images/edit.png' %}"></a>

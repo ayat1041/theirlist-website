@@ -32,6 +32,7 @@ addlist.addEventListener('click', () => {
     addlistmenu.style.left = "0px";
     addlistclick = true;
     addlistmenu.style.transition = "all 250ms ease-in-out";
+    userdocmenu.style.left = "-200px";
   } else {
     addlistmenu.style.left = "-65px";
     addlistclick = false;
@@ -54,6 +55,8 @@ userdoclogo.addEventListener('click', () => {
     userdocmenu.style.left = "5px";
     userdoclogoOpen = true;
     userdocmenu.style.transition = "all 100ms ease-in-out";
+    addlistmenu.style.left = "-65px";
+
   } else {
     userdocmenu.style.left = "-200px";
     userdoclogoOpen = false;
@@ -71,7 +74,7 @@ menuBtn.addEventListener('click', () => {
   } else {
     menuBtn.classList.remove('open');
     menuOpen = false;
-    subMenu.style.bottom = "-60px";
+    subMenu.style.bottom = "-200px";
     movieMore.style.display = "none";
     musicMore.style.display = "none";
     bookMore.style.display = "none";
