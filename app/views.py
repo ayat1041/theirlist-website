@@ -1,4 +1,4 @@
-from app.models import List,MusicList,BookList
+from app.models import List,MusicList,BookList,Review,MusicReview,BookReview
 from django.shortcuts import render, HttpResponse,HttpResponseRedirect
 from django.urls import reverse_lazy,reverse
 from django.views.generic import UpdateView,TemplateView,ListView,DetailView,CreateView,DeleteView
@@ -82,13 +82,27 @@ class TheirListView(ListView): #movies
 
 class TheirDetailBookView(DetailView): #books
     model = BookList
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        modell = BookReview.objects.all()
+        context["modam"] = modell
+        return context
 
 class TheirDetailMusicView(DetailView): #music
     model = MusicList
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        modell = MusicReview.objects.all()
+        context["modam"] = modell
+        return context
 
 class TheirDetailView(DetailView):
     model = List
-
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        modell = Review.objects.all()
+        context["modam"] = modell
+        return context
 
 class ListCreateBookView(CreateView): #book
     model = BookList
@@ -208,9 +222,9 @@ def all(request):
     # music = MusicList.objects.all()
     # book = BookList.objects.all()
     
-    movie = List.objects.filter(posted__gte=timezone.now() - timedelta(days=30)).all().order_by("-id")
-    music = MusicList.objects.filter(posted__gte=timezone.now() - timedelta(days=30)).all().order_by("-id")
-    book = BookList.objects.filter(posted__gte=timezone.now() - timedelta(days=30)).all().order_by("-id")
+    movie = List.objects.filter(posted__gte=timezone.now() - timedelta(days=60)).all().order_by("-id")
+    music = MusicList.objects.filter(posted__gte=timezone.now() - timedelta(days=60)).all().order_by("-id")
+    book = BookList.objects.filter(posted__gte=timezone.now() - timedelta(days=60)).all().order_by("-id")
     
 
     # a = movie.union(music)
@@ -219,8 +233,10 @@ def all(request):
     allPostsmusic = list(music)
     allPostsbook = list(book)
     # p = Paginator(allPosts, 2)
-    
     # allPosts = List.objects.filter(title__search=query)
     params = {'allPosts' : allPosts, 'allPostsmusic' : allPostsmusic, 'allPostsbook' : allPostsbook}
     return render(request, 'app/all.html', params)
 
+# def listcomments(request): 
+#     modamo = Review.objects.all()
+#     return render(request, 'app/list_comment.html', {'modamo' : modamo})

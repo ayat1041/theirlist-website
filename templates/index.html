@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{% static 'app/css/mobile.css' %}" />
     <link rel="stylesheet" href="{% static 'app/css/search.css' %}" />
     <link rel="stylesheet" href="{% static 'app/css/content_css.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     {% comment %} <link rel="stylesheet" href="{% static 'app/css/addlist_form.css' %}" /> {% endcomment %}
     <link rel="shortcut icon" href="{% static 'app/images/meta.ico' %}" type="image/x-icon">
     {% block css %}
@@ -197,10 +198,9 @@
         <div id="add-list-butt" class="add-list" title="add a list"><img id="add-list-butt" src="{% static 'app/images/add.png' %}"></div>
         <div class="user-doc-logo" title="authentication"><img src="{% static 'app/images/user.png' %}"></div>
         
-        {% comment %} toggle {% endcomment %}
-        {% comment %} <div id = "toggle-mode-div" class="dark-light-mode" title="toggle dark/light mode"><img src="{% static 'app/images/light.png' %}" id="toggle-mode" ></div> {% endcomment %}
+        
 
-        <label class="switch">
+        <label class="switch"  title="toggle dark/light mode">
           <input type="checkbox" onclick="save();darkmode(this);" id="dark-switch">
           <span class="slider round"></span>
         </label>

@@ -37,6 +37,7 @@ urlpatterns = [
     path('book/',views.book, name='book'),
     path('book/<str:query>',views.book, name='book'),
     path('all',views.all, name='all'),
+    # path('list/comment/',views.listcomments, name='ListComments'),
     
 
 ]

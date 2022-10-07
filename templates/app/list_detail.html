@@ -43,35 +43,64 @@
     <div class="blog_post_body">
         {{list.content|safe}}
     </div>
-    <div class="comments">
-        <div class="comment headline">
-            <h1>Comments</h1>
-        </div>
-        <hr>
-        {% comment %} {% url 'app:add_comment' list.slug %} {% endcomment %}
-        <div class="add-comment"><a href="#">Add a comment</a><br>
-            <hr>
-        {% comment %} <div><input type="text" placeholder="enter your comment"></div>
-        <div><button type= "submit">Comment</button></div> {% endcomment %}
-        {% if not list.comments.all %}
-            No comments yet
-        {% else %}
-            {% for comment in list.comments.all %}
-            <div class="comment-user-name-date"><span><small><b>{{ comment.name }}</b></span>{{ comment.date_added }}</small></div>
-            <div class="comments-body">
-                <p>{{ comment.body }}</p>
-                <form method="POST">
-                    <input type="text" placeholder="reply"><br>
-                    <button type="submit">Reply</button>
-                </form>
-            </div>
-            {% endfor %}
-        {% endif %}
 
+    <div class="commentss" id="comments-id">
+        <div class = "commentscarrier">
+            <div class="comment-contentsas comment-head"><p>Comments(3)</p></div>
+            <hr>
+            {% include "app/list_comment.html" %}
+            {% comment %} <div class="comment-contentsas"><p class="commentor-name">perky120
+                <span class="stars-comments">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    </span>
+            </p></div>
+            <div class="comment-contentsas"><p><small>26 august 02:23 pm</small></p></div>
+            <div class="comment-contentsas"><p>That was a great suggestion! I guess our taste bud really matches!</p></div>
+            <div class="comment-contentsas"><p class="reply-com">reply</p></div>
+            <div class="comment-contentsas"><p><span class="like"><img src="{% static 'app/images/like.png' %}"></span><span class="dislike"><img src="{% static 'app/images/dislike.png' %}"></span></p></div>
+            <hr>
+            <div class="comment-contentsas"><p class="commentor-name">perky120
+                <span class="stars-comments">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    </span>
+            </p></div>
+            <div class="comment-contentsas"><p><small>26 august 02:23 pm</small></p></div>
+            <div class="comment-contentsas"><p>That was a great suggestion! I guess our taste bud really matches!</p></div>
+            <div class="comment-contentsas"><p class="reply-com">reply</p></div>
+            <div class="comment-contentsas"><p><span class="like"><img src="{% static 'app/images/like.png' %}"></span><span class="dislike"><img src="{% static 'app/images/dislike.png' %}"></span></p></div>
+            <hr>
+             {% endcomment %}
+        </div>
+        <div class = "postcommentscarrier">
+            <div><h1>Write your review</h1></div>
+            <div><textarea  name="post-a-review" rows="14" cols="70"></textarea></div>
+            <div><p>Your rating</p></div>
+            <div>
+                <span class="stars-post-comments">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    </span>
+            </div><br>
+            <div><button type="submit">Post</button></div>
+        </div>
+        
         
 
 
-    </div>    
+    </div>   
+    <div class="gap">
+    </div> 
 </section>
 
 {% endblock content %}

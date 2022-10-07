@@ -45,6 +45,35 @@
     <form class="ratings">
         
     </form>
+    <div class="commentss" id="comments-id">
+        
+      <div class = "commentscarrier">
+          <div class="comment-contentsas comment-head"><p>Comments(3)</p></div>
+          <hr>
+          {% include "app/booklist_comment.html" %}
+      </div>
+      <div class = "postcommentscarrier">
+          <div><h1>Write your review</h1></div>
+          <div><textarea  name="post-a-review" rows="14" cols="70"></textarea></div>
+          <div><p>Your rating</p></div>
+          <div>
+              <span class="stars-post-comments">
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star"></span>
+                  <span class="fa fa-star"></span>
+                  <span class="fa fa-star"></span>
+                  <span class="fa fa-star"></span>
+                  </span>
+          </div><br>
+          <div><button type="submit">Post</button></div>
+      </div>
+      
+      
+
+
+  </div>   
+  <div class="gap">
+  </div>
 </section>
 
 {% endblock content %}

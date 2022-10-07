@@ -1,4 +1,5 @@
 from email.policy import default
+from enum import auto
 from django.db import models
 from ckeditor.fields import RichTextField
 from django.urls import reverse_lazy,reverse
@@ -85,17 +86,32 @@ class Genre(models.Model):
     def __str__(self):
         return self.name
 
-# class Author(models.Model):
-#     name = models.CharField(max_length=300)
+class Review(models.Model):
+    user = models.ForeignKey(User, models.CASCADE)
+    List = models.ForeignKey(List, models.CASCADE)
+    comment = models.TextField(max_length=250)
+    rate = models.IntegerField(default=0)
+    created_at = models.DateTimeField(auto_now_add=True)
 
-#     def __str__(self):
-#         return self.name
+    def __str__(self):
+        return str(self.comment)
 
-# class Memer(models.Model):
-#     user = models.OneToOneField(User, on_delete=models.CASCADE)
-#     mobile = models.CharField(max_length=16, blank=True, null=True)
-#     bio = models.CharField(max_length=150, blank=False, null=False, default="Hey! I'm new here.")
-#     cover = models.ImageField(upload_to='cover-images/%y/%m/%d/', default='cover-images/default/memerrank-bg.jpg', blank=False, null=False)
-#     profile = models.ImageField(upload_to='profile-images/%y/%m/%d/', default='profile-images/default/memerrank-no-dp.jpg', blank=False, null=False)
-#     def __str__(self):
-#         return str(self.user)
+class BookReview(models.Model):
+    user = models.ForeignKey(User, models.CASCADE)
+    BookList = models.ForeignKey(BookList, models.CASCADE)
+    comment = models.TextField(max_length=250)
+    rate = models.IntegerField(default=0)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return str(self.comment)
+
+class MusicReview(models.Model):
+    user = models.ForeignKey(User, models.CASCADE)
+    MusicList = models.ForeignKey(MusicList, models.CASCADE)
+    comment = models.TextField(max_length=250)
+    rate = models.IntegerField(default=0)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return str(self.comment)
