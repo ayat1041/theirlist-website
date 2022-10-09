@@ -28,10 +28,47 @@
         display: absolute;
         right: 0;
     }
+    .comment-kor select{
+        display: none;
+    }
+    .comment-kor .comment-stars{
+        padding: 18px 0px;
+        cursor: pointer;
+    }
+    .comment-kor input{
+        display: none;
+    }
 </style>
 
-<form method="POST" enctype="multipart/form-data">
+<div class="comment-kor-cont">
+<form class = "comment-kor" method="POST" action="{% url 'app:create_comment' %}" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ form.as_p }}
-    <div><button type="submit">Post</button></div>
+<p>
+    {% comment %} <label for="id_user">User:</label> {% endcomment %}
+    <select name="user" required="" id="id_user">
+        <option value="{{user.pk}}" selected=""></option>
+      </select>
+</p>
+<p>
+    <select name="List" required="" id="id_List">
+        <option value="{{list.pk}}" selected=""></option>
+      </select>
+</p>
+<p>
+    <textarea name="comment" cols="40" rows="10" maxlength="250" required="" id="id_comment" placeholder="comment"></textarea>
+</p>
+
+<div class="comment-stars">
+    <span class="stars-post-comments">
+        <span class="fa fa-star" id="st1"></span>
+        <span class="fa fa-star" id="st2"></span>
+        <span class="fa fa-star" id="st3"></span>
+        <span class="fa fa-star" id="st4"></span>
+        <span class="fa fa-star" id="st5"></span>
+        </span>
+</div>
+<input type="number" name="rate" value="0" required="" id="id_rate" placeholder="Rating">
+<div><button type="submit">Post</button></div>
 </form>
+</div>
+    

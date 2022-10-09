@@ -919,8 +919,8 @@ comments */
 }
 .postcommentscarrier textarea{
     max-width: 90vw;
-    min-height: 200px;
-    height: max-content;
+    min-height: 80px;
+    height: 80px;
     border-radius: 4px;
     border: none;
     font-size: 18px;
@@ -945,6 +945,7 @@ comments */
 .postcommentscarrier h1{
     margin-bottom: 2px;
     font-weight: lighter;
+    font-size: 18px;
 }
 .comment-head{
     font-size: 22px;

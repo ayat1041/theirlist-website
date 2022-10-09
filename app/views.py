@@ -1,5 +1,5 @@
 from app.models import List,MusicList,BookList,Review,MusicReview,BookReview
-from django.shortcuts import render, HttpResponse,HttpResponseRedirect
+from django.shortcuts import redirect, render, HttpResponse,HttpResponseRedirect
 from django.urls import reverse_lazy,reverse
 from django.views.generic import UpdateView,TemplateView,ListView,DetailView,CreateView,DeleteView
 from django.core.paginator import Paginator
@@ -115,10 +115,10 @@ class TheirDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         modell = Review.objects.all()
-        # filmod = Review.objects.filter(Review.List.id == List.id).all()
         context["modam"] = modell
         context["form"] = ReviewForm()
         return context
+        #return redirect(reverse('/all', {'context': context}))
     
 
     
@@ -252,9 +252,11 @@ def all(request):
 #     return render(request, 'app/list_comment.html', {'modamo' : modamo})
 
 def create_comment(request):
-    context = {}
+    #context = {}
     form = ReviewForm(request.POST or None)
     if form.is_valid():
         form.save()
-    context['form'] = form
-    return render(request, "app/create_comment.html", context)
+        return redirect('app:all')
+    # else:
+    #     context['form'] = form
+    #     return render(request, "app/create_comment.html", context)

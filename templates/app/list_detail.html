@@ -78,7 +78,7 @@
             {% endcomment %}
         </div>
         <div class = "postcommentscarrier">
-            <div><a href="{% url 'app:create_comment' %}"><h1>Write your review</h1></a></div>
+            <div><h1>Write your review</h1></div>
             {% include 'app/create_comment.html' %}
             {% comment %} {% include 'app/create_comment.html' with form=ReviewForm %} {% endcomment %}
             {% comment %} <div><textarea  name="post-a-review" rows="14" cols="70"></textarea></div>
