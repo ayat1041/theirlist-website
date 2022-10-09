@@ -6,7 +6,7 @@ from django.core.paginator import Paginator
 from datetime import timedelta
 from django.utils import timezone
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .forms import ReviewForm
+from .forms import ReviewForm,BookReviewForm,MusicReviewForm
 
 # Create your views here.
 
@@ -100,6 +100,7 @@ class TheirDetailBookView(DetailView): #books
         context = super().get_context_data(**kwargs)
         modell = BookReview.objects.all()
         context["modam"] = modell
+        context["form"] = BookReviewForm()
         return context
 
 class TheirDetailMusicView(DetailView): #music
@@ -108,6 +109,7 @@ class TheirDetailMusicView(DetailView): #music
         context = super().get_context_data(**kwargs)
         modell = MusicReview.objects.all()
         context["modam"] = modell
+        context["form"] = MusicReviewForm()
         return context
 
 class TheirDetailView(DetailView):
@@ -260,3 +262,19 @@ def create_comment(request):
     # else:
     #     context['form'] = form
     #     return render(request, "app/create_comment.html", context)
+def create_musiccomment(request):
+    #context = {}
+    form = MusicReviewForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('app:all')
+
+def create_bookcomment(request):
+    context = {}
+    form = BookReviewForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('app:all')
+    else:
+        context['form'] = form
+        return render(request, "app/create_bookcomment.html", context)
