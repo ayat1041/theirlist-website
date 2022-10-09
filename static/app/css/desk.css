@@ -973,3 +973,52 @@ comments */
     color: grey;
     filter: drop-shadow(1px 0px 1px rgba(0, 0, 0, 0.493));
 }
+
+
+/* user comments in user edit profile */
+.title-com{
+    display: grid;
+    grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    height: max-content;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 120px;
+    width: 100vw;
+    max-width: 100%;
+}
+.title-com-dark-mode{
+    color: white;
+}
+.title-com .comment-block{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: rgba(30, 143, 255, 0.055);
+    margin: 4px 4px;
+    width: auto;
+    max-width: 96vw;
+    border-radius: 4px;
+    padding: 12px 12px;
+}
+.title-com .comment-block .comment-date{
+    font-size: 12px;
+    font-family: 'Raleway';
+    color: rgb(99, 99, 99);
+}
+.title-com .comment-block .comment-post{
+    font-size: 14px;
+    margin: 12px 0;
+}
+.title-com .comment-block .comment-body{
+    font-weight: bold;
+}
+.comment-ratee .stars-comments{
+    position: relative;
+}
+.comment-ratee{
+    margin-top: 12px;
+}
+.comment-ratee .stars-comments .checked{
+    color: red;
+}

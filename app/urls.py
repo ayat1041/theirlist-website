@@ -8,6 +8,7 @@ app_name = "app"
 urlpatterns = [
     path('chat_room/',views.Chat.as_view(),name='chat'),
     path('about-us/',views.AboutUs.as_view(),name='about_us'),
+    path('UserComments/',views.UserComments,name='UserComments'),
     path('edit-profile/',views.EditProfile.as_view(),name='edit_profile'),
     path('userposts/',views.userpost,name='userposts'),
     # path('about-us/',login_required(views.AboutUs.as_view()),name='about_us'),
@@ -37,6 +38,7 @@ urlpatterns = [
     path('book/',views.book, name='book'),
     path('book/<str:query>',views.book, name='book'),
     path('all',views.all, name='all'),
+    path('create_comment',views.create_comment, name='create_comment'),
     # path('list/comment/',views.listcomments, name='ListComments'),
     
 

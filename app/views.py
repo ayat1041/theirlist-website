@@ -6,6 +6,7 @@ from django.core.paginator import Paginator
 from datetime import timedelta
 from django.utils import timezone
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .forms import ReviewForm
 
 # Create your views here.
 
@@ -14,6 +15,13 @@ class HomeView(TemplateView):
 
 class EditProfile(TemplateView):
     template_name = 'app/edit_profile.html'
+
+
+def UserComments(request):
+    movie = Review.objects.all()
+    params = {'movie' : movie}
+    return render(request, 'app/user_comments.html', params)
+
 
 def userpost(request):
     # movie = List.objects.all()
@@ -79,6 +87,12 @@ class TheirListView(ListView): #movies
         # qs = qs.filter(author__name="Ayat")
         # qs = qs.filter(genre__name="Drama")
         return qs
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        modell = Review.objects.all()
+        # filmod = Review.objects.filter(Review.List.id == List.id).all()
+        context["modam"] = modell
+        return context
 
 class TheirDetailBookView(DetailView): #books
     model = BookList
@@ -101,9 +115,13 @@ class TheirDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         modell = Review.objects.all()
+        # filmod = Review.objects.filter(Review.List.id == List.id).all()
         context["modam"] = modell
+        context["form"] = ReviewForm()
         return context
+    
 
+    
 class ListCreateBookView(CreateView): #book
     model = BookList
     # fields = "__all__"
@@ -218,25 +236,25 @@ def book(request,query=None):
 
 
 def all(request):
-    # movie = List.objects.all()
-    # music = MusicList.objects.all()
-    # book = BookList.objects.all()
-    
+
     movie = List.objects.filter(posted__gte=timezone.now() - timedelta(days=60)).all().order_by("-id")
     music = MusicList.objects.filter(posted__gte=timezone.now() - timedelta(days=60)).all().order_by("-id")
     book = BookList.objects.filter(posted__gte=timezone.now() - timedelta(days=60)).all().order_by("-id")
     
-
-    # a = movie.union(music)
-    # allPosts = a.union(book)
     allPosts = list(movie)
     allPostsmusic = list(music)
     allPostsbook = list(book)
-    # p = Paginator(allPosts, 2)
-    # allPosts = List.objects.filter(title__search=query)
     params = {'allPosts' : allPosts, 'allPostsmusic' : allPostsmusic, 'allPostsbook' : allPostsbook}
     return render(request, 'app/all.html', params)
 
 # def listcomments(request): 
 #     modamo = Review.objects.all()
 #     return render(request, 'app/list_comment.html', {'modamo' : modamo})
+
+def create_comment(request):
+    context = {}
+    form = ReviewForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+    context['form'] = form
+    return render(request, "app/create_comment.html", context)

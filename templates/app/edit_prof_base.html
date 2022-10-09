@@ -44,7 +44,6 @@
     }
   }
   .edit_prof .sidebar{
-    animation: 250ms ease-in-out 0s 1 slideIn;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -88,7 +87,22 @@
     flex-direction: row;
     flex-wrap: nowrap;
     position: relative;
-    top: 12px;
+    bottom: -32px;
+  }
+  .options .edit-prof-options{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: grey;
+    cursor: pointer;
+    transition: 500ms all ease-in;
+  }
+  .options .edit-prof-options:hover{
+    color: white;
+  }
+  .options .edit-prof-options div a{
+    font-weight: bold;
+    font-size: 16px;
   }
   .sidebar .options a{
     text-decoration: none;
@@ -187,14 +201,57 @@
 </div> {% endcomment %}
 <div class="edit_prof">
     <div class = "sidebar">
-        <div class="profile-image"><img src="{% static 'app/images/pro-pic.jpg' %}"><a class="user_set_name">//{{user.username}}</a></div>
+        <div class="profile-image"><img src="{{ user.profile.profile_pic.url }}"><a class="user_set_name">//{{user.username}}</a></div>
         <div class="options">
-            <a href="{% url 'app:edit_profile' %}"><img src="{% static 'app/images/edit-prof-profile.png' %}"></a>
-            <a href="{% url 'app:userposts' %}"><img src="{% static 'app/images/edit-prof-post.png' %}"></a>
-            <a href=""><img src="{% static 'app/images/edit-prof-comment.png' %}"></a>
-            <a href=""><img src="{% static 'app/images/edit-prof-rate.png' %}"></a>
-            <a href=""><img src="{% static 'app/images/edit-prof-follow.png' %}"></a>
-            <a href=""><img src="{% static 'app/images/edit-prof-settings.png' %}"></a>
+            <div class="edit-prof-options">
+              <div>
+                <a href="{% url 'app:edit_profile' %}"><img src="{% static 'app/images/edit-prof-profile.png' %}"></a>
+              </div>
+              <div>
+                <a>General</a>
+              </div>
+              </div>
+            <div class="edit-prof-options">
+              <div>
+              <a href="{% url 'app:userposts' %}"><img src="{% static 'app/images/edit-prof-post.png' %}"></a>
+              </div>
+              <div>
+                <a>Posts</a>
+              </div>
+            </div>
+            <div class="edit-prof-options">
+              <div>
+                <a href="{% url 'app:UserComments' %}"><img src="{% static 'app/images/edit-prof-comment.png' %}"></a>
+                </div>
+                <div>
+                  <a>Comments</a>
+                </div>
+                </div>
+            <div class="edit-prof-options">
+              <div>
+                <a href=""><img src="{% static 'app/images/edit-prof-rate.png' %}"></a>
+                </div>
+                <div>
+                  <a>Rating</a>
+                </div>
+                </div>
+            <div class="edit-prof-options">
+              <div>
+              <a href=""><img src="{% static 'app/images/edit-prof-follow.png' %}"></a>
+              </div>
+              <div>
+                <a>Followings</a>
+              </div>
+            </div>
+            <div class="edit-prof-options">
+              <div class="edit-prof-options"><div>
+                <a href=""><img src="{% static 'app/images/edit-prof-settings.png' %}"></a>
+                </div>
+                <div>
+                  <a>Settings</a>
+                </div>
+              </div>
+            </div>
         </div>
     </div>
     {% block profile %}
@@ -204,7 +261,7 @@
 <div class="editdoc-prof">
   <div class="icons"><a href="{% url 'app:edit_profile' %}"><img src="{% static 'app/images/edit-prof-profile.png' %}"></a></div>
   <div class="icons"><a href="{% url 'app:userposts' %}"><img src="{% static 'app/images/edit-prof-post.png' %}"></a></div>
-  <div class="icons"><a href=""><img src="{% static 'app/images/edit-prof-comment.png' %}"></a></div>
+  <div class="icons"><a href="{% url 'app:UserComments' %}"><img src="{% static 'app/images/edit-prof-comment.png' %}"></a></div>
   <div class="icons"><a href=""><img src="{% static 'app/images/edit-prof-rate.png' %}"></a></div>
   <div class="icons"><a href=""><img src="{% static 'app/images/edit-prof-follow.png' %}"></a></div>
   <div class="icons"><a href=""><img src="{% static 'app/images/edit-prof-settings.png' %}"></a></div>
