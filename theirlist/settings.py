@@ -44,7 +44,6 @@ CKEDITOR_CONFIGS = {
 # Application definition
 
 INSTALLED_APPS = [
-    'mathfilters',
     'ckeditor',
     'members',
     'app.apps.AppConfig',
