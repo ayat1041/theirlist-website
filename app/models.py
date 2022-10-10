@@ -23,7 +23,7 @@ class MusicList(models.Model):
 
 
     def __str__(self):
-        return f'{self.title}'
+        return f'{self.title}|{self.creator}'
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title + str(self.posted))
         super(MusicList,self).save(*args, **kwargs)
@@ -50,7 +50,7 @@ class BookList(models.Model):
 
 
     def __str__(self):
-        return f'{self.title}'
+        return f'{self.title}|{self.creator}'
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title + str(self.posted))
         super(BookList,self).save(*args, **kwargs)
@@ -75,7 +75,7 @@ class List(models.Model):
 
 
     def __str__(self):
-        return f'{self.title}'
+        return f'{self.title}|{self.creator}'
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title + str(self.posted))
         super(List,self).save(*args, **kwargs)
@@ -96,7 +96,7 @@ class Review(models.Model):
 
 
     def __str__(self):
-        return str(self.comment)
+        return self.comment+ " | rating : " + str(self.rate) + " | " + self.user.username
 
 class BookReview(models.Model):
     user = models.ForeignKey(User, models.CASCADE)
@@ -106,7 +106,7 @@ class BookReview(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return str(self.comment)
+        return self.comment+ " | rating : " + str(self.rate) + " | " + self.user.username
 
 class MusicReview(models.Model):
     user = models.ForeignKey(User, models.CASCADE)
@@ -116,7 +116,7 @@ class MusicReview(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return str(self.comment)
+        return self.comment+ " | rating : " + str(self.rate) + " | " + self.user.username
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True)
@@ -128,6 +128,8 @@ class Profile(models.Model):
     fav_Book_genre = models.ManyToManyField('BookGenre')
     fav_movie_genre = models.ManyToManyField('Genre')
     
+    def __str__(self):
+        return self.user.username + " | bio : " + self.bio
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):

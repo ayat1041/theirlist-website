@@ -119,6 +119,7 @@ class TheirDetailView(DetailView):
         modell = Review.objects.all()
         context["modam"] = modell
         context["form"] = ReviewForm()
+        print(context['modam'])
         return context
         #return redirect(reverse('/all', {'context': context}))
     
@@ -254,14 +255,17 @@ def all(request):
 #     return render(request, 'app/list_comment.html', {'modamo' : modamo})
 
 def create_comment(request):
-    #context = {}
+    context = {}
     form = ReviewForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('app:all')
-    # else:
-    #     context['form'] = form
-    #     return render(request, "app/create_comment.html", context)
+        print(form)
+        redirect_url = reverse("app:list_detail", kwargs={"slug": slug})
+        return redirect(redirect_url)
+        #return redirect('app:all')
+    else:
+        context['form'] = form
+        return render(request, "app/create_comment.html", context)
 def create_musiccomment(request):
     #context = {}
     form = MusicReviewForm(request.POST or None)
