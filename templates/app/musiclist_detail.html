@@ -46,7 +46,17 @@
     </div>
     <div class = "postcommentscarrier">
         <div><h1>Write your review</h1></div>
-            {% include 'app/create_musiccomment.html' %}
+        {% if user.is_authenticated %}
+        <br>
+        {% include 'app/create_musiccomment.html' %}
+    {% else %}
+    <div class="comment-kor-cont">
+        <br>
+        <hr>
+        <br><br>
+        <div class="login-to-comment">Please <a style="color : red;" href="{% url 'login' %}">login</a> to post reviews</div>
+    </div>
+    {% endif %}
     </div>
     
     

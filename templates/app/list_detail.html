@@ -79,7 +79,17 @@
         </div>
         <div class = "postcommentscarrier">
             <div><h1>Write your review</h1></div>
-            {% include 'app/create_comment.html' %}
+            {% if user.is_authenticated %}
+                <br>
+                {% include 'app/create_comment.html' %}
+            {% else %}
+            <div class="comment-kor-cont">
+                <br>
+                <hr>
+                <br><br>
+                <div class="login-to-comment">Please <a style="color : red;" href="{% url 'login' %}">login</a> to post reviews</div>
+            </div>
+            {% endif %}
             {% comment %} {% include 'app/create_comment.html' with form=ReviewForm %} {% endcomment %}
             {% comment %} <div><textarea  name="post-a-review" rows="14" cols="70"></textarea></div>
             <div><p>Your rating</p></div>

@@ -100,7 +100,7 @@ class TheirDetailBookView(DetailView): #books
         context = super().get_context_data(**kwargs)
         modell = BookReview.objects.all()
         context["modam"] = modell
-        context["form"] = BookReviewForm()
+        # context["form"] = BookReviewForm()
         return context
 
 class TheirDetailMusicView(DetailView): #music
@@ -109,7 +109,7 @@ class TheirDetailMusicView(DetailView): #music
         context = super().get_context_data(**kwargs)
         modell = MusicReview.objects.all()
         context["modam"] = modell
-        context["form"] = MusicReviewForm()
+        # context["form"] = MusicReviewForm()
         return context
 
 class TheirDetailView(DetailView):
@@ -118,7 +118,7 @@ class TheirDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         modell = Review.objects.all()
         context["modam"] = modell
-        context["form"] = ReviewForm()
+        # context["form"] = ReviewForm()
         print(context['modam'])
         return context
         #return redirect(reverse('/all', {'context': context}))
@@ -260,25 +260,29 @@ def create_comment(request):
     if form.is_valid():
         form.save()
         print(form)
-        redirect_url = reverse("app:list_detail", kwargs={"slug": slug})
-        return redirect(redirect_url)
-        #return redirect('app:all')
+        # redirect_url = reverse("app:list_detail", kwargs={"slug": slug})
+        # return redirect(redirect_url)
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
     else:
         context['form'] = form
         return render(request, "app/create_comment.html", context)
 def create_musiccomment(request):
-    #context = {}
+    context = {}
     form = MusicReviewForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('app:all')
+        #return redirect('app:all')
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+    else:
+        context['form'] = form
+        return render(request, "app/create_comment.html", context)
 
 def create_bookcomment(request):
     context = {}
     form = BookReviewForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('app:all')
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
     else:
         context['form'] = form
         return render(request, "app/create_bookcomment.html", context)
