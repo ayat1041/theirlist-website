@@ -91,6 +91,7 @@ class Review(models.Model):
     user = models.ForeignKey(User, models.CASCADE)
     List = models.ForeignKey(List, models.CASCADE)
     comment = models.TextField(max_length=250)
+    type = models.TextField(max_length=10,default="movie")
     rate = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -102,6 +103,7 @@ class BookReview(models.Model):
     user = models.ForeignKey(User, models.CASCADE)
     BookList = models.ForeignKey(BookList, models.CASCADE)
     comment = models.TextField(max_length=250)
+    type = models.TextField(max_length=10,default="book")
     rate = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -112,6 +114,7 @@ class MusicReview(models.Model):
     user = models.ForeignKey(User, models.CASCADE)
     MusicList = models.ForeignKey(MusicList, models.CASCADE)
     comment = models.TextField(max_length=250)
+    type = models.TextField(max_length=10,default="music")
     rate = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
 

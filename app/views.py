@@ -19,7 +19,13 @@ class EditProfile(TemplateView):
 
 def UserComments(request):
     movie = Review.objects.all()
-    params = {'movie' : movie}
+    music = MusicReview.objects.all()
+    book = BookReview.objects.all()
+    movmu = movie.union(music)
+    all = movmu.union(book)
+    print(all)
+
+    params = {'movie' : movie, 'music' : music, 'book' : book, 'all' : all}
     return render(request, 'app/user_comments.html', params)
 
 
