@@ -25,14 +25,18 @@ a{
   /* height: 200px; */
   padding: 10px 14px;
   width: auto;
-  /* background-color: #001820; */
+  cursor: pointer;
   background-color: rgba(0, 109, 94, 0.315);
   margin: 4px;
-  border-radius: 0px;
+  border-radius: 2px;
   position: relative;
+  box-shadow: 2px 2px 4px #00000090;
+  transition: all 250ms ease-in-out;
   /* border: 1px solid rgb(37, 37, 37); */
 }
-
+.elements:hover{
+  background-color: rgba(0, 136, 118, 0.315);
+}
 
 /* test */
 .thumb {
@@ -48,9 +52,11 @@ a{
 .tit {
   /* color: white; */
   /* color:rgb(0, 0, 0); */
+  font-size: 1em;
   font-weight: lighter;
   transition: all 250ms ease-in-out;
   margin-bottom: 4px;
+  text-shadow: 0px 1px 2px #0000005b;
 }
 
 a{
@@ -89,6 +95,7 @@ a{
   width: max-content;
   cursor: pointer;
   display: inline-block;
+  box-shadow: 1px 1px 1px #0000004b;
   font-family: 'Poppins', sans-serif;
   transition: all 350ms ease-in-out;
 }
