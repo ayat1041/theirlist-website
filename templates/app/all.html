@@ -23,7 +23,7 @@
         text-align: center;
         height: max-content!important;
         font-weight: lighter;
-        {% comment %} z-index: 10; {% endcomment %}
+        box-shadow: 0px 2px 2px #00000090;
     }
     
     .minimize img{
@@ -33,32 +33,18 @@
         cursor: pointer;
     }
     .headline-top{
-        {% comment %} background-color: #FFEA0490; {% endcomment %}
         background-color: #FFEA04;
-        {% comment %} padding: 0px 4px;
-        margin: 4px 0px;
-        text-align: center;
-        height: 40px;
-        position: absolute;
-        left: 0;
-        right: 0;
-        margin-top: 2px; {% endcomment %}
     }
     .headline-top-dark-mode{
       background-color: #FFEA0490;
     }
-    {% comment %} .head-cont-all{
-        margin: 2px 0px;
-    } {% endcomment %}
     .headline-middle{
-        {% comment %} background-color: #FF450090; {% endcomment %}
         background-color: #FF4500;
     }
     .headline-middle-dark-mode{
       background-color: #FF450090;
     }
     .headline-bottom{
-        {% comment %} background-color: #AADB1E90; {% endcomment %}
         background-color: #AADB1E;
     }
     .headline-bottom-dark-mode{
@@ -69,14 +55,7 @@
         color: white;
         font-weight: 100;
     }
-    {% comment %} #preloader{
-      background : #28334AFF url({% static 'app/images/loader.gif' %}) no-repeat center center!important;
-      height: 100vh;
-      background-size: 60px!important;
-      width: 100%;
-      position: fixed;
-      z-index: 100;
-    } {% endcomment %}
+
     .headline-top h1{
       color: black;
     }

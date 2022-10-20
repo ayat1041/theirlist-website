@@ -27,10 +27,12 @@
       <style>
         .logo{
           background: url("{% static 'app/images/logo.svg' %}") no-repeat;
+          filter: drop-shadow(1px 1px 1px #00000090);
       }
         @media only screen and (max-width: 900px) {
           .logo{
             background: url("{% static 'app/images/logo-small.svg' %}") no-repeat;
+            filter: drop-shadow(0px 0px 0px black);
         }
         }
       </style>
