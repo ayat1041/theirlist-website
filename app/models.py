@@ -12,7 +12,7 @@ from django.dispatch import receiver
 
 #music
 class MusicList(models.Model):
-    title = models.CharField(max_length=65)
+    title = models.CharField(max_length=120)
     #author = models.ForeignKey('Author',on_delete=models.SET_NULL,null=True)
     genre = models.ManyToManyField('MusicGenre')
     creator = models.ForeignKey(User,on_delete=models.SET_NULL,blank=True, null=True)
@@ -39,7 +39,7 @@ class MusicGenre(models.Model):
 
 #books
 class BookList(models.Model):
-    title = models.CharField(max_length=65)
+    title = models.CharField(max_length=120)
     #author = models.ForeignKey('Author',on_delete=models.SET_NULL,null=True)
     creator = models.ForeignKey(User,on_delete=models.SET_NULL,blank=True, null=True)
     genre = models.ManyToManyField('BookGenre')
@@ -64,7 +64,7 @@ class BookGenre(models.Model):
 
 #movie
 class List(models.Model):
-    title = models.CharField(max_length=65)
+    title = models.CharField(max_length=120)
     #author = models.ForeignKey('Author',on_delete=models.SET_NULL,null=True)
     genre = models.ManyToManyField('Genre')
     creator = models.ForeignKey(User,on_delete=models.SET_NULL,blank=True, null=True)
