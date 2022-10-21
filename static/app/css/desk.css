@@ -43,7 +43,8 @@
     outline: none;
 }
 button{
-    box-shadow: 2px 2px 2px #0000004b;
+    /* box-shadow: 2px 2px 2px #0000004b; */
+    filter: drop-shadow(2px 2px 2px #0000004b);
 }
 
 body{

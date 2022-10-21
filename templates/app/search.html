@@ -43,6 +43,9 @@
           <img src="{% static 'app/images/book-poster.jpg' %}" width="100px" />
           {%  endif %}
         </div>
+        {% if lola.spoiler == True %}
+          <div class="spoiler"><p>!CONTAINS SPOILER!<p></div>
+        {% endif %}
         <div class="Title">
           {% if lola.type == 'Music' %}
           <a href="{% url 'app:musiclist_detail' lola.slug %}"><h4 class="tit">{{lola.title}}</h4></a>

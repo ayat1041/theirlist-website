@@ -34,9 +34,9 @@ def userpost(request):
     # music = MusicList.objects.all()
     # book = BookList.objects.all()
     
-    movie = List.objects.filter(posted__gte=timezone.now() - timedelta(days=100)).all().order_by("-id")
-    music = MusicList.objects.filter(posted__gte=timezone.now() - timedelta(days=100)).all().order_by("-id")
-    book = BookList.objects.filter(posted__gte=timezone.now() - timedelta(days=100)).all().order_by("-id")
+    movie = List.objects.filter(posted__gte=timezone.now() - timedelta(days=5000)).all().order_by("-id")
+    music = MusicList.objects.filter(posted__gte=timezone.now() - timedelta(days=5000)).all().order_by("-id")
+    book = BookList.objects.filter(posted__gte=timezone.now() - timedelta(days=5000)).all().order_by("-id")
     
 
     # a = movie.union(music)
@@ -244,9 +244,9 @@ def book(request,query=None):
 
 def all(request):
 
-    movie = List.objects.filter(posted__gte=timezone.now() - timedelta(days=60)).all().order_by("-id")
-    music = MusicList.objects.filter(posted__gte=timezone.now() - timedelta(days=60)).all().order_by("-id")
-    book = BookList.objects.filter(posted__gte=timezone.now() - timedelta(days=60)).all().order_by("-id")
+    movie = List.objects.filter(posted__gte=timezone.now() - timedelta(days=5000)).all().order_by("-id")
+    music = MusicList.objects.filter(posted__gte=timezone.now() - timedelta(days=5000)).all().order_by("-id")
+    book = BookList.objects.filter(posted__gte=timezone.now() - timedelta(days=5000)).all().order_by("-id")
     
     allPosts = list(movie)
     allPostsmusic = list(music)

@@ -129,12 +129,14 @@ a{
   left: 4px;
   right: 4px;
   top: 110px;
-  background-color: rgba(255, 0, 0, 0.342);
+  background-color: rgba(255, 0, 0, 0.315);
+  filter: drop-shadow(0px 2px 2px black);
   text-align: center;
 }
 .spoiler p{
-  color: inherit;
-  filter: opacity(0.8);
+  /* color: inherit; */
+  color: rgba(255, 248, 205, 0.425);
+  filter: drop-shadow(0px 2px 1px black);
   font-weight: lighter;
-  letter-spacing: 6px;
+  letter-spacing: 4px;
 }
