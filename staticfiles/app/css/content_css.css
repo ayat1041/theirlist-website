@@ -122,3 +122,19 @@ a{
 .pagination_pages a:hover{
   color: var(--rd);
 }
+
+.spoiler{
+  position: absolute;
+  height: 20px;
+  left: 4px;
+  right: 4px;
+  top: 110px;
+  background-color: rgba(255, 0, 0, 0.342);
+  text-align: center;
+}
+.spoiler p{
+  color: inherit;
+  filter: opacity(0.8);
+  font-weight: lighter;
+  letter-spacing: 6px;
+}

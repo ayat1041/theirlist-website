@@ -34,9 +34,9 @@ def userpost(request):
     # music = MusicList.objects.all()
     # book = BookList.objects.all()
     
-    movie = List.objects.filter(posted__gte=timezone.now() - timedelta(days=30)).all().order_by("-id")
-    music = MusicList.objects.filter(posted__gte=timezone.now() - timedelta(days=30)).all().order_by("-id")
-    book = BookList.objects.filter(posted__gte=timezone.now() - timedelta(days=30)).all().order_by("-id")
+    movie = List.objects.filter(posted__gte=timezone.now() - timedelta(days=100)).all().order_by("-id")
+    music = MusicList.objects.filter(posted__gte=timezone.now() - timedelta(days=100)).all().order_by("-id")
+    book = BookList.objects.filter(posted__gte=timezone.now() - timedelta(days=100)).all().order_by("-id")
     
 
     # a = movie.union(music)
@@ -134,7 +134,7 @@ class TheirDetailView(DetailView):
 class ListCreateBookView(CreateView): #book
     model = BookList
     # fields = "__all__"
-    fields = ['title','genre','content']
+    fields = ['title','genre','spoiler','content']
     success_url = reverse_lazy("app:booklist") 
 
     def form_valid(self, form):
@@ -159,7 +159,7 @@ class ListCreateMusicView(CreateView): #music
 
 class ListCreateView(CreateView):
     model = List
-    fields = ['title','genre','content']
+    fields = ['title','genre','spoiler','content']
     success_url = reverse_lazy("app:list") 
 
     def form_valid(self, form):
@@ -184,7 +184,7 @@ class BookListDeleteView(DeleteView):
 
 class ListUpdateView(UpdateView):
     model = List
-    fields = ['title','genre','content']
+    fields = ['title','genre','spoiler','content']
     # template_name = "app/booklist_confirm_delete.html"
     success_url ="/home/all"
 class MusicListUpdateView(UpdateView):
@@ -194,7 +194,7 @@ class MusicListUpdateView(UpdateView):
     success_url ="/home/all"
 class BookListUpdateView(UpdateView):
     model = BookList
-    fields = ['title','genre','content']
+    fields = ['title','genre','spoiler','content']
     # template_name = "app/booklist_confirm_delete.html"
     success_url ="/home/all"
 
@@ -212,12 +212,10 @@ def search(request):
     allPostscontb = BookList.objects.filter(content__icontains=query)
     genrebook = BookList.objects.all()
     allPostsb = allPoststitb.union(allPostscontb)
-    # allPosts = List.objects.filter(title__search=query)
     allPosts2 = allPostsl.union(allPostsm)
     allPosts = allPosts2.union(allPostsb)
     params = {'allPosts' : allPosts, 'query':query, 'genremovie': genremovie, 'genremusic': genremusic, 'genrebook': genrebook}
     return render(request, 'app/search.html', params)
-    #return HttpResponse('this is search')
 
 
 

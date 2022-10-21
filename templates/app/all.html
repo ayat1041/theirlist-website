@@ -92,6 +92,9 @@
       <div class="thumb">
         <img src="{% static 'app/images/movie-poster.jpg' %}" width="100px" />
       </div>
+      {% if lola.spoiler == True %}
+      <div class="spoiler"><p>CONTAINS SPOILER<p></div>
+      {% endif %}
       <div class="Title">
         <a href="{% url 'app:list_detail' lola.slug %}"><h4 class="tit" id="tit">{{lola.title}}</h4></a>
         {% if user.id == lola.creator.id %}
@@ -170,6 +173,9 @@
       <div class="thumb">
         <img src="{% static 'app/images/book-poster.jpg' %}" width="100px" />
       </div>
+      {% if lola.spoiler == True %}
+      <div class="spoiler"><p>CONTAINS SPOILER<p></div>
+      {% endif %}
       <div class="Title">
         <a href="{% url 'app:booklist_detail' lola.slug %}"><h4 class="tit">{{lola.title}}</h4></a>
         {% if user.id == lola.creator.id %}

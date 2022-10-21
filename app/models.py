@@ -10,15 +10,15 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
-#music
 class MusicList(models.Model):
     title = models.CharField(max_length=120)
-    #author = models.ForeignKey('Author',on_delete=models.SET_NULL,null=True)
     genre = models.ManyToManyField('MusicGenre')
     creator = models.ForeignKey(User,on_delete=models.SET_NULL,blank=True, null=True)
     posted = models.DateTimeField(auto_now_add=True)
     content = RichTextField(null=True,default=' ')
     type = models.CharField(max_length=10,default="Music")
+    spoiler_choices = [(False, 'No'),(True, 'Yes')]
+    spoiler = models.BooleanField(default=False,null=True, choices = spoiler_choices)
     slug = models.SlugField(max_length= 300,null=True, blank = True, unique=True)
 
 
@@ -37,15 +37,16 @@ class MusicGenre(models.Model):
         return self.name
 
 
-#books
+
 class BookList(models.Model):
     title = models.CharField(max_length=120)
-    #author = models.ForeignKey('Author',on_delete=models.SET_NULL,null=True)
     creator = models.ForeignKey(User,on_delete=models.SET_NULL,blank=True, null=True)
     genre = models.ManyToManyField('BookGenre')
     posted = models.DateTimeField(auto_now_add=True)
     content = RichTextField(null=True,default=' ')
     type = models.CharField(max_length=10,default="book")
+    spoiler_choices = [(False, 'No'),(True, 'Yes')]
+    spoiler = models.BooleanField(default=False,null=True, choices = spoiler_choices)
     slug = models.SlugField(max_length= 300,null=True, blank = True, unique=True)
 
 
@@ -62,15 +63,15 @@ class BookGenre(models.Model):
         return self.name
 
 
-#movie
 class List(models.Model):
     title = models.CharField(max_length=120)
-    #author = models.ForeignKey('Author',on_delete=models.SET_NULL,null=True)
     genre = models.ManyToManyField('Genre')
     creator = models.ForeignKey(User,on_delete=models.SET_NULL,blank=True, null=True)
     posted = models.DateTimeField(auto_now_add=True)
     content = RichTextField(null=True,default=' ')
     type = models.CharField(max_length=10,default="Movie")
+    spoiler_choices = [(False, 'No'),(True, 'Yes')]
+    spoiler = models.BooleanField(default=False,null=True, choices = spoiler_choices)
     slug = models.SlugField(max_length= 300,null=True, blank = True, unique=True)
 
 
@@ -86,6 +87,29 @@ class Genre(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True)
+    bio = models.TextField(max_length=500, blank=True)
+    location = models.CharField(max_length=30, blank=True)
+    birth_date = models.DateField(null=True, blank=True)
+    profile_pic = models.ImageField(blank=True, default='', upload_to='profiles_pics')
+    fav_music_genre = models.ManyToManyField('MusicGenre')
+    fav_Book_genre = models.ManyToManyField('BookGenre')
+    fav_movie_genre = models.ManyToManyField('Genre')
+    
+    def __str__(self):
+        return self.user.username + " | bio : " + self.bio
+
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, **kwargs):
+    instance.profile.save()
 
 class Review(models.Model):
     user = models.ForeignKey(User, models.CASCADE)
@@ -121,24 +145,3 @@ class MusicReview(models.Model):
     def __str__(self):
         return self.comment+ " | rating : " + str(self.rate) + " | " + self.user.username
 
-class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True)
-    bio = models.TextField(max_length=500, blank=True)
-    location = models.CharField(max_length=30, blank=True)
-    birth_date = models.DateField(null=True, blank=True)
-    profile_pic = models.ImageField(blank=True, default='', upload_to='profiles_pics')
-    fav_music_genre = models.ManyToManyField('MusicGenre')
-    fav_Book_genre = models.ManyToManyField('BookGenre')
-    fav_movie_genre = models.ManyToManyField('Genre')
-    
-    def __str__(self):
-        return self.user.username + " | bio : " + self.bio
-
-@receiver(post_save, sender=User)
-def create_user_profile(sender, instance, created, **kwargs):
-    if created:
-        Profile.objects.create(user=instance)
-
-@receiver(post_save, sender=User)
-def save_user_profile(sender, instance, **kwargs):
-    instance.profile.save()
