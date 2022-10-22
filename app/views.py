@@ -1,4 +1,5 @@
-from app.models import List,MusicList,BookList,Review,MusicReview,BookReview
+from platformdirs import user_state_path
+from app.models import List,MusicList,BookList,Review,MusicReview,BookReview,Profile
 from django.shortcuts import redirect, render, HttpResponse,HttpResponseRedirect
 from django.urls import reverse_lazy,reverse
 from django.views.generic import UpdateView,TemplateView,ListView,DetailView,CreateView,DeleteView
@@ -6,6 +7,7 @@ from django.core.paginator import Paginator
 from datetime import timedelta
 from django.utils import timezone
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 from .forms import ReviewForm,BookReviewForm,MusicReviewForm
 
 # Create your views here.
@@ -241,9 +243,7 @@ def book(request,query=None):
     return render(request, 'app/book.html', {'query': qs, 'result' : query} )
 
 
-
-def all(request):
-
+def all(request):   
     movie = List.objects.filter(posted__gte=timezone.now() - timedelta(days=5000)).all().order_by("-id")
     music = MusicList.objects.filter(posted__gte=timezone.now() - timedelta(days=5000)).all().order_by("-id")
     book = BookList.objects.filter(posted__gte=timezone.now() - timedelta(days=5000)).all().order_by("-id")
@@ -251,7 +251,18 @@ def all(request):
     allPosts = list(movie)
     allPostsmusic = list(music)
     allPostsbook = list(book)
-    params = {'allPosts' : allPosts, 'allPostsmusic' : allPostsmusic, 'allPostsbook' : allPostsbook}
+
+    if request.user.is_authenticated:
+        madefmovies = List.objects.filter(genre__id__in= request.user.profile.fav_movie_genre.all().values_list("id", flat=True))
+        madefmusic = MusicList.objects.filter(genre__id__in= request.user.profile.fav_music_genre.all().values_list("id", flat=True))
+        madefbooks = BookList.objects.filter(genre__id__in= request.user.profile.fav_Book_genre.all().values_list("id", flat=True))
+        params = {'allPosts' : allPosts, 'allPostsmusic' : allPostsmusic, 'allPostsbook' : allPostsbook, 'madefmovies' : madefmovies, 'madefmusic' : madefmusic, 'madefbooks' : madefbooks}
+    else:
+        madefmovies = "nono"
+        madefmusic = "nono"
+        madefbooks = "nono"
+        params = {'allPosts' : allPosts, 'allPostsmusic' : allPostsmusic, 'allPostsbook' : allPostsbook}
+
     return render(request, 'app/all.html', params)
 
 # def listcomments(request): 

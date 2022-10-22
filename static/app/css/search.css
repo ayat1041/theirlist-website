@@ -18,7 +18,7 @@
   outline: none;
   color: #9dbfaf;
   background-color: var(--white);
-  font-size: 12px;
+  font-size: 14px;
 }
 .searchTerm-dark-mode{
   background-color: rgb(14, 14, 14);
@@ -26,7 +26,8 @@
 
 
 .searchTerm:focus {
-  color: white;
+  color: rgb(141, 141, 141);
+  font-size: 14px;
 }
 
 .searchButton {

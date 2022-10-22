@@ -125,18 +125,12 @@ a{
 
 .spoiler{
   position: absolute;
-  height: 20px;
-  left: 4px;
-  right: 4px;
-  top: 110px;
-  background-color: rgba(255, 0, 0, 0.315);
+  height: 0;
+  top: 0px;
+  right: 0;
   filter: drop-shadow(0px 2px 2px black);
   text-align: center;
 }
-.spoiler p{
-  /* color: inherit; */
-  color: rgba(255, 248, 205, 0.589);
-  filter: drop-shadow(0px 2px 1px black);
-  font-weight: lighter;
-  letter-spacing: 4px;
+.spoiler img{
+  filter: opacity(0.8);
 }

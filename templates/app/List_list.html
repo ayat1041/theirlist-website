@@ -10,7 +10,7 @@
         <img src="{% static 'app/images/movie-poster.jpg' %}" width="100px" />
       </div>
       {% if lola.spoiler == True %}
-      <div class="spoiler"><p>!CONTAINS SPOILER!<p></div>
+          <div class="spoiler"><img src="{% static 'app/images/spoilerr.png' %}" width="100px" /></div>
       {% endif %}
       <div class="Title">
         {% comment %} <a href="{{lola.id}}/"><h4 class="tit">{{lola.title}}</h4></a> {% endcomment %}

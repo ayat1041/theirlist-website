@@ -24,6 +24,9 @@
         <div class="thumb">
           <img src="{% static 'app/images/movie-poster.jpg' %}" width="100px" />
         </div>
+        {% if film.spoiler == True %}
+          <div class="spoiler"><img src="{% static 'app/images/spoilerr.png' %}" width="100px" /></div>
+        {% endif %}
         <div class="Title">
           <a href="{% url 'app:list_detail' film.slug %}"><h4 class="tit">{{film.title}}</h4></a>
           {% if user.id == film.creator.id %}
