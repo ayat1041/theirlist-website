@@ -55,8 +55,17 @@
           <a href="{% url 'app:booklist_detail' lola.slug %}"><h4 class="tit">{{lola.title}}</h4></a>
           {%  endif %}
           {% if user.id == lola.creator.id %}
+          {% if lola.type == 'Movie' %}
           <a href="{% url 'app:delete_movie' lola.slug %}"><img src ="{% static 'app/images/delete.png' %}"></a>
           <a href="{% url 'app:update_list' lola.slug %}"><img src ="{% static 'app/images/edit.png' %}"></a>
+          {% elif lola.type == 'Music' %}
+          <a href="{% url 'app:delete_music' lola.slug %}"><img src ="{% static 'app/images/delete.png' %}"></a>
+          <a href="{% url 'app:update_musiclist' lola.slug %}"><img src ="{% static 'app/images/edit.png' %}"></a>
+          {% elif lola.type == 'book' %}
+          <a href="{% url 'app:delete_book' lola.slug %}"><img src ="{% static 'app/images/delete.png' %}"></a>
+          <a href="{% url 'app:update_booklist' lola.slug %}"><img src ="{% static 'app/images/edit.png' %}"></a>
+          {% endif %}
+          
           {% else %}
           <img src ="{% static 'app/images/delete-dis.png' %}">
           <img src ="{% static 'app/images/edit-dis.png' %}">
