@@ -79,7 +79,15 @@
         <div class="Author">
           <small>Author : {{lola.creator.username}}<span>{{lola.posted}}</span></small>
         </div>
-        <div class="rating"><small>Rating : 6/10 [239 users]</small></div>
+        <div class="rating">
+          <span class="star-headline">
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          </span>
+        </div>
           {% if lola.type == 'Music' %}
             {% for i in genremusic %}
               {% for tag in i.genre.all %}

@@ -6,6 +6,7 @@ const searchterm = document.getElementById("query");
 const searchbtn = document.getElementById("query-btn");
 const login_menu = document.getElementById("login-sub-menu");
 const addlist_menu = document.getElementById("add-list-sub-menu");
+const ele_tito = document.getElementById("contain-seco");
 const ele_tit = document.getElementById("contain-sec");
 const ele_tit2 = document.getElementById("contain-sec2");
 const ele_tit3 = document.getElementById("contain-sec3");
@@ -57,6 +58,7 @@ function darkmode(checkbox) {
         head_middle?.classList.toggle("headline-middle-dark-mode");
         head_bottom?.classList.toggle("headline-bottom-dark-mode");
         fout?.classList.toggle("fout-dark-mode");
+        ele_tito?.classList.toggle("contain-sec-dark-mode");
         ele_tit?.classList.toggle("contain-sec-dark-mode");
         ele_tit2?.classList.toggle("contain-sec-dark-mode");
         ele_tit3?.classList.toggle("contain-sec-dark-mode");
@@ -91,6 +93,7 @@ function darkmode(checkbox) {
         head_middle?.classList.remove("headline-middle-dark-mode");
         head_bottom?.classList.remove("headline-bottom-dark-mode");
         fout?.classList.remove("fout-dark-mode");
+        ele_tito?.classList.remove("contain-sec-dark-mode");
         ele_tit?.classList.remove("contain-sec-dark-mode");
         ele_tit2?.classList.remove("contain-sec-dark-mode");
         ele_tit3?.classList.remove("contain-sec-dark-mode");

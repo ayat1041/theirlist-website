@@ -98,4 +98,41 @@
         padding-top: 0;
     }
 
+
+    /* minify element */
+    .tit{
+        margin-top: 4px!important;
+        margin-bottom: 0px!important;
+    }
+    .thumb img {
+        height: 78px!important;
+        width: auto;
+        border-radius: 1px;
+        margin: 12px;
+      }
+    .Author{
+        display: none;
+    }
+    .Title img{
+        display: none;
+    }
+    .elements{
+        padding-top: 4px!important;
+        padding-bottom: 6px!important;
+        padding-left: 6px!important;
+        padding-right: 4px!important;
+    }
+    .thumb img{
+        margin-top: 2px!important;
+        margin-bottom: 1px!important;
+    }
+    .spoiler img{
+        width: 60px!important;
+    }
+    .Genre{
+        font-size: 14px!important;
+    }
+    .star-headline span{
+        font-size: 12px!important;
+    }
 }

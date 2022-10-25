@@ -1112,3 +1112,11 @@ comments */
     padding-top: 0px;
 }
 }
+
+/* list_view_stars */
+.star-headline .checked{
+    color: #D10000;
+}
+.star-headline span{
+    font-size: 14px;
+}
