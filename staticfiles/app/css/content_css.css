@@ -37,6 +37,10 @@ a{
 .elements:hover{
   background-color: rgba(0, 161, 140, 0.315);
 }
+.elements:hover > .spoiler img{
+  filter: opacity(1);
+  width: 91px;
+}
 
 /* test */
 .thumb {
