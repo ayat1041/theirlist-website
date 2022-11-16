@@ -1,6 +1,5 @@
 from django.contrib import admin
-from app.models import Genre,List,MusicGenre,MusicList,BookGenre,BookList,Review,MusicReview,BookReview,Profile
-# Register your models here.
+from app.models import Genre,List,MusicGenre,MusicList,BookGenre,BookList,Review,MusicReview,BookReview,Profile,Starr,MusicStarr,BookStarr
 
 
 
@@ -14,3 +13,6 @@ admin.site.register(Review)
 admin.site.register(MusicReview)
 admin.site.register(BookReview)
 admin.site.register(Profile)
+admin.site.register(Starr)
+admin.site.register(MusicStarr)
+admin.site.register(BookStarr)

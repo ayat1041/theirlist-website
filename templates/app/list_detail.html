@@ -82,6 +82,8 @@
             {% if user.is_authenticated %}
                 <br>
                 {% include 'app/create_comment.html' %}
+                <br>
+                {% include 'app/create_starr.html' %}
             {% else %}
             <div class="comment-kor-cont">
                 <br>
@@ -108,5 +110,73 @@
     <div class="gap">
     </div> 
 </section>
+<style>
+    {% comment %} .slider-cont{
+        position: fixed;
+        
+    } {% endcomment %}
+    .slide-arrow{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        position: fixed;
+        right: 0px;
+        bottom: 60%;
+        width: max-content;
+        height: max-content;
+        border-bottom-left-radius: 4px;
+        border-top-left-radius: 4px;
+        background-color: #6dab80;
+        cursor: pointer;
+    }
+    .slide-arrow h4{
+        padding-right: 6px;
+        margin-left: -8px;
+        font-weight: 900;
+        color: #2b3927;
+    }
+    .slide-arrow .first{
+        margin-right: -24px;
+    }
+    .slide-menu{
+        position: fixed;
+        right: -300px;
+        bottom: 94px;
+        width: 300px;
+        height: 90vh;
+        background-color: #6dab80;
+    }
+    .slide-menu .close{
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        height: 40px;
+        width: 300px;
+        background-color: red;
+        position: fixed;
+        bottom: 100px;
+        transition : all 350ms ease-in;
+    }
+    .slide-menu .close:hover{
+        background-color: #a1000090;
+    }
+    .slide-menu .close h4{
+        color: white;
+    }
+</style>
+<div class="slider-cont">
+<div class="slide-arrow" id="related-arrow-btn">
+    <img class= "first" src="{% static 'app/images/open-related.png' %}">
+    <img src="{% static 'app/images/open-related.png' %}">
+    <h4>Related</h4>
+</div>
+<div class="slide-menu" id="related-slide-menu">
+    <div class="close" id="related-close-btn">
+        <h4> Hide </h4>
+    </div>
+</div>
+</div>
 
 {% endblock content %}

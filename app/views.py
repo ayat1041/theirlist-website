@@ -1,5 +1,5 @@
 from platformdirs import user_state_path
-from app.models import List,MusicList,BookList,Review,MusicReview,BookReview,Profile
+from app.models import List,MusicList,BookList,Review,MusicReview,BookReview,Profile,Starr
 from django.shortcuts import redirect, render, HttpResponse,HttpResponseRedirect
 from django.urls import reverse_lazy,reverse
 from django.views.generic import UpdateView,TemplateView,ListView,DetailView,CreateView,DeleteView
@@ -8,7 +8,7 @@ from datetime import timedelta
 from django.utils import timezone
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
-from .forms import ReviewForm,BookReviewForm,MusicReviewForm
+from .forms import ReviewForm,BookReviewForm,MusicReviewForm,StarrForm
 
 # Create your views here.
 
@@ -125,9 +125,10 @@ class TheirDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         modell = Review.objects.all()
+        starr = Starr.objects.all()
+        context["starr"] = starr
         context["modam"] = modell
         # context["form"] = ReviewForm()
-        print(context['modam'])
         return context
         #return redirect(reverse('/all', {'context': context}))
     
@@ -249,6 +250,7 @@ def all(request):
     book = BookList.objects.filter(posted__gte=timezone.now() - timedelta(days=5000)).all().order_by("-id")
     
     allPosts = list(movie)
+    p = Paginator(allPosts, 2)
     allPostsmusic = list(music)
     allPostsbook = list(book)
 
@@ -286,7 +288,6 @@ def create_musiccomment(request):
     form = MusicReviewForm(request.POST or None)
     if form.is_valid():
         form.save()
-        #return redirect('app:all')
         return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
     else:
         context['form'] = form
@@ -301,3 +302,14 @@ def create_bookcomment(request):
     else:
         context['form'] = form
         return render(request, "app/create_bookcomment.html", context)
+
+
+def create_starr(request):
+    context = {}
+    form = StarrForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+    else:
+        context['form'] = form
+        return render(request, "app/create_starr.html", context)

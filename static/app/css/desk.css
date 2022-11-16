@@ -50,7 +50,8 @@ button{
 body{
     -webkit-tap-highlight-color: transparent;
     /* background-color: #1d1d1d;  */
-    background-color: #CAECCF;
+    /* background-color: #CAECCF; */
+    background-color: #fff5d1ab;
     text-decoration: none;
     height: 100vh;
     display: flex;
@@ -180,7 +181,7 @@ body{
 .nav-main-op{
     display: flex;
     flex-direction: row;
-    margin-right: 32px;
+    margin-right: 0px;
 }
 .nav-main-op ul{
     text-decoration: none;
@@ -189,7 +190,7 @@ body{
     margin: 0 12px;
     text-decoration: none;
     color: #FFFFFF96;
-    font-size: 18px;
+    font-size: 16px;
     transition: all 250ms ease-in-out;
 }
 .nav-main-op a:hover {
@@ -617,6 +618,7 @@ li a .login_sub{
     z-index: 8;
     padding-top: 50px;
     border-top: 1px solid rgba(172, 255, 47, 0.089);
+    box-shadow: 0px -1px 3px #00000090;
     justify-self: end;
     padding-bottom: 120px;
 }
@@ -656,10 +658,6 @@ li a .login_sub{
 .search_none{
     padding: 20px 20px;
 }
-
-
-
-
 
 
 /* detail page css */
@@ -916,6 +914,7 @@ comments */
 }
 .stars-post-comments{
     position: absolute;
+    cursor: pointer;
 }
 .stars-post-comments .checked{
     color: rgb(228, 0, 0);

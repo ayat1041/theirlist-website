@@ -25,6 +25,7 @@ urlpatterns = [
     path('',RedirectView.as_view(url='home/all')),
     path('members/', include('django.contrib.auth.urls')),
     path('members/', include('members.urls')), 
+    path('oauth/', include('social_django.urls', namespace='social')),
 ] 
 if settings.DEBUG:  
         urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)  

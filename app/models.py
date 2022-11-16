@@ -116,19 +116,17 @@ class Review(models.Model):
     List = models.ForeignKey(List, models.CASCADE)
     comment = models.TextField(max_length=250)
     type = models.TextField(max_length=10,default="movie")
-    rate = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
 
 
     def __str__(self):
-        return self.comment+ " | rating : " + str(self.rate) + " | " + self.user.username
+        return self.comment+ " | " + self.user.username
 
 class BookReview(models.Model):
     user = models.ForeignKey(User, models.CASCADE)
     BookList = models.ForeignKey(BookList, models.CASCADE)
     comment = models.TextField(max_length=250)
     type = models.TextField(max_length=10,default="book")
-    rate = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -139,9 +137,40 @@ class MusicReview(models.Model):
     MusicList = models.ForeignKey(MusicList, models.CASCADE)
     comment = models.TextField(max_length=250)
     type = models.TextField(max_length=10,default="music")
-    rate = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.comment+ " | rating : " + str(self.rate) + " | " + self.user.username
 
+class Starr(models.Model):
+    user = models.ForeignKey(User,models.CASCADE)
+    list = models.ForeignKey(List,models.CASCADE)
+    rate = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        unique_together = ["user", "list"]
+
+    def __str__(self):
+        return self.user.username + " | " + self.list.title + " | " + str(self.rate)  
+
+class MusicStarr(models.Model):
+    user = models.ForeignKey(User,models.CASCADE)
+    list = models.ForeignKey(MusicList,models.CASCADE)
+    rate = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        unique_together = ["user", "list"]
+
+    def __str__(self):
+        return self.user.username + " | " + self.Musiclist.title + " | " + str(self.rate)  
+
+class BookStarr(models.Model):
+    user = models.ForeignKey(User,models.CASCADE)
+    list = models.ForeignKey(BookList,models.CASCADE)
+    rate = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        unique_together = ["user", "list"]
+
+    def __str__(self):
+        return self.user.username + " | " + self.Booklist.title + " | " + str(self.rate)  

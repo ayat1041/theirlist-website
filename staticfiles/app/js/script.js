@@ -24,6 +24,59 @@ const st3 = document.getElementById("st3");
 const st4 = document.getElementById("st4");
 const st5 = document.getElementById("st5");
 
+
+
+
+// star hover
+// if(st1){
+//   st1.addEventListener('mouseover', () => {
+    
+//     st1.className = "fa fa-star checked";
+//     st2.className = "fa fa-star";
+//     st3.className = "fa fa-star";
+//     st4.className = "fa fa-star";
+//     st5.className = "fa fa-star";
+//   });
+//   }
+//   if(st2){
+//   st2.addEventListener('mouseover', () => {
+//     st1.className = "fa fa-star checked";
+//     st2.className = "fa fa-star checked";
+//     st3.className = "fa fa-star";
+//     st4.className = "fa fa-star";
+//     st5.className = "fa fa-star";
+//   });
+//   }
+//   if(st3){
+//   st3.addEventListener('mouseover', () => {
+//     st1.className = "fa fa-star checked";
+//     st2.className = "fa fa-star checked";
+//     st3.className = "fa fa-star checked";
+//     st4.className = "fa fa-star";
+//     st5.className = "fa fa-star";
+//   });
+//   }
+//   if(st4){
+//   st4.addEventListener('mouseover', () => {
+//     st1.className = "fa fa-star checked";
+//     st2.className = "fa fa-star checked";
+//     st3.className = "fa fa-star checked";
+//     st4.className = "fa fa-star checked";
+//     st5.className = "fa fa-star";
+//   });
+//   }
+//   if(st5){
+//   st5.addEventListener('mouseover', () => {
+//     st1.className = "fa fa-star checked";
+//     st2.className = "fa fa-star checked";
+//     st3.className = "fa fa-star checked";
+//     st4.className = "fa fa-star checked";
+//     st5.className = "fa fa-star checked";
+//   });
+//   }
+
+
+// star clicked
 if(st1){
 st1.addEventListener('click', () => {
   
@@ -227,9 +280,21 @@ navmusicExpand.addEventListener('click', () =>{
   }
 });
 
+const related_btn = document.getElementById("related-arrow-btn");
+const related_close = document.getElementById("related-close-btn");
+const related_slide_menu = document.getElementById("related-slide-menu");
 
+related_btn.addEventListener('click',() => {
+  related_slide_menu.style.right = "0px";
+  related_btn.style.display = "none";
+  related_btn.style.transition = "all 300ms ease-in-out";
+  related_slide_menu.style.transition = "all 300ms ease-in-out";
+});
 
-
+related_close.addEventListener('click',() => {
+  related_slide_menu.style.right = "-300px";
+  related_btn.style.display = "flex";
+})
 
 
 
