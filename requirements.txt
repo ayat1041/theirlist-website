@@ -67,7 +67,7 @@ django-flat-responsive==2.0
 django-flat-theme==1.1.4
 django-froala-editor==4.0.14
 django-js-asset==2.0.0
-djangorestframework==3.13.1py 
+djangorestframework==3.13.1
 gunicorn==20.1.0
 Pillow==9.2.0
 psycopg2-binary==2.9.3
