@@ -284,14 +284,14 @@ const related_btn = document.getElementById("related-arrow-btn");
 const related_close = document.getElementById("related-close-btn");
 const related_slide_menu = document.getElementById("related-slide-menu");
 
-related_btn.addEventListener('click',() => {
+related_btn?.addEventListener('click',() => {
   related_slide_menu.style.right = "0px";
   related_btn.style.display = "none";
   related_btn.style.transition = "all 300ms ease-in-out";
   related_slide_menu.style.transition = "all 300ms ease-in-out";
 });
 
-related_close.addEventListener('click',() => {
+related_close?.addEventListener('click',() => {
   related_slide_menu.style.right = "-300px";
   related_btn.style.display = "flex";
 })
